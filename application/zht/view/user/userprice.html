@@ -1,0 +1,180 @@
+﻿<title>内部充值     代理编号:{$_SESSION['username']?$_SESSION['username']:''}</title>
+{include file="head" /}
+
+{include file="menu" /}
+
+
+<!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">
+              <!--state overview start-->
+              
+              <div class="row state-overview">
+                <div class="container">
+                <div class="row">
+                      <form action="" method="get">
+                      <div class="col-lg-3 mar-10">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">
+                              <select name="stype" id="">
+                                <option {if isset($getdata.stype) && $getdata.stype == 1} selected="selected" {/if} value="1">客户</option>
+                                <option {if isset($getdata.stype) && $getdata.stype == 2} selected="selected" {/if}  value="2">代理商</option>
+                              </select>
+                            </span>
+                            <input type="text" value="{$getdata.username?$getdata.username:''}"  class="form-control" name="username" />
+                        </div>
+                      </div>
+
+                      <div class="col-lg-6 mar-10">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">订单时间</span>
+                            <input type="text"  id="datetimepicker" class="form-control" placeholder="点击选择时间" name="starttime" value="{$getdata.starttime?$getdata.starttime:''}"/>
+                            <span class="input-group-addon" id="basic-addon1">至</span>
+                            <input type="text"  id="datetimepicker_end" class="form-control" placeholder="点击选择时间" name="endtime" value="{$getdata.endtime?$getdata.endtime:''}" />
+                        </div>
+                      </div>
+
+                      
+
+                      <div class="col-lg-3 mar-10">
+                        <div class="input-group">
+                            <span class="input-group-addon">类型</span>
+                            <select name="bptype"  class="selectpicker show-tick form-control">
+                                <option value="">默认不选</option>
+                                <option {if isset($getdata['bptype']) && $getdata['bptype'] == 1} selected="selected" {/if} value="1">用户充值</option>
+                                <option {if isset($getdata['bptype']) && $getdata['bptype'] == 2} selected="selected" {/if} value="2">后台充值</option>
+                            </select>
+                        </div>
+                      </div>
+
+                      
+                  </div>
+                  <div class="mar-10">
+                   <input type="submit" class="btn btn-success" value="搜索">
+                  </div>
+
+                  </form>
+                </div>
+                
+              </div>
+              
+              <!--state overview end-->
+            <!-- <a href="{:url('user/userprice',array('bptype'=>1))}"><button type="submit" class="btn btn-success">充值记录</button></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="{:url('user/userprice',array('bptype'=>0))}"><button type="submit" class="btn btn-success">提现记录</button></a>&nbsp;&nbsp;&nbsp;&nbsp; -->
+            <a href="{:url('user/userprice')}"><button type="submit" class="btn btn-danger">搜索全部</button></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;"><button type="submit" class="btn btn-danger">充值总金额：{$all_bpprice}</button></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            
+            <br><br>
+             <div class="row">
+                  <div class="col-lg-12">
+                      <section class="panel">
+                          <header class="panel-heading">
+                              充值与提现
+                          </header>
+                          <table class="table table-striped table-advance table-hover">
+                            <thead class="ordertable">
+                              <tr>
+                                <th>编号</th>
+                                <th>交易账号</th>
+                                <th>交易姓名</th>
+                                <th>操作时间</th>
+                                <th>金额</th>
+                                <th>会员账户余额</th>
+                                <th>备注</th>
+                                <th>审核时间</td>
+                                <th>审核/状态</td>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          <!-- {volist name="balance" id="vo"} -->
+                              <tr>
+                                  <td>{$vo.bpid}</td>
+                                  <td>{$vo.username}</td>
+                                  <td>{$vo.nickname} </td>
+                                  <td>{$vo.bptime|date="Y-m-d H:i:s",###} </td>
+                                  <td class="color_red">¥{$vo.bpprice}</td>
+                                  <td class="color_red">{$vo.bpbalance}</td>
+                                  <td>{$vo.remarks}</td>
+                                  <td>{$vo.cltime|date="Y-m-d H:i:s",###} </td>
+                                 
+                                  
+                                  <td>{if $vo.bptype == 1}
+                                      {$vo.remarks}
+                                      {elseif $vo.bptype == 0 && $vo.isverified == 0 && $otype == 3/}
+                                      <button class="btn btn-primary btn-xs price" data-toggle="modal" data-bpid="{$vo.bpid}" data-userid="{$vo.uid}" data-target="#myModal">处理/拒绝</button>
+                                      {elseif $vo.bptype == 0 && $vo.isverified == 2/}
+                                      	<span class="color_red">已拒绝</span>
+                                      {else/}
+										                    <span class="color_green">已通过</span>
+                                      {/if}
+
+                                  </td>
+                              </tr>
+							<!-- {/volist} -->
+                             
+                              </tbody>
+                          </table>
+                      </section>
+                  
+              
+                      {$balance->render()}
+                </div>
+              </div>
+          </section>
+      </section>
+      <!--main content end-->
+  </section>
+
+
+  <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="padding-top:200px">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background: #B50000;">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">用户提现</h4>
+      </div>
+      <div class="modal-body">
+        <div class="priceinfo color_red"></div><br>
+        <div class="input-group">
+            <span class="input-group-addon " id="basic-addon1">请输入管理员登录密码</span>
+            <input type="password" value="" class="form-control" id="adminpwd">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary dopay">确认</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="__ADMIN__/js/lk/c.js"></script>
+{include file="foot" /}
+<script>
+var userid = '';
+var bpid = '';
+var adminpwd = '';
+	$(".price").click(function(){
+      userid = $(this).attr('data-userid');
+      bpid = $(this).attr('data-bpid');
+      $('.priceinfo').html('确认此提现处理吗？点击确认对应金额会进入用户微信个人账户。确认此操作吗？');
+
+    });
+
+    $('.dopay').click(function(){
+    	adminpwd = $('#adminpwd').val();
+    	if(!adminpwd){
+    		layer.msg('请输入管理员密码'); 
+    		return false;
+    	}
+    	var formurl = "{:Url('user/dorecharge')}";
+    	var data = 'uid='+userid+'&bpid='+bpid+'&adminpwd='+adminpwd;
+	    var locurl = "{:Url('user/userprice')}";
+
+	    WPpost(formurl,data,locurl);
+    });
+
+
+//时间选择器
+$('#datetimepicker').datetimepicker();
+$('#datetimepicker_end').datetimepicker();
+</script>

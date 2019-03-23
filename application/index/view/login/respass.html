@@ -1,0 +1,100 @@
+﻿ <title>密码重置</title> {include file="head" /}
+<script src="__HOME__/js/lk/user.js"></script>
+<link rel="stylesheet" href="/static/index/css/login.css" />
+{include file="head" /}
+<form method="post" id="formid">
+  <div class="sign_up">
+      <div class="sign_up_content">
+      	
+          <ul class="sign_up_list">
+              <li class="newinput" ng-show="show_signup_code">
+                  <span class="input-text">
+                      帐号:
+                  </span>
+                  <input type="text" placeholder="" name="username" class="username ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" style="">
+              </li>
+              <li class="newinput input_iphone_code">
+                  <span class="input-text">
+                      旧密码:
+                  </span>
+                  <input type="text" placeholder="" name="phonecode" class="phonecode ng-pristine ng-valid ng-empty ng-touched" style="">
+              </li>
+              <li class="newinput">
+                  <span class="input-text">
+                      新密码:
+                  </span>
+                  <input type="password" placeholder="" name="upwd" required="" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" style="">
+              </li>
+              <li class="newinput">
+                  <span class="input-text">
+                      确认密码:
+                  </span>
+                  <input type="password" placeholder="" name="upwd2" required="" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" style="">
+              </li>
+
+          </ul><br>
+          <button class="newbutton sign_up_btn" onclick="return checkform(this.form);" >
+              密码重置
+          </button>
+      </div>
+       </form><br>
+       <div class="signin-footer" ng-show="if_signup">
+	<div class="login-txt"><a href="{:url('login/login')}">直接登录</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="{:url('login/register')}">注册帐号</a></div>  
+<br><!--<a>当前在线: </a><font color="#FF0000"><strong><script type="text/javascript">var zaixian = 48610;
+document.write(""+Math.round(zaixian+Math.random()*227)+ "</strong></font> ");</script></font></a><a>人</a>-->
+    </div>
+
+  </div>
+<div class="spinner-view hide">
+    <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+    </div>
+    <div class="message ng-binding" ng-class="{ 'fadein' : message }"></div>
+</div>
+</ion-view></ion-nav-view>
+
+
+<div class="backdrop"></div><div class="ionic_toast"><div class="toast_section" ng-class="ionicToast.toastClass" ng-style="ionicToast.toastStyle" ng-click="hideToast()" style="display: none; opacity: 0;"><span class="ionic_toast_close"><i class="ion-android-close toast_close_icon"></i></span><span ng-bind-html="ionicToast.toastMessage" class="ng-binding"></span></div></div></body></html>
+<script>
+function checkform(form){
+	var username = form.username.value;
+	var upwd = form.upwd.value;
+	var upwd2 = form.upwd2.value;
+	if(!username){
+		layer.msg('请输入手机号');
+		return false; 
+	}
+
+	if (!upwd) {
+		layer.msg('请输入登录密码'); 
+		return false;
+	}
+
+	if (!upwd2) {
+		layer.msg('请再次输入登录密码'); 
+		return false;
+	}
+
+	if(upwd.length < 6 || upwd2.length < 6){
+		layer.msg('密码长度大于6位'); 
+		return false;
+	}
+
+	if(upwd != upwd2){
+		layer.msg('两次输入密码不同'); 
+		return false;
+	}
+
+	
+
+
+	var data = $('#formid').serialize();
+    var formurl = "{:Url('login/respass')}";
+    var locurl = "{:Url('index/user/index')}";
+
+    WPpost(formurl,data,locurl);
+    return false;
+}
+</script>
+<script type="text/javascript" src="http://c.ibangkf.com/i/c-kefuq59.js"></script>

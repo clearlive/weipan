@@ -1,0 +1,148 @@
+﻿<title>平仓日志     代理编号:{$_SESSION['username']?$_SESSION['username']:''}</title>
+
+{include file="head" /}
+
+{include file="menu" /}
+
+<!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">
+              <!--state overview start-->
+              
+              <div class="row state-overview">
+              <form action="" method="get">
+                <div class="container">
+                <div class="row">
+                      
+                      <div class="col-lg-3 mar-10">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">用户名称</span>
+                            <input type="text" value="{$getdata.username?$getdata.username:''}"  class="form-control" name="username" placeholder="昵称/姓名/手机号/编号"/>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-6 mar-10">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">平仓时间</span>
+                            <input type="text"  id="datetimepicker" class="form-control" placeholder="点击选择时间" name="starttime" value="{$getdata.starttime?$getdata.starttime:''}"/>
+                            <span class="input-group-addon" id="basic-addon1">至</span>
+                            <input type="text"  id="datetimepicker_end" class="form-control" placeholder="点击选择时间" name="endtime" value="{$getdata.endtime?$getdata.endtime:''}" />
+                        </div>
+                      </div>
+
+                      
+
+                      <div class="col-lg-3 mar-10">
+                        <div class="input-group">
+                            <span class="input-group-addon">盈亏</span>
+                            <select name="ploss" id="" class="selectpicker show-tick form-control">
+                                <option value="">默认不选</option>
+                                <option {if isset($getdata['ploss']) && $getdata['ploss'] == 1} selected="selected" {/if} value="1">赢利</option>
+                                <option {if isset($getdata['ploss']) && $getdata['ploss'] == 2} selected="selected" {/if} value="2">亏损</option>
+                                
+                            </select>
+                        </div>
+                      </div>
+
+                      
+                  </div>
+                  <div class="mar-10">
+                   <input type="submit" class="btn btn-success" value="正常搜索">
+                  {if $_SESSION['otype'] == 3}
+                   <input type="submit" name="doble" class="btn btn-success" value="搜索重复平仓订单">
+                   {/if}
+                  </div>
+                </div>
+                </form>
+              </div>
+              
+              <!--state overview end-->
+            
+            <a href="{:url('order/orderlog')}"><button type="submit" class="btn btn-danger">搜索全部</button></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <br><br>
+             <div class="row">
+                  <div class="col-lg-12">
+                      <section class="panel">
+                          <header class="panel-heading">
+                              平仓记录
+                          </header>
+                          <table class="table table-striped table-advance table-hover">
+                            <thead class="ordertable">
+                              <tr>
+                                <th>
+                                    编号
+                                </th>
+                                <th>
+                                    用户ID
+                                </th>
+                                {if $doble == 1}
+                                <th>
+                                    用户编号
+                                </th>
+                                <th>
+                                    用户名
+                                </th>
+                                {/if}
+                                <th>
+                                    订单ID
+                                </th>
+                                <th>
+                                    增加金额
+                                </th>
+                                <th>
+                                    增加积分
+                                </th>
+                                <th>
+                                    平仓后余额
+                                </th>
+                                <th>
+                                    时间
+                                </th>
+
+                            </tr>
+                          </thead>
+                          <tbody>
+                          	<!-- {volist name="orderlog" id="vo"} -->
+                              <tr>
+                                  <td>{$vo.id}</td>
+                                  <td>{$vo.uid}</td>
+                                  {if $doble == 1}
+                                  <td>{$vo.username?$vo.username:$vo.uid} </td>
+                                  <td>{$vo.nickname?$vo.nickname:$vo.uid}  </td>
+                                  {/if}
+                                  <td>{$vo.oid}</td>
+                                  <td>{$vo.addprice} </td>
+                                  <td>{$vo.addpoint}</td>
+                                  <td>{$vo.user_money}</td>
+                                  <td>{$vo.time|date="Y-m-d H:i:s",###}</td>
+                              </tr>
+                             <!-- {/volist} -->
+
+                              
+                              
+                              
+                              </tbody>
+                          </table>
+                      </section>
+                  </div>
+              </div>
+              {if $doble == 1}
+             {$orderlog->render()}
+             {/if}
+
+          </section>
+      </section>
+      <!--main content end-->
+  </section>
+<script src="__ADMIN__/js/lk/c.js"></script>
+
+{include file="foot" /}
+<script>
+
+//时间选择器
+$('#datetimepicker').datetimepicker();
+$('#datetimepicker_end').datetimepicker();
+
+
+
+</script>

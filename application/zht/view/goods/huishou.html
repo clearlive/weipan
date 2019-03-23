@@ -1,0 +1,121 @@
+﻿{include file="head" /}
+
+{include file="menu" /}
+
+<!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">
+            <br>
+             <div class="row">
+                  <div class="col-lg-8">
+                      <section class="panel">
+                          <header class="panel-heading">
+                              <h4 class="left">产品列表</h4>
+                              <a href="{:url('goods/proadd')}"><button type="button" class="btn btn-primary right">添加产品</button></a>
+                              <br><br>
+                          </header>
+                          <table class="table table-striped table-advance table-hover">
+                            <thead class="ordertable">
+                              <tr>
+                                
+                                <th>
+                                    编号
+                                </th>
+                                <th>
+                                    商品名称
+                                </th>
+                                <th>
+                                    状态（大盘正常开市时间内）
+                                </th>
+                                <th>
+                                    所属分类
+                                </th>
+                                <th>
+                                    随机值
+                                </th>
+                                <th>
+                                    风控最小值
+                                </th>
+                                <th>
+                                    风控最大值
+                                </th>
+                                <th>
+                                    操作
+                                </th>
+
+                            </tr>
+                          </thead>
+                           
+                          <tbody>
+                         
+                          <!-- {volist name="proinfo" id="vo"} -->
+                              <tr>
+                                 
+                                  <td>{$vo.pid}</td>
+                                  <td>{$vo.ptitle}</td>
+                                  <td>{if $vo.isopen == 1} 开市 {else /} 休市 {/if}</td>
+                                  <td>{$vo.pcname}</td>
+                                  <td>{$vo.rands}</td>
+                                  <td>{$vo.point_low}</td>
+                                  <td>{$vo.point_top}</td>
+                                  <td>
+                                  
+                                       <a class="btn btn-danger btn-xs" onclick="hyinfo('{$vo.pid}')">点击还原</a>
+                                  </td>
+                              </tr>
+							<!-- {/volist} -->
+
+
+                             
+                              
+                              
+                              </tbody>
+                          </table>
+
+                      </section>
+                          <button type="submit" class="btn btn-primary left">排序</button>
+                            </form>
+                  </div>
+              </div>
+              
+             
+
+          </section>
+      </section>
+      <!--main content end-->
+  </section>
+<script src="__ADMIN__/js/lk/c.js"></script>
+{include file="foot" /}
+<script>
+/**
+ * 开、休市控制器
+ * @author lukui  2017-02-15
+ * @param  {[type]} data [description]
+ * @param  {[type]} pid  [description]
+ * @return {[type]}      [description]
+ */
+function isopen(data,pid){
+	var formurl = "{:Url('goods/proisopen')}"
+    var data = "isopen="+data+"&pid="+pid;
+    var locurl = "{:Url('goods/prolist')}";
+
+    WPpost(formurl,data,locurl);
+    return false;
+}
+
+//hy info
+	function hyinfo(id){
+		layer.open({
+		  content: '确定还原吗',
+		  yes: function(index){
+		    //do something
+		    var url = "{:url('goods/hypro')}"+"?id="+id;
+		    var locurl = "{:Url('goods/prolist')}"
+		    WPget(url,locurl);
+		  }
+		});
+	}
+
+
+
+</script>

@@ -1,0 +1,110 @@
+﻿{include file="head" /}
+
+{include file="menu" /}
+
+   <!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">
+          <!--state overview start-->
+              
+              <div class="row state-overview">
+                <div class="container">
+                <form action="{:url('user/yeji',array('uid'=>$_user['uid']))}" method="get">
+                <div class="row">
+                     
+                      
+                   <div class="col-lg-6 mar-10">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">时间筛选</span>
+                            <input type="text"  id="datetimepicker" class="form-control" placeholder="点击选择时间" name="starttime" value="{$getdata.starttime?$getdata.starttime:''}"/>
+                            <span class="input-group-addon" id="basic-addon1">至</span>
+                            <input type="text"  id="datetimepicker_end" class="form-control" placeholder="点击选择时间" name="endtime" value="{$getdata.endtime?$getdata.endtime:''}" />
+                        </div>
+                      </div>
+                      
+                  <div class="mar-10">
+                   <input type="submit" class="btn btn-success" value="搜索">
+                  </div>
+                </div>
+                </form>
+              </div>
+              </div>
+              <!--state overview end-->
+              <br>
+              <!-- page start-->
+              <div class="row">
+                  <div class="col-lg-8">
+                  <p style="color: red;text-align: center;">默认为当天数据</p>
+                      <!--widget start-->
+                      <aside class="profile-nav alt green-border">
+                          <section class="panel">
+                              
+                              
+                              <div class="panel-body bio-graph-info">
+                              
+                              <div class="form-horizontal">
+                                  
+                                  <div class="form-group">
+                                      <label class="col-lg-2 control-label">用户名：</label>
+                                      <div class="col-lg-6">
+                                          <p class="control-label">{$_user.username}</p>
+                                      </div>
+                                  </div>
+                                  <hr>
+
+                                  <div class="form-group">
+                                      <label class="col-lg-2 control-label">余额：</label>
+                                      <div class="col-lg-6">
+                                          <p class="control-label">{$_user.usermoney}</p>
+                                      </div>
+                                  </div>
+                                  <hr>
+
+                                  <div class="form-group">
+                                      <label class="col-lg-2 control-label">总手续费：</label>
+                                      <div class="col-lg-6">
+                                          <p class="control-label">{$all_sxfee} </p>
+
+                                      </div>
+                                  </div>
+                                  <hr>
+
+                                  <div class="form-group">
+                                      <label class="col-lg-2 control-label">总客户盈亏：</label>
+                                      <div class="col-lg-6">
+                                          <p class="control-label">{$all_ploss}
+                                      </div>
+                                  </div>
+                                  <hr>
+
+
+                                 
+                                  
+                              </div>
+                          </div>
+
+                          </section>
+                      </aside>
+                      <!--widget end-->
+                      
+                  </div>
+                 </div> 
+              
+                 
+              
+              <!-- page end-->
+          </section>
+      </section>
+      <!--main content end-->
+  </section>
+<script src="__ADMIN__/js/lk/c.js"></script>
+{include file="foot" /}
+<script>
+
+//时间选择器
+$('#datetimepicker').datetimepicker();
+$('#datetimepicker_end').datetimepicker();
+
+
+
+</script>

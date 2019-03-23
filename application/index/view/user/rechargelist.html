@@ -1,0 +1,63 @@
+﻿<title>我的战队</title>
+    <link href="/static/index/css/mui.min.css" rel="stylesheet" />
+{include file="head" /}
+<body id="incomeDiv" style="background-color: rgb(16,16,16)">
+    <header class="mui-bar mui-bar-nav"> 
+        <h1 id="title" class="mui-title font-white">我的战队</h1> <div style="float:left;"></div>
+    </header> 
+
+    <link href="/static/admin/css/bootstrap.min.css" rel="stylesheet">
+    <script src="__HOME__/js/lk/c.js"></script>
+
+{if $userinfo.otype == 0}
+
+
+
+
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset="utf-8" /> 
+<style> 
+#main {position: absolute;width:400px;height:200px;left:50%;top:50%; 
+margin-left:-200px;margin-top:-100px;border:1px } 
+/*css注释：为了方便截图，对CSS代码进行换行*/ 
+</style> 
+<body> 
+<div id="main"><center ><div class="bg"></div><div class="tip whitecolor"><div class="tip whitecolor"><img src="/static/index/img/paylist/norecord.png" /></p>当前记录为空</div></center><p><br><center><a href="/index/user/ercode.html">组建战队</a>>></center></div> 
+</body> 
+</html> 
+
+
+
+
+
+	</head>
+	<body>
+		<div class="web">
+			<div class="section">
+				 <div class="second">
+			    	       
+			    </div>	
+           <!--   <button class="btn btn_primary" id="onMenuShareTimeline">onMenuShareTimeline</button>-->
+                                   
+			</div>
+
+
+
+
+{/if}{if $userinfo.otype == 101}
+
+
+<!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">
+<iframe src="/houtai/user/userlist.html" id="mainFrame" name="mainFrame" scrolling="no" width="100%" height="146%" frameborder="0"></iframe>
+                              </tbody>
+                          </table>
+                      </section>
+
+{/if}
+
+
+{include file="foot" /}

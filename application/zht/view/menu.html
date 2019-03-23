@@ -1,0 +1,126 @@
+﻿<!--sidebar start-->
+      <aside>
+          <div id="sidebar"  class="nav-collapse ">
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu">
+                  <li {if $actionname == 'index' && $contrname == 'Index' } class="active" {/if} >
+                      <a class="" href="{:Url('zht/index/index')}">
+                          <i class="icon-dashboard"></i>
+                          <span>后台首页</span>
+                      </a>
+                  </li>
+                  
+                  {if $otype == 3}
+                  <li {if $contrname == 'Goods'} class="active" {else /} class="sub-menu " {/if}>
+                      <a href="javascript:;" class="">
+                          <i class="icon-btc"></i>
+                          <span>产品管理</span>
+                          <span class="arrow"></span>
+                      </a>
+                      <ul class="sub">
+                          <li {if $actionname == 'prolist' || $actionname == 'proadd' } class="active" {/if}><a  href="{:Url('zht/goods/prolist')}">产品列表</a></li>
+                          <li {if $actionname == 'proclass' } class="active" {/if}><a  href="{:Url('zht/goods/proclass')}">产品分类</a></li>
+                          <li {if $actionname == 'risk' } class="active" {/if}><a  href="{:Url('zht/goods/risk')}">风控管理</a></li>
+                          <li {if $actionname == 'huishou' } class="active" {/if}><a  href="{:Url('zht/goods/huishou')}">产品回收站</a></li>
+
+                          
+                      </ul>
+                  </li>
+                  {/if}
+                  <li {if $contrname == 'Order'} class="active" {else /} class="sub-menu " {/if}>
+                      <a href="javascript:;" class="">
+                          <i class="icon-paste"></i>
+                          <span>订单管理</span>
+                          <span class="arrow"></span>
+                      </a>
+                      <ul class="sub">
+                          <li {if $actionname == 'orderlist' } class="active" {/if}><a class="" href="{:Url('zht/order/orderlist')}">交易流水</a></li>
+                          <li {if $actionname == 'orderlog' } class="active" {/if}><a class="" href="{:Url('zht/order/orderlog')}">平仓日志</a></li>
+                          
+                          
+                      </ul>
+                  </li>
+
+                  <li {if $contrname == 'User' && ( in_array($actionname,array('userlist','useradd','userprice','userinfo','cash','myteam','chongzhi')) )} class="active" {else /} class="sub-menu " {/if}>
+                      <a href="javascript:;" class="">
+                          <i class="icon-user"></i>
+                          <span>用户管理</span>
+                          <span class="arrow"></span>
+                      </a>
+                      <ul class="sub">
+                          <li {if in_array($actionname,array('userlist','useradd')) } class="active" {/if}>
+                          <a class="" href="{:Url('zht/user/userlist')}">客户列表</a></li>
+
+                          <li {if $actionname == 'userprice' } class="active" {/if}>
+                          <a class="" href="{:Url('zht/user/userprice')}">内部充值</a></li>
+
+                          <li {if $actionname == 'cash' } class="active" {/if}>
+                          <a class="" href="{:Url('zht/user/cash')}">提现列表</a></li>
+                          <li {if $actionname == 'userinfo' } class="active" {/if}>
+                          <a class="" href="{:Url('zht/user/userinfo')}">资料审核</a></li>
+                          <li><a href="/guizhe.html"target="_blank">交易规则</a></li>
+                          
+                      </ul>
+                  </li>
+                   
+                  <li {if $contrname == 'Price'} class="active" {else /} class="sub-menu " {/if}>
+                      <a href="javascript:;" class="">
+                          <i class="icon-yen"></i>
+                          <span>报表管理</span>
+                          <span class="arrow"></span>
+                      </a>
+                      <ul class="sub">
+                          
+                          
+                          <li {if $actionname == 'allot' } class="active" {/if}>
+                          <a class="" href="{:Url('zht/price/allot')}">红利报表</a></li>
+
+                          <li {if $actionname == 'yongjin' } class="active" {/if}>
+                          <a class="" href="{:Url('zht/price/yongjin')}">佣金报表</a></li>
+
+                          <li {if $actionname == 'pricelist' } class="active" {/if}>
+                          <a class="" href="{:Url('zht/price/pricelist')}">资金报表</a></li>
+
+                          <li {if $actionname == 'myprice' } class="active" {/if}>
+                          <a class="" href="{:Url('zht/price/myprice')}">个人报表</a></li>
+                          
+                      </ul>
+                  </li>
+                  
+                  {if $otype == 3}
+                  <li {if $contrname == 'Setup' } class="active" {else /} class="sub-menu" {/if}>
+                      <a href="javascript:;" class="">
+                          <i class="icon-paste"></i>
+                          <span>参数设置</span>
+                          <span class="arrow"></span>
+                      </a>
+                      <ul class="sub">
+
+                          <li {if $contrname == 'Setup' && $actionname == 'index'} class="active" {/if} >
+                            <a class="" href="{:Url('zht/Setup/index')}">基本设置</a>
+                          </li>
+
+                          <li {if $contrname == 'Setup' && $actionname == 'proportion'} class="active" {/if} >
+                            <a class="" href="{:Url('zht/Setup/proportion')}">参数设置</a>
+                          </li>
+
+                      </ul>
+                  </li>
+
+                  {/if}
+
+                  
+
+
+                  <li>
+                      <a class="" href="{:Url('zht/login/logout')}">
+                          <i class="icon-signout"></i>
+                          <span>退出</span>
+                      </a>
+                  </li>
+              </ul>
+              <!-- sidebar menu end-->
+          </div>
+      </aside>
+      <!--sidebar end-->
+<script src="__ADMIN__/js/lk/c.js"></script>

@@ -1,0 +1,152 @@
+﻿/*样式重置*/
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #515151;
+}
+
+p {
+    margin: 0;
+}
+
+a:active,
+a:hover {
+    outline: 0;
+    text-decoration: none;
+}
+
+a, input, button {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+input, button {
+    /* -webkit-appearance: none;*/
+    border-radius: none;
+}
+
+body * {
+    -webkit-text-size-adjust: 100%;
+}
+
+/*清楚浮动样式*/
+.clearfix:before,
+.clearfix:after {
+    display: table;
+    content: ' ';
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*去除chrom下的input背景黄色*/
+/*input:-webkit-autofill { box-shadow: 0 0 0px 1000px white inset;}*/
+html {
+    height: 100%;
+    font-family: "微软雅黑", Tahoma, Helvetica, Arial, sans-serif;
+    font-size: calc(100vw / 7.5);
+    font-size: -webkit-calc(100vw / 7.5);
+    font-size: -moz-calc(100vw / 7.5);
+    /*此时1rem = 100px*/
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-text-size-adjust: none;
+    color: #717171;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    font-size: 0.2rem;
+    line-height: 1;
+    background: #f3f3f3;
+    -webkit-font-smoothing: antialiased; /*chrome、safari*/
+    -moz-osx-font-smoothing: grayscale; /*firefox*/
+}
+
+/*尾部部分*/
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid #d7d7d7;
+    height: 0.95rem;
+    z-index: 999;
+    background: #f3f3f3;
+}
+
+.footer .footer-item {
+    float: left;
+    width: 25%;
+    padding-top: 2px;
+
+}
+
+.footer .footer-item .icon {
+    display: block;
+    width: 0.46rem;
+    height: 0.45rem;
+    margin: 0 auto;
+
+}
+
+.footer .footer-item .icon_invest {
+    width: 0.45rem;
+    height: 0.45rem;
+    background: url(../images/invest.png) no-repeat left center;
+    background-size: 100%;
+}
+
+.footer .footer-item .icon_invest_active {
+    width: 0.45rem;
+    height: 0.45rem;
+    background: url("../images/invest_pressed.png") no-repeat left center;
+    background-size: 100%;
+}
+
+.footer .footer-item .icon_activity {
+    width: 0.45rem;
+    height: 0.42rem;
+    background: url(../images/activity.png) no-repeat left center;
+    background-size: 100%;
+}
+
+.footer .footer-item .icon_my {
+    background: url(../images/my.png) no-repeat left center;
+    background-size: 100%;
+}
+.footer .footer-item .icon_index {
+    background: url(../images/home.png)  no-repeat left center;
+    background-size: 100%;
+}
+
+.footer .footer-item .icon_index.active {
+    background: url(../images/home_pressed.png)  no-repeat left center;
+    background-size: 100%;
+}
+
+.footer .footer-item .icon_invest.active {
+    background: url(../images/invest_pressed.png) no-repeat left center;
+    background-size: 100%;
+}
+
+.footer .footer-item .icon_activity.active {
+    background: url(../img/activity_pressed.png) no-repeat left center;
+    background-size: 100%;
+}
+
+.footer .footer-item .icon_my.active {
+    background: url(../images/my_pressed.png) no-repeat left center;
+    background-size: 100%;
+}
+
+.footer .footer-item .icon_title {
+    text-align: center;
+    font-size: 0.24rem;
+    color: #888;
+    margin-top: 0.08rem;
+}

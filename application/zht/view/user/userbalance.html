@@ -1,0 +1,132 @@
+{include file="head" /}
+
+{include file="menu" /}
+
+<!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">
+              <!--state overview start-->
+              
+              <div class="row state-overview">
+                <div class="container">
+                <div class="row">
+                      <form action="" method="get">
+                      <div class="col-lg-3 mar-10">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">客户名称</span>
+                            <input type="text" value="{$getdata.username?$getdata.username:''}"  class="form-control" name="username" />
+                        </div>
+                      </div>
+
+                      <div class="col-lg-6 mar-10">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">订单时间</span>
+                            <input type="text"  id="datetimepicker" class="form-control" placeholder="点击选择时间" name="starttime" value="{$getdata.starttime?$getdata.starttime:''}"/>
+                            <span class="input-group-addon" id="basic-addon1">至</span>
+                            <input type="text"  id="datetimepicker_end" class="form-control" placeholder="点击选择时间" name="endtime" value="{$getdata.endtime?$getdata.endtime:''}" />
+                        </div>
+                      </div>
+
+                      
+
+                      <div class="col-lg-3 mar-10">
+                        <div class="input-group">
+                            <span class="input-group-addon">所属</span>
+                            <select name="ouid" id="" class="selectpicker show-tick form-control">
+                                <option value="">默认不选</option>
+
+                                <option  disabled="true" value="">=====经理=====</option>
+                                <!-- {volist name="vipuser.jingli" id="vo"} -->
+                                <option value="{$vo.uid}">|-{$vo.username}</option>
+                                <!-- {/volist} -->
+                                <option  disabled="true" value="">=====员工=====</option>
+                                <!-- {volist name="vipuser.yuangong" id="vo"} -->
+                                <option value="{$vo.uid}">|-{$vo.username}</option>
+                                <!-- {/volist} -->
+                                <option  disabled="true" value="">=====渠道=====</option>
+                                <!-- {volist name="vipuser.qudao" id="vo"} -->
+                                <option value="{$vo.uid}">|-{$vo.username}</option>
+                                <!-- {/volist} -->
+                            </select>
+                        </div>
+                      </div>
+                       
+                      
+                  
+                  <div class="mar-10">
+                   <input type="submit" class="btn btn-success" value="搜索">
+                  </div>
+                </div>
+                 </form>
+              </div>
+              </div>
+              <!--state overview end-->
+            
+			
+			<br>
+			
+            <a href="{:url('user/userbalance')}"><button type="submit" class="btn btn-danger">搜索全部</button></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="submit" class="btn btn-danger">导出</button>
+            <br><br>
+             <div class="row">
+                  <div class="col-lg-12">
+                      <section class="panel">
+                          <header class="panel-heading">
+                              平仓记录
+                          </header>
+                          <table class="table table-striped table-advance table-hover">
+                            <thead class="ordertable">
+                              <tr>
+                                <th>会员ID</th>
+                                <th>交易账号</th>
+                                <th>会员名称</th>
+                                <th>操作时间</th>
+                                <th>金额</th>
+                                <th>充值/提现</th>
+                                <th>操作后余额</th>
+                                <th>归属员工</th>
+                                <th>归属经理</th>
+                                <th>归属渠道</th>
+                                <th>备注</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          <!-- {volist name="balance" id="vo"} -->
+                              <tr>
+                                  <td>{$vo.uid}</td>
+                                  <td>{$vo.username}</td>
+                                  <td>{$vo.nickname}</td>
+                                  <td>{$vo.bptime|date="Y-m-d H:i:s",###} </td>
+                                  <td class="color_red">${$vo.bpprice}</td>
+                                  <td>{if $vo.bptype == 0} 提现 {elseif $vo.bptype == 1} 充值 {elseif $vo.bptype == 2} 后台充值 {/if}</td>
+                                  <td class="color_red">${$vo.bpbalance}</td>
+                                  {wp:position uid="$vo['uid']" filed="username,oid"}
+                									<td>{$value.username?$value.username:'暂无'}</td>
+                								  {/wp:position}
+                								<td>{$vo.remarks?$vo.remarks:'暂无'}</td>
+                              </tr>
+                              <!-- {/volist} -->
+                              </tbody>
+                          </table>
+                      </section>
+                  
+              
+                      {$balance->render()}
+                </div>
+              </div>
+          </section>
+      </section>
+      <!--main content end-->
+  </section>
+
+{include file="foot" /}
+<script>
+
+
+
+//时间选择器
+$('#datetimepicker').datetimepicker();
+$('#datetimepicker_end').datetimepicker();
+
+
+</script>

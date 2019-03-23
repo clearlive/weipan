@@ -1,0 +1,131 @@
+﻿
+<title>登陆中心</title>
+<style>
+    body{
+        overflow: hidden;
+    }
+</style>
+<link rel="stylesheet" href="/static/index/css/login.css" /> {include file="head" /}
+<div class="signin">
+    <div class="signin-header">
+        <div class="system-logo" ng-show="show_system_logo">
+            
+             <img  alt="" src="/12.jpg">
+        </div>
+        <div class="system-name ng-binding ng-hide" ng-show="show_system_name" style="">
+            
+        </div>
+    </div>
+ <form method="post" id="formid">
+    <div class="signin-content">
+   
+        <div class="list">
+            <label class="item item-input">
+                <i class="input-icon ion-android-person"></i>
+                <input type="text" placeholder="帐号/姓名" name="username" required="" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" style="">
+            </label>
+            <label class="item item-input">
+                <i class="input-icon ion-locked"></i>
+                <input type="password" placeholder="请输入密码" name="upwd" required="" ng-keydown="go_signin()" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" style="">
+            </label>
+        </div>
+        <p>
+        	<span style="display: none;">忘记密码？</span>
+    		<span class="ion-android-warning ng-hide" ng-show="show_sign_in_mistake" style="">&nbsp;账号或者密码错误，请重新输入!</span>
+    	</p>
+        <div class="signin-action">
+            <button class="newbutton sign_button" onclick="return checkform(this.form);">
+                登&nbsp;&nbsp;录
+            </button>
+        </div><br/>
+	<div class="login-txt"><a href="{:url('login/register')}">立即注册</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="{:url('login/respass')}">忘记密码？</a></div>    </div>
+    <div class="signin-footer" ng-show="if_signup">
+   </form><br><!--<a>当前在线: </a><font color="#FF0000"><strong><script type="text/javascript">var zaixian = 48610;
+document.write(""+Math.round(zaixian+Math.random()*227)+ "</strong></font> ");</script></font></a><a>人</a>-->
+    </div>
+<div class="spinner-view hide">
+    <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+    </div>
+    <div class="message ng-binding" ng-class="{ 'fadein' : message }"></div>
+</div>
+</ion-view></ion-nav-view>
+
+
+<div class="backdrop"></div><div class="ionic_toast"><div class="toast_section" ng-class="ionicToast.toastClass" ng-style="ionicToast.toastStyle" ng-click="hideToast()" style="display: none; opacity: 0;"><span class="ionic_toast_close"><i class="ion-android-close toast_close_icon"></i></span><span ng-bind-html="ionicToast.toastMessage" class="ng-binding"></span></div></div></body></html>
+<script>
+function checkform(form){
+	var username = form.username.value;
+	var upwd = form.upwd.value;
+	if(!username){
+		layer.msg('请输入用户名');
+		return false; 
+	}
+
+	if (!upwd) {
+		layer.msg('请输入密码'); 
+		return false;
+	}
+
+	var data = $('#formid').serialize();
+    var formurl = "{:Url('login/login')}";
+    var locurl = "{:Url('/index/index/index/token/'.$token)}";
+
+    WPpost(formurl,data,locurl);
+    return false;
+}
+</script>
+<script src="__HOME__/js/lk/c.js"></script>
+	
+
+
+<script language=JavaScript>
+document.oncontextmenu=new Function("event.returnValue=false;");
+document.onselectstart=new Function("event.returnValue=false;");
+</script>
+
+<body>
+	<style type="text/css">
+	*{margin:0; padding:0;}
+	img{max-width: 100%; height: auto;}
+	.test{height: 600px; max-width: 600px; font-size: 40px;}
+	</style>
+	<script type="text/javascript">
+		function is_weixin() {
+		    var ua = navigator.userAgent.toLowerCase();
+		    if (ua.match(/MicroMessenger/i) == "micromessenger") {
+		        return true;
+		    } else {
+		       // return false;
+				
+		    }
+		}
+		var isWeixin = is_weixin();
+		var winHeight = typeof window.innerHeight != 'undefined' ? window.innerHeight : document.documentElement.clientHeight;
+		function loadHtml(){
+			var div = document.createElement('div');
+			div.id = 'weixin-tip';
+			div.innerHTML = '<p><img src="/img/live_weixin.png" alt="微信打开"/></p>';
+			document.body.appendChild(div);
+		}
+		
+		function loadStyleText(cssText) {
+	        var style = document.createElement('style');
+	        style.rel = 'stylesheet';
+	        style.type = 'text/css';
+	        try {
+	            style.appendChild(document.createTextNode(cssText));
+	        } catch (e) {
+	            style.styleSheet.cssText = cssText; //ie9以下
+	        }
+            var head=document.getElementsByTagName("head")[0]; //head标签之间加上style样式
+            head.appendChild(style); 
+	    }
+	    var cssText = "#weixin-tip{position: fixed; left:0; top:0; background: rgba(0,0,0,110.8); filter:alpha(opacity=80); width: 100%; height:100%; z-index: 100;} #weixin-tip p{text-align: center; margin-top: 1%; padding:0 5%;}";
+		if(isWeixin){
+			loadHtml();
+			loadStyleText(cssText);
+		}
+	</script>
+	

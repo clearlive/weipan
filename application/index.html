@@ -1,0 +1,164 @@
+﻿ <title>商品行情 {$userinfo.nickname?$userinfo.nickname:$userinfo.username}  {$userinfo.utel} 余额：{$userinfo.usermoney} 元</title>{include file="head" /}
+
+           <!-- ngRepeat: c in category_list -->
+    <header class="mui-bar mui-bar-nav">
+        <h1 id="title" class="mui-title font-white">商品行情</h1>
+    </header>          
+    <div class="index-style"><br>
+<marquee><font color=red>公告: 股市有风险，投资需谨慎，请勿相信任何带单，包盈利的陌生人，请勿泄漏密码，以免资金被盗！</font></marquee>
+        <div class="mui-row style-back" align="center">
+            <div class="mui-col-sm-6 mui-col-xs-6">
+                <span style="font-size: 28px; float: left; margin-top: 10px;" class="iconfont icon--8">
+                </span><span class="mui-pull-left font-text-14 txt-indent-14px">{$userinfo.nickname?$userinfo.nickname:$userinfo.username} {if $userinfo.otype == 101}{/if}</span>
+                <br>
+                <span class="mui-pull-left font-text-14 color-yellow txt-indent-14px">{$userinfo.utel}</span>
+            </div>
+            <div class="mui-col-sm-6 mui-col-xs-6 fudong">
+               <a class="mui-btn mui-btn-warning mui-pull-right" style="margin-top: 5px;" href="{:url('/index/user/index/token/'.$token)}">充值</a>
+                <span class="mui-pull-left font-text-14 txt-indent-14px">余额</span>
+                <br>
+                <span class="mui-pull-left font-text-14 color-yellow"><font color="#FF0000">{$userinfo.usermoney} </font>元</span>
+            </div>
+        </div>
+        <div class="Objectname" id="objectlist">
+            <div class="mui-row row-th">
+                <ul>
+                    <li>商品名称</li>
+                    <li>现价</li>
+                    <li>最低</li>
+                    <li>最高</li>
+                </ul>
+            </div>
+
+
+               <div class="rows-content">    
+	
+                          <!-- {volist name="pro" id="vo"} -->
+
+                            <ul onclick="parent.location='{:url('goods/goods',array('pid'=>$vo['pid'],'token'=>$token))}';"  id="pid{$vo.pid}">
+
+                                <li>
+
+                            			{if condition="$vo.procode eq 'fx_seurusd'"}
+                            <div class="sub_title_color" style="background-color: #c88800;">
+                                R/U</div>
+						{/if}		
+						{if condition="$vo.procode eq 'sz399300'"}
+                            <div class="sub_title_color" style="background-color: #1053a2;">
+                                R/J</div>
+						{/if}	
+						{if condition="$vo.procode eq 'ltc'"}
+                            <div class="sub_title_color" style="background-color: #e55100;">
+                                R/G</div>
+						{/if}
+						{if condition="$vo.procode eq 'fx_seurgbp'"}
+                            <div class="sub_title_color" style="background-color: #b11500;">
+                                R/A</div>
+						{/if}
+						{if condition="$vo.procode eq 'llg'"}
+                            <div class="sub_title_color" style="background-color: #bf00db;">
+                                R/C</div>
+						{/if}
+						{if condition="$vo.procode eq 'fx_sgbpcad'"}
+                            <div class="sub_title_color" style="background-color: #007cdb;">
+                                R/E</div>
+						{/if}
+						
+						{if condition="$vo.procode eq 'fx_susdjpy'"}
+                            <div class="sub_title_color" style="background-color: #159297;">
+                                U/J</div>
+						{/if}
+						
+						{if condition="$vo.procode eq 'fx_sgbpjpy'"}
+                            <div class="sub_title_color" style="background-color: #289b15;">
+                                G/J</div>
+						{/if}
+						
+						{if condition="$vo.procode eq 'fx_seurjpy'"}
+                            <div class="sub_title_color" style="background-color: #c88800;">
+                                E/J</div>
+						{/if}
+						
+						{if condition="$vo.procode eq 'fx_seuraud'"}
+                            <div class="sub_title_color" style="background-color: #b02476;">
+                                E/A</div>
+						{/if}
+						
+						{if condition="$vo.procode eq 'fx_saudusd'"}
+                            <div class="sub_title_color" style="background-color: #9b1dba;">
+                                A/U</div>
+						{/if}
+						
+						{if condition="$vo.procode eq 'fx_susdcad'"}
+                            <div class="sub_title_color" style="background-color: #c88000;">
+                                U/C</div>
+						{/if}
+						
+						{if condition="$vo.procode eq '12'"}
+                            <div class="sub_title_color" style="background-color: #c88800;">
+                                Au</div>
+						{/if}
+						
+						{if condition="$vo.procode eq '13'"}
+                            <div class="sub_title_color" style="background-color: #c0c0c0;">
+                                AG</div>
+						{/if}
+						
+						{if condition="$vo.procode eq 'btc'"}
+                            <div class="sub_title_color" style="background-color: #c88800;">
+                                LTC</div>
+						{/if}
+						
+						{if condition="$vo.procode eq 'fx_susdchf'"}
+                            <div class="sub_title_color" style="background-color: #602bb0;">
+                                U/C</div>
+						{/if}
+                     <a href="javascript:;" class="ng-binding prtitle">{$vo.ptitle}</a> </li>
+                        <li><a href="javascript:;" class="ng-binding rise-value now-value" style="padding:0px 5px;">{$vo.Price} </a>
+                        </li>
+                        <li><a href="javascript:;" class="ng-binding rise rise-low">{$vo.Low} </a></li>
+                        <li><a href="javascript:;" class="ng-binding rise rise-high">{$vo.High} </a></li>                                                    </li>
+
+                            </ul>
+
+			<!-- {/volist} -->
+                            </div>
+
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,initial-scale=1,user-scalable=no" />
+    <link href="/static/index/css/mui.min.css" rel="stylesheet" />
+    <script type="text/javascript" src="http://c.ibangkf.com/i/c-kefuq59.js"></script>	
+    <script src="/static/index/js/jquery-1.9.1.min.js"></script>
+    <script src="/static/index/js/mui.min.js"></script>
+    <link href="/static/index/css/ionic.css" rel="stylesheet">
+    <link href="/static/index/css/style.css" rel="stylesheet">
+    <script src="/static/index/js/lk/order.js"></script>    <!-- 弹框插件 -->
+    <script src="/static/layer/layer.js"></script>
+    <!-- 公共函数 -->
+    <script src="/static/public/js/function.js"></script>
+	<script>        
+        (function (doc, win) {    
+            var docEl = doc.documentElement,    
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',    
+            recalc = function () {    
+            var clientWidth = docEl.clientWidth;
+			if(clientWidth>450){
+				return false;
+			}
+            if (!clientWidth) return;    
+            docEl.style.fontSize = 80 * (clientWidth / 320) + 'px';    
+        };    
+        if (!doc.addEventListener) return;    
+        win.addEventListener(resizeEvt, recalc, false);    
+        doc.addEventListener('DOMContentLoaded', recalc, false);    
+        })(document, window);    
+	</script>
+    <input type="hidden" class="mui-myactive" value="/"/>
+    <script src="/static/index/js/lk/index.js"></script>
+    <script src="__HOME__/js/lk/c.js"></script>
+<div style="margin-top: 8%;">
+
+<div class="tab-nav tabs">
+{include file="foot" /}
+
+</div>

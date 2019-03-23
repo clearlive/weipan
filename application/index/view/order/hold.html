@@ -1,0 +1,145 @@
+﻿ <title>交易历史 {$userinfo.nickname?$userinfo.nickname:$userinfo.username}  {$userinfo.utel} 余额：{$userinfo.usermoney} 元</title>{include file="head" /}
+
+
+
+<ion-nav-bar class="bar-stable headerbar nav-bar-container" nav-bar-transition="ios" nav-bar-direction="swap" nav-swipe="">
+
+	<div class="nav-bar-block" nav-bar="active">
+		<ion-header-bar class="bar-stable headerbar bar bar-header" align-title="center">
+<div class="title title-center header-item" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px); left: 15px; right: 15px;">交易中心</div>
+		</ion-header-bar>
+	</div>
+
+
+
+    <ion-content class="trade_history scroll-content ionic-scroll scroll-content-false  has-header has-tabs" scroll="false">
+        <header>
+            <article class="left-table" onclick="change_category(0)"  class="active" style="">
+            	<p >当前交易</p>
+            </article>
+            <article class="right-table"  onclick="change_category(1)"  >
+            	<p>交易记录</p>
+            </article>
+        </header>
+
+
+        <div class="trade_history_list slider" style="visibility: visible;overflow:scroll">
+             <div class="slider-slides" ng-transclude="" >
+            <ion-slide class="slider-slide slider-left" data-index="0" style="width: 100%; left: 0; transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
+            	<ul>
+            		
+                        
+            		<br><br><br>
+         <center><div class="bg"></div>
+<div class="tip whitecolor"><div class="tip whitecolor"><img src="/static/index/img/paylist/norecord.png" /></p>当前记录为空</div>
+
+</center>
+
+                        
+
+            	</ul>
+            </ion-slide>
+            <ion-slide class="slider-slide slider-right" data-index="1" style=" left: 0px; top: -100%;transition-duration: 0ms; transform: translate(414px, 0px) translateZ(0px);">
+                <ul class="uls">
+
+            		<br><br><br>
+         <center ><div class="bg"></div>
+<div class="tip whitecolor"><div class="tip whitecolor"><img src="/static/index/img/paylist/norecord.png" /></p>当前记录为空</div>
+
+</center>
+
+                </ul>
+                
+            </ion-slide>
+        </div>
+                
+                <div class="modal-backdrop ng-hide"><div class="modal-backdrop-bg"></div><div class="modal-wrapper" ng-transclude=""><ion-modal-view class="order-modal modal slide-in-up ng-enter active ng-enter-active">
+    <ion-header-bar class="order-modal-header bar bar-header">
+        <h1 class="title lishimingxi" style="left: 54px; right: 54px;"></h1>
+        <div class="close" ng-click="close_order_modal.hide()">
+            <i class="icon ion-ios-close-empty"></i>
+        </div>
+    </ion-header-bar>
+    <ion-content class="order-modal-content scroll-content ionic-scroll  has-header"><div class="scroll" style="transform: translate3d(0px, 0px, 0px) scale(1);">
+        <ul class="list">
+            <li class="item item-input">
+                <span class="input-label" aria-label="商品" id="_label-0">商品</span>
+                <span class="input-content ng-binding ptitle"></span>
+            </li>
+            <li class="item item-input">
+                <span class="input-label" aria-label="成交价" id="_label-2">成交价</span>
+                <span class="input-content ng-binding buyprice"></span>
+            </li>
+            <li class="item item-input">
+                <span class="input-label" aria-label="结算价" id="_label-3">结算价</span>
+                <span class="input-content ng-binding sellprice"></span>
+            </li>
+            <li class="item item-input">
+                <span class="input-label" aria-label="手续费" id="_label-4">手续费</span>
+                <span class="input-content ng-binding">{$conf['web_poundage']}</span>
+            </li>
+            <li class="item item-input">
+                <span class="input-label" aria-label="盈亏" id="_label-5">盈亏</span>
+                <span class="input-content ng-binding rise ploss" style="">
+                    0.00
+                </span>
+            </li>
+            <li class="item item-input">
+                <span class="input-label" aria-label="成交时间" id="_label-6">成交时间</span>
+                <span class="input-content ng-binding buytime"></span>
+            </li>
+            <li class="item item-input">
+                <span class="input-label" aria-label="结算时间" id="_label-7">结算时间</span>
+                <span class="input-content ng-binding selltime"></span>
+            </li>
+        </ul>
+    </div><div class="scroll-bar scroll-bar-v"><div class="scroll-bar-indicator scroll-bar-fade-out" style="transform: translate3d(0px, 0px, 0px) scaleY(1); height: 0px; transform-origin: center bottom 0px;"></div></div></ion-content>
+    <div class="button-bar">
+        <a class="button button-dark" onclick="close_order_modal()">关闭</a>
+    </div>
+
+    <script>
+
+var charturl = '{:url("getchart")}';
+$.get(charturl,function(_res){
+    var res = jQuery.parseJSON(Base64.decode(_res)); 
+    $.each(res,function(k,v){
+        $('.'+k).html(v);
+    })
+})
+</script>
+</ion-modal-view></div></div>
+
+        </div>
+    </ion-content>
+</ion-view></ion-nav-view></ion-tabs></ion-nav-view>
+<script src="__HOME__/js/lk/hold.js"></script>
+<script src="__HOME__/js/lk/c.js"></script>
+<script type="text/javascript">
+  change_category(0)
+</script>
+
+	    <link href="/static/index/css/mui.min.css" rel="stylesheet" />
+
+	<script type="text/javascript">
+	  change_category(0)
+	</script>
+<div class="tab-nav tabs">
+{include file="foot" /}
+</div>
+
+</body>
+</html>
+
+                          <!-- {volist name="userinfo" id="vo"} -->
+                              <tr>
+                                  <td>{$userinfo.username}</td>
+                                  <td>{$userinfo.nickname}</td>
+                                  <td>{:ordernum($userinfo['uid'])} 次</td>
+                                  <td>{$userinfo.logintime|date="m-d H:i",###}</td>
+                                  <td class="color_red">¥{$userinfo.usermoney?$userinfo.usermoney:'0'}</td>
+                                  
+                                  </td>
+                                  
+                              </tr>
+							<!-- {/volist} -->

@@ -1,0 +1,14 @@
+1.用phpmyadmin 导入 demo_1485.sql
+2.修改 \application\database.php
+
+域名+/shuaxin.html  打开行情，不要关闭
+
+前台账号 sucaihuo  密码 123456
+
+后台地址：域名+/zongbuhoutai/login/login.html
+
+后台帐号：admin
+
+后台密码：123456
+
+请到码支付官网下载支付通道 https://codepay.fateqq.com/home.htm

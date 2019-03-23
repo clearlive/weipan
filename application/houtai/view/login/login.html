@@ -1,0 +1,82 @@
+﻿
+
+    <title>我的战队</title>    <!-- Bootstrap core CSS -->
+
+
+
+﻿<html style="font-size: 120px;">
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+<!-- 是否启用全屏模式 -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+
+
+<script src="/static/index/css/js.js"></script>
+<link href="/static/index/css/ionic.css" rel="stylesheet">
+<link href="/static/index/css/style.css" rel="stylesheet">
+<script src="__ADMIN__/js/lk/c.js"></script>
+<script src="__ADMIN__/js/jquery.js"></script>
+<script src="__ADMIN__/js/jquery-1.8.3.min.js"></script>
+<script src="/static/layer/layer.js"></script>
+
+    
+</head>
+<div class="signin">
+<br><br><br><br><br><br>
+ <form method="post" id="formid">
+    <div class="signin-content">
+  
+        <div class="list">
+            <label class="item item-input">
+                <i class="input-icon ion-android-person"></i>
+                <input type="text" class="srk" name="username" placeholder="手机号/姓名/编号" value="{$rememberme}">
+            </label>
+            <label class="item item-input">
+                <i class="input-icon ion-locked"></i>
+                <input type="password" placeholder="请输入密码" name="password" class="srk">
+            </label>
+        </div>
+        <p>
+        	<span style="display: none;">忘记密码？</span>
+    		<span class="ion-android-warning ng-hide" ng-show="show_sign_in_mistake" style="">&nbsp;账号或者密码错误，请重新输入!</span>
+    	</p><br>
+        <div class="signin-action">
+     <button onclick="return check_admin_login(this.form)" class="newbutton sign_button" type="submit">登&nbsp;&nbsp;录</button>
+        </div>
+<script>
+/*
+登录验证
+ */
+function check_admin_login (form)
+   {
+      $username = form.username.value;
+      $password = form.password.value;
+      if (!$username) {
+        layer.msg('请输入用户名'); 
+        return false;
+      }
+
+      if(!$password){
+        layer.msg('请输入密码'); 
+        return false;
+      }
+
+      var formurl = "{:Url('houtai/login/login')}"
+      var data = $('#formid').serialize();
+      $.post(formurl,data,function(data){
+        if (data.type == 1) {
+
+          layer.msg(data.data, {icon: 1,time: 1000},function(){
+            window.location.href="{:Url('houtai/user/userlist')}";
+          }); 
+
+        }else if(data.type == -1){
+          layer.msg(data.data, {icon: 2}); 
+        }
+
+      });
+
+      return false;
+   }
+</script>

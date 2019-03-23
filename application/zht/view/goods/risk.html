@@ -1,0 +1,96 @@
+﻿{include file="head" /}
+
+{include file="menu" /}
+
+<!--main content start-->
+      <section id="main-content">
+
+          
+      <section class="wrapper">
+      <div class="col-sm-8">
+          <aside class="profile-info col-lg-12">
+          <section class="panel">
+              <hr>
+              <div class="panel-body bio-graph-info">
+                  <form class="form-horizontal" role="form" action="" method="post" id="formid">
+            
+                      <div class="form-group">
+                          <label class="col-lg-3 control-label">指定客户亏损：</label>
+                          <div class="col-lg-8">
+                                
+                                <input type="text" class="form-control" name="to_loss" placeholder="请填写客户ID" value="{$to_loss?$to_loss:''}">
+                                <div class="alert alert-block alert-danger fade in" style="margin:10px 0 0 0 ">
+                                       <strong>说明：</strong> 此处设置会员ID（如：8888），多个用户用|符号分开（如：8888|9999）设置之后该会员所有订单都会亏损，请谨慎操作。如停止该功能请在上面留空或者填0，并提交。
+                                  </div>
+                          </div>
+                          <label class="col-lg-3 control-label"></label>
+                      </div>
+
+                      <div class="form-group">
+                          <label class="col-lg-3 control-label">指定客户赢利：</label>
+                          <div class="col-lg-8">
+                                <input type="text" class="form-control"  placeholder="请填写客户ID" value="{$to_win?$to_win:''}" name="to_win">
+                                <div class="alert alert-block alert-danger fade in" style="margin:10px 0 0 0 ">
+                                       <strong>说明：</strong> 此处设置会员ID（如：8888），多个用户用|符号分开（如：8888|9999）设置之后该会员所有订单都会赢利，请谨慎操作。如停止该功能请在上面留空或者填0，并提交。
+                                  </div>
+                          </div>
+                          <label class="col-lg-3 control-label"></label>
+                      </div>
+
+                      <div class="form-group">
+                          <label class="col-lg-3 control-label">最小风控值：</label>
+                          <div class="col-lg-8">
+                                <input type="text" class="form-control" name="min_price" placeholder="请填写最小风控值" value="{$min_price?$min_price:''}">
+                                <div class="alert alert-block alert-danger fade in" style="margin:10px 0 0 0 ">
+                                       <strong>说明：</strong> 下单达到此金额，则会受到下面风控影响。
+                                  </div>
+                          </div>
+                          <label class="col-lg-3 control-label"></label>
+                      </div>
+
+                      <div class="form-group">
+                          <label class="col-lg-3 control-label">风控概率：</label>
+                          <div class="col-lg-8">
+                                <textarea name="chance"  class="form-control" cols="30" rows="10">{$chance?$chance:''}</textarea>
+                                <div class="alert alert-block alert-danger fade in" style="margin:10px 0 0 0 ">
+                                       <strong>说明：</strong> 输入金额区间，在金额区间之内会根据此概率盈亏。不在此区间则不受风控影响<br>
+                                       <strong>格式：</strong> 区间开始-区间结束:客户赢利概率|　　符号必须为英文符号，如0-100:50|100-200:30
+                                  </div>
+                          </div>
+                          <label class="col-lg-3 control-label"></label>
+                      </div>
+                      
+                      <input type="hidden" name="id" value="{$id?$id:''}">
+                      
+                                
+                                  
+                      <div class="form-group">
+                          <div class="col-lg-offset-2 col-lg-10">
+                              <input type="submit" class="btn btn-success" onclick="return editrisk(this.form)" value="提交">
+                          </div>
+                      </div>
+                  </form>
+              </div>
+          </section>
+          
+      </aside>
+      </div>
+
+      </section>
+      <!--main content end-->
+  </section>
+<script src="__ADMIN__/js/lk/c.js"></script>
+{include file="foot" /}
+<script>
+
+function editrisk(form) {
+  
+  var formurl = "{:Url('goods/addrisk')}"
+    var data = $('#formid').serialize();
+    var locurl = "{:Url('goods/risk')}";
+    WPpost(formurl,data,locurl);
+    return false;
+}
+
+
+</script>

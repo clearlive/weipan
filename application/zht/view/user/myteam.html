@@ -1,0 +1,90 @@
+{include file="head" /}
+
+{include file="menu" /}
+<style>
+.div_my_son{
+      min-height: 64px;
+}
+.my_sons {
+    border: solid 1px #DEDEDE;
+    background: #DEDEDE;
+    float: left;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+}
+.vo_son{
+    float: left;
+    margin-top: 20px;
+}
+
+.showdiv{
+  font-size: 28px;
+    line-height: 57px;
+}
+</style>
+<!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">
+              
+             
+            
+            
+            <br><br>
+             <div class="row">
+                  <div class="col-lg-12">
+                      <section class="panel">
+                          <header class="panel-heading">
+                              我的团队
+                          </header>
+                          <table class="table table-striped table-advance table-hover">
+                            <div class="div_my_son">
+                              <ul class="my_sons">
+                                <li>经纪商：{$mysons.nickname} 余额：{$mysons.usermoney}</li>
+                                <li>手机：{$mysons.utel} <a href="/admin/user/userlist.html?uid={$mysons.uid}"><button class="btn btn-primary btn-xs">详情</button></a></li>
+                              </ul>
+                              <a href="javascript:;"><p class="showdiv show_uid_{$mysons.uid}" onclick="showoid({$mysons.uid},1)" >+</p></a>
+                            </div>
+                            {:set_my_team_html($mysons['mysons'])}
+                            
+                          </table>
+                      </section>
+                  </div>
+              </div>
+              
+            
+
+          </section>
+      </section>
+      <!--main content end-->
+  </section>
+
+
+{include file="foot" /}
+<script>
+
+//时间选择器
+$('#datetimepicker').datetimepicker();
+$('#datetimepicker_end').datetimepicker();
+
+function showoid(oid,type){
+  if(!oid){
+    layer.msg('参数错误!');
+    return false;
+  }
+  if(type == 1){
+    $('.oid_'+oid).show();
+
+    $('.show_uid_'+oid).attr('onclick',"showoid("+oid+",0)")
+    $('.show_uid_'+oid).html('-');
+  }else{
+    $('.foid_'+oid+' .oid_list').hide();
+    $('.oid_'+oid+' .oid_list').hide();
+    $('.show_uid_'+oid).attr('onclick',"showoid("+oid+",1)")
+    $('.show_uid_'+oid).html('+');
+  }
+  
+
+}
+
+</script>

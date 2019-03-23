@@ -1,0 +1,94 @@
+﻿{include file="head" /}
+
+<link href="/static/index/css/userinfo.css" rel="stylesheet">
+<script src="__HOME__/js/lk/c.js"></script>
+<body style="background-color: #323232">
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-icon mui-icon-back mui-pull-left font-white mui-action-back"></a>
+        <h1 id="title" class="mui-title font-white">个人资料</h1>
+    </header>
+    <div class="mui-content mui-content-user userinfo-view" style="position:absolute;top:0px;bottom:0px;width:100%;">
+		<form method="post" id="formid">
+			<div class="userinfo_up">
+				<div class="userinfo_up_content">      	
+					<ul class="userinfo_up_list">
+						<li class="newinput">
+						  <span class="input-text">
+							  用户账号:
+						  </span>
+						  <input type="text" value="{$userinfo.username}" disabled="disabled" readonly class="username">
+						</li>				
+						<li class="newinput">
+						  <span class="input-text">
+							  用户姓名:
+						  </span>
+						  							<input type="text" placeholder="用户姓名" value="{$userinfo.nickname}" readonly name="nickname" class="nickname">
+						  						</li>						
+						<li class="newinput">
+						  <span class="input-text">
+							  原始密码:
+						  </span>
+						  <input type="password" placeholder="请输入原密码" name="oldpwd">
+						</li>
+						<li class="newinput">
+						  <span class="input-text">
+							  登录密码:
+						  </span>
+						  <input type="password" placeholder="请输入新密码" name="newpwd">
+						</li>
+						<li class="newinput">
+						  <span class="input-text">
+							  确认密码:
+						  </span>
+						  <input type="password" placeholder="请确认新密码" name="newpwd2">
+						</li>
+					</ul>
+					<button class="newbutton userinfo_up_btn" onclick="return checkform(this.form);" >
+						修改资料
+					</button>
+				</div>
+			</div>
+			<div class="userinfo-footer">         
+			</div>
+		</form>
+    </div>
+   <script>
+	function checkform(form){
+		var nickname = form.nickname.value;
+		var oldpwd = form.oldpwd.value;
+		var upwd = form.newpwd.value;
+		var upwd2 = form.newpwd2.value;
+		if(!nickname){
+			layer.msg('请输入用户姓名');
+			return false; 
+		}
+		if (upwd) {
+			if(!oldpwd){
+				layer.msg('请输入原始密码');
+				return false; 
+			}
+			if(upwd.length < 6 || upwd2.length < 6){
+				layer.msg('密码长度需大于6位'); 
+				return false;
+			}
+			if (!upwd2) {
+				layer.msg('请输入确认密码'); 
+				return false;
+			}			
+			if(upwd != upwd2){
+				layer.msg('两次输入密码不同'); 
+				return false;
+			}
+		}
+
+		var data = $('#formid').serialize();
+		var formurl = "/index/user/userinfo.html";
+		var locurl = "/index/user/index.html";
+
+		WPpost(formurl,data,locurl);
+		return false;
+	}
+	</script>
+    {include file="foot" /}
+</body>
+</html> 

@@ -1,0 +1,26 @@
+ <title>波动自动刷新</title>
+
+<iframe src="sx.html" width="800px" height="200px" scrolling="no" frameborder="0"> </iframe>
+
+<Script>
+function refresh(){
+  
+    url = location.href;
+ 
+    console.log(url);
+    var once = url.split("#");
+ 
+    if (once[1] != 1) {
+ 
+        url += "sx.html";
+ 
+        self.location.replace(url);
+ 
+        window.location.reload();
+ 
+    }
+}
+ 
+setTimeout('refresh()', 100000);
+  
+</script>

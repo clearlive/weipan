@@ -1,0 +1,55 @@
+﻿ <title>提现记录 {$userinfo.nickname?$userinfo.nickname:$userinfo.username}  {$userinfo.utel} 余额：{$userinfo.usermoney} 元</title> {include file="head" /}
+
+<script>
+var pay_type = '';
+var wxpay_info = '';
+var returnrul = "{:url('user/index')}";
+</script>
+
+<style>
+.scroll-content{
+    overflow: scroll
+}
+</style>
+
+<link href="/static/index/css/mui.min.css" rel="stylesheet" />
+<div class="tab-nav tabs">
+{include file="foot" /}
+</div>
+
+    <ion-nav-bar class="bar-stable headerbar nav-bar-container" nav-bar-transition="ios" nav-bar-direction="swap" nav-swipe="">
+
+    	<div class="nav-bar-block" nav-bar="active">
+    		<ion-header-bar class="bar-stable headerbar bar bar-header" align-title="center">
+    			<div class="title title-center header-item" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">提现列表</div>
+    		</ion-header-bar>
+    	</div>
+    </ion-nav-bar>
+
+    <ion-content class="personalbg scroll-content ionic-scroll scroll-content-false  has-header has-tabs" scroll="false">
+        {volist name="list" id="vo"}
+         <div class="user_btn">
+            <h5>提现金额：<font color="#FF0000">{:$vo.bpprice}.00</font> 元</h5>
+            <h5>当前状态：
+                {if $vo.bptype == 0 && $vo.isverified == 0 /}
+                    <font color="#636363">正在识别>>></font> <div style="float:right;"><font color="#969696">开户行信息</font></div>
+                {elseif $vo.bptype == 0 && $vo.isverified == 2 /}
+                    <font color="#EEC900">退回</font> <div style="float:right;">原因：{$vo.remarks}</div> 
+                {else/}
+                    <font color="#008B00">通过</font> <div style="float:right;"><font color="#FF8C00">{$vo.remarks}</font>
+</div> 
+                {/if}
+            </h5>
+            <h5>创建时间：{$vo.bptime|date="Y-m-d H:i:s",###}</h5>
+
+        </div>
+        {/volist}
+
+
+    </ion-content>
+
+    </ion-tabs>
+</ion-nav-view>
+<script src="__HOME__/js/lk/c.js"></script>
+</body>
+</html>

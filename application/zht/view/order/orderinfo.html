@@ -1,0 +1,115 @@
+{include file="head" /}
+
+{include file="menu" /}
+
+   <!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">
+              <!-- page start-->
+              <div class="row">
+                  <div class="col-lg-8">
+                      <!--widget start-->
+                      <aside class="profile-nav alt green-border">
+                          <section class="panel">
+                              <div class="user-heading alt green-bg">
+                                  <a href="#">
+                                      <img alt="" src="{$portrait}">
+                                  </a>
+                                  <h1>用户名：{$nickname}</h1>
+                                  <p>编号：{$username}</p>
+                                  <p>余额：{if isset($usermoney)}{$usermoney}{else/}0{/if}</p>
+                              </div>
+
+                              <div class="panel-body bio-graph-info">
+                              
+                              <div class="form-horizontal">
+                                  
+                                  <div class="form-group">
+                                      <label class="col-lg-2 control-label">订单编号：</label>
+                                      <div class="col-lg-6">
+                                          <p class="control-label">{$orderno}</p>
+                                      </div>
+                                  </div>
+									<hr>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 control-label">商品：</label>
+                                      <div class="col-lg-6">
+                                          <p class="control-label">{$ptitle}</p>
+                                      </div>
+                                  </div>
+									<hr>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 control-label">订单状态：</label>
+                                      <div class="col-lg-6">
+                                          <p class="control-label">{if $ostaus == 1}平仓{else/}建仓{/if}</p>
+                                      </div>
+                                  </div>
+									<hr>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 control-label">入仓价格：</label>
+                                      <div class="col-lg-6">
+                                          <p class="control-label">{$buyprice}</p>
+                                      </div>
+                                  </div>
+									<hr>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 control-label">平仓价格：</label>
+                                      <div class="col-lg-6">
+                                          <p class="control-label">{$sellprice}</p>
+                                      </div>
+                                  </div>
+									<hr>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 control-label">入仓金额：</label>
+                                      <div class="col-lg-6">
+                                          <p class="control-label">{$fee}</p>
+                                      </div>
+                                  </div>
+									<hr>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 control-label">入仓时间：</label>
+                                      <div class="col-lg-6">
+                                          <p class="control-label">{$buytime|date="Y-m-d H:i:s",###}</p>
+                                      </div>
+                                  </div>
+									<hr>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 control-label">平仓时间：</label>
+                                      <div class="col-lg-6">
+                                          <p class="control-label">{$selltime|date="Y-m-d H:i:s",###}</p>
+                                      </div>
+                                  </div>
+									<hr>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 control-label">本单盈亏：</label>
+                                      <div class="col-lg-6">
+                                          <p class="control-label">{$ploss}</p>
+                                      </div>
+                                  </div>
+                                 
+
+                                  
+                              </div>
+                          </div>
+
+                          </section>
+                      </aside>
+                      <!--widget end-->
+                      
+                  </div>
+                 </div> 
+              
+                 
+              
+              <!-- page end-->
+          </section>
+      </section>
+      <!--main content end-->
+  </section>
+
+{include file="foot" /}
+<script>
+
+
+
+</script>

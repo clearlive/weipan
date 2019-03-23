@@ -1,0 +1,503 @@
+﻿ <title>{$pro.ptitle}  {$userinfo.nickname?$userinfo.nickname:$userinfo.username}  {$userinfo.utel} 余额：{$userinfo.usermoney} 元</title>{include file="head" /}
+<script type="text/javascript">
+window.onload=function(){
+//设置适配rem
+var change_rem = ((window.screen.width > 450) ? 450 : window.screen.width)/375*100;
+document.getElementsByTagName("html")[0].style.fontSize=change_rem+"px";
+window.onresize = function(){
+change_rem = ((window.screen.width > 450) ? 450 : window.screen.width)/375*100;
+document.getElementsByTagName("html")[0].style.fontSize=change_rem+"px";
+}
+}
+</script>
+<script type="text/javascript" src="__HOME__/js/lodash.min.js"></script>
+
+
+<script>
+
+var order_type = 0;
+var order_pid = {$pro.pid};
+var order_price = {$pay_choose_arr[0]};
+var order_sen = {$protime[0]*60};
+var order_shouyi = {$proscale[0]};
+var newprice = {$pro.Price};  //实时价格
+var rawData_data = [];
+var my_money = {$userinfo.usermoney?$userinfo.usermoney:'0'};
+var order_min_price = {:getconf('order_min_price')};
+var order_max_price = {:getconf('order_max_price')};
+
+
+</script>
+
+
+
+<div class="nav-bar-block" nav-bar="active"><ion-header-bar class="bar-stable headerbar bar bar-header" align-title="center"><div class="buttons buttons-left" style="transition-duration: 0ms;"><span class="left-buttons">
+        <a href="javascript:history.go(-1);" class="back-button" style="transition-duration: 0ms;    margin-top: 0.1rem;">
+            <i class="icon ion-ios-arrow-left"></i>
+        </a>
+    </span></div><div class="title title-center header-item goodstitle" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px); left: 48px; right: 48px;"> </div><div style="float:right;"></div></ion-header-bar></div></ion-nav-bar>
+<ion-view   class="trade-view pane"  hide-nav-bar="false" state="trade" nav-view="active" style="opacity: 1; transform: translate3d(0%, 0px, 0px);">
+    
+    <ion-content  class="trade-content content-background scroll-content ionic-scroll  has-header" scroll="true"><div class="scroll" style="transform: translate3d(0px, 0px, 0px) scale(1);">
+		<header>
+			<section  class="ng-binding rise data-price" style="">{$pro.Price}</section>
+			<section>
+				<p class="kaipan"></p>
+				<p  class="ng-binding rise data-open" style="">{$pro.Open}</p>
+			</section>
+			<section>
+				<p class="zuidi"></p>
+				<p  class="ng-binding rise data-low" style="">{$pro.Low}</p>
+			</section>
+			<section>
+				<p class="zuigao"></p>
+				<p  class="ng-binding rise data-high" style="">{$pro.High}</p>
+			</section>
+		</header>
+		<nav>
+             <article>
+                <span class="trade-chart-type stock active Kxian" onclick="change_chart_type('stock')"></span>
+                <span class="trade-chart-type line zoushi" onclick="change_chart_type('line')"></span>
+            </article> 
+            <section class="trade-chart-period 1M active" onclick="change_chart_period('1M')">1M</section>
+            <section class="trade-chart-period 5M" onclick="change_chart_period('5M')">5M</section>
+            <section class="trade-chart-period 15M" onclick="change_chart_period('15M')">15M</section>
+            <section class="trade-chart-period 30M" onclick="change_chart_period('30M')">30M</section>
+            <section class="trade-chart-period 1H" onclick="change_chart_period('1H')">1H</section>
+            <section class="trade-chart-period 1D" onclick="change_chart_period('1D')">1D</section>
+        </nav>
+		<footer>
+             <div id="container">
+               <div id="ecKx"></div>
+               <div class="txt1"><span class="a"></span><span class="b"></span><span class="c"></span><span class="d"></span><span class="e"></span></div>
+               <div class="txt2"><span class="a DIFF"><i></i></span><span class="b DEA"><i></i></span><span class="c MACD"><i></i></span></div>
+             </div>  
+        </footer>
+    </div><div class="scroll-bar scroll-bar-v"><div class="scroll-bar-indicator scroll-bar-fade-out" style="transform: translate3d(0px, 0px, 0px) scaleY(1); height: 0px;"></div></div></ion-content>
+	<div class="trade_bar">
+    {if $isopen == 1}
+		<section onclick="toggle_history_order_panel()" class=""><div style="float:left;"></div>
+		<div class="title title-center header-item goodstitle" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px); left: 48px; right: 48px;">$pro.ptitle}</div>
+            <font color="#FFFFFF">在线: </font><font color="#FF0000"><strong><script type="text/javascript">var zaixian = 18280;
+document.write(""+Math.round(zaixian+Math.random()*38610)+ "</strong></font> ");</script></font></a><font color="#FFFFFF">人 </font>
+		</section>
+		<section onclick="toggle_order_confirm_panel('lookup')" class="">
+			<i class="iconfont icon--18"></i>
+            <p class="maizhang"></p>
+		</section>
+		<section onclick="toggle_order_confirm_panel('lookdown')" class="">
+			<i class="iconfont icon--17"></i>
+            <p class="maidie"></p>
+		</section>
+    {else/}
+        <section  class="" style="flex-basis:100%">
+            <i class="icon--14 iconfont"></i>
+            <p class="xiushi"><span ng-show="order_list" class="ng-binding ng-hide" style="">(0)</span></p>
+        </section>
+        
+    {/if}
+	</div>
+
+    <!-- ngInclude: 'templates/order-confirm-panel.html' --><div ng-include="'templates/order-confirm-panel.html'" class="">
+    <div class="pro_mengban "  >
+    <div class="order-confirm-panel" >
+        <div class="panel-header">
+            <div>
+                订单确认
+                <div class="close" onclick="toggle_order_close_panel()">
+                    <i class="icon ion-ios-close-empty close_tag"></i>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="period">
+                <p class="end_time">到期时间</p>
+                <ion-scroll direction="x" class="scroll-view ionic-scroll scroll-x"><div class="scroll" style="transform: translate3d(0px, 0px, 0px) scale(1);">
+                    <div class="period-widget-view">
+                        <!-- ngRepeat: c in trade.cycle -->
+                        {volist name="protime" id="vo" key='k'}
+
+			{/volist}
+
+                        <!--<div class="period-widget {if $k==1} active {/if}"  data-sen="{$vo*7.5}" data-shouyi="{$proscale[$k-3]}">-->
+                            <!--<div class="period-widget-header">-->
+                                <!--结算时间-->
+                            <!--</div>-->
+                            <!--<div class="period-widget-content" >-->
+                                <!--<span  class="final_time ng-binding">{$vo*7.5}</span>-->
+                                <!--<span  class="final_unit">秒</span>-->
+                            <!--</div>-->
+                            <!--<div class="period-widget-footer period_footer ng-binding">-->
+                                <!--收益  {$proscale[$k-3]}%-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <div class="period-widget {if $k==1}  {/if}"  data-sen="{$vo*15}" data-shouyi="{$proscale[$k-3]}">
+                            <div class="period-widget-header">
+                                结算时间
+                            </div>
+                            <div class="period-widget-content" >
+                                <span  class="final_time ng-binding">30</span>
+                                <span  class="final_unit">秒</span>
+                            </div>
+                            <div class="period-widget-footer period_footer ng-binding">
+                                收益  {$proscale[$k-3]}%
+                            </div>
+                        </div>
+
+                        <div class="period-widget {if $k==1}  {/if}"  data-sen="{$vo*30}" data-shouyi="{$proscale[$k=1]}">
+                            <div class="period-widget-header">
+                                结算时间
+                            </div>
+                            <div class="period-widget-content" >
+                                <span  class="final_time ng-binding">1</span>
+                                <span  class="final_unit">分钟</span>
+                            </div>
+                            <div class="period-widget-footer period_footer ng-binding">
+                                收益  {$proscale[$k=1]}%
+                            </div>
+                        </div>
+
+                        <div class="period-widget {if $k==1}  {/if}"  data-sen="{$vo*60}" data-shouyi="{$proscale[$k+1]}">
+                            <div class="period-widget-header">
+                                结算时间
+                            </div>
+                            <div class="period-widget-content" >
+                                <span  class="final_time ng-binding">2</span>
+                                <span  class="final_unit">分钟</span>
+                            </div>
+                            <div class="period-widget-footer period_footer ng-binding">
+                                收益  {$proscale[$k+1]}%
+                            </div>
+                        </div>
+
+
+
+                         <!--end ngRepeat: c in trade.cycle-->
+                    </div>
+                </div><div class="scroll-bar scroll-bar-h"><div class="scroll-bar-indicator scroll-bar-fade-out" style="transform: translate3d(0px, 0px, 0px) scaleX(1); width: 289px;"></div></div></ion-scroll>
+            </div>
+            <div class="amount">
+                <p class="invest_account tousijine">
+                    
+                    <span  class="{if $userinfo['usermoney'] > $pay_choose_arr[0]} ng-hide {/if} no-money">投资金额余额不足，请充值！</span>
+                    <span  class="ng-hide no-max">单笔投资金额不超过{:getconf('order_max_price')}</span>
+                    <span   class="ng-hide no-min">单笔投资金额不少于{:getconf('order_min_price')}</span>
+                </p>
+                <ion-scroll direction="x" class="scroll-view ionic-scroll scroll-x"><div class="scroll" style="transform: translate3d(0px, 0px, 0px) scale(1);">
+                    <div class="amount-view">
+                        {volist name="pay_choose_arr" id="vo" key='k'}
+                        <div class="amount-box ng-binding {if $k==1} active {/if}" data-price="{$vo}">
+                            ￥{$vo}
+                        </div>
+                        {/volist}
+
+                    </div>
+                </div><div class="scroll-bar scroll-bar-h"><div class="scroll-bar-indicator scroll-bar-fade-out" style="transform: translate3d(0px, 0px, 0px) scaleX(1); width: 192px;"></div></div></ion-scroll>
+                <label class="other-amount">
+                    <input type="number" placeholder="其他金额" ng-init="onfocus=false" ng-focus="onfocus==true" ng-model="order_params.other_amount" ng-keydown="min_money()" class="ng-pristine ng-untouched ng-valid ng-empty">
+                </label>
+            </div>
+            <div class="info-view">
+                <div class="ng-binding my-money">余额:  ￥ <span class="pay_mymoney">{$userinfo.usermoney}</span></div>
+                <div class="ng-binding">手续费：<span>{$conf.web_poundage}</span>%</div>
+
+            </div>
+            <div class="order-detail-view">
+                <div class="order-detail">
+                    <div class="row fields">
+                        <div class="col">名称</div>
+                        <div class="col">方向</div>
+                        <div class="col">现价</div>
+                        <div class="col">金额</div>
+                    </div>
+                    <div class="row">
+                        <div class="col qoute_name ng-binding goodstitle"> </div>
+                        <div class="col ng-binding order_type" >买跌</div>
+                        <div class="col ng-binding rise col-nowprice" >{$pro.Price}</div>
+                        <div class="col ng-binding" id="money"> ￥{$pay_choose_arr[0]}</div>
+                    </div>
+                    <div class="row btn_confirm">
+                        <div class="col">
+                            <button class="button" onclick="addorder()" >
+                            	确认下单
+                            </button>
+                        </div>
+                    </div>
+                    <p class="expect_profit">
+                        <span class="ng-binding">预期收益 :  ￥ <span id="yuqi">190.00</span></span>
+                        &nbsp;&nbsp;
+                        <span class="ng-binding">保底金额 :  ￥ 0.00</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+    <!-- ngInclude: 'templates/order-state-panel.html' -->
+    <div class="order_mengban" id="div2" style="width:100%;height:100%;"><div>
+    <div >
+        <div class="order-state-panel"  >
+            <div class="panel-header">
+                <div class="ng-binding goodstitle">
+                     
+                    <div class="close" onclick="close_order()" ">
+                        <i class="icon ion-ios-close-empty">1</i>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="paysuccess  ng-hide" ng-show="order_result.status == 'SUCCESS'">
+                    <div class="circle_wrapper" ng-show="order_params.cycle.time.indexOf('-') == -1">
+                        <div class="right_circle">
+                            <img class="img_circle_right" style="-webkit-animation: run 60s linear;" src="__HOME__/img/right_circle1.png">
+                        </div>
+                        <div class="left_circle">
+                            <img class="img_circle_lift" style="-webkit-animation: runaway 60s linear;" src="__HOME__/img/left_circle1.png">
+                        </div>
+                    </div>
+                    <div class="row remaining count_remaining" ng-show="order_params.cycle.time.indexOf('-') == -1">
+                        <div class="col">
+                            <div class="ng-binding pay_order_sen"></div>
+                            <div>现价</div>
+                            <div class="ng-binding newprice"></div>
+                        </div>
+                    </div>
+                    <div class="pupil_success ng-hide" ng-show="order_params.cycle.time.indexOf('-') >= 0">
+                        <p>交易成功，等待结算</p>
+                        <p class="ng-binding">
+                            <span>剩余时间：</span>
+                            天Invalid Date
+                        </p>
+                    </div>
+                    <div class="row info_list">
+                        <div class="col col-15 first_info">
+                            <p>方向</p>
+                            <p  class="ng-binding pay_order_type"></p>
+                        </div>
+                        <div class="col col-30">
+                            <p>金额</p>
+                            <p class="ng-binding">￥<span class="pay_order_price"></span></p>
+                        </div>
+                        <div class="col col-30">
+                            <p>执行价</p>
+                            <p class="ng-binding pay_order_buypricee"></p>
+                        </div>
+                        <div class="col col-25 last_info">
+                            <p>预测结果</p>
+                            <p  class="ng-binding yuce">  ￥ </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wait" ng-show="order_result.status == 'POST'">
+                    <div class="row">
+                        <div class="col ng-binding">
+                            <i class="ion-paper-airplane"></i>
+                            结算中……
+                        </div>
+                    </div>
+                </div>
+                <div class="fail ng-hide" ng-show="order_result.status == 'FAIL'">
+                    <div class="row">
+                        <div class="col ng-binding">
+                            <i class="ion-close-circled"></i>
+                            正在提交订单
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fail ng-hide order_fail" ng-show="order_result.status == 'FAIL'" style="">
+                    <div class="row">
+                        <div class="col ng-binding">
+                            <i class="ion-close-circled"></i>
+                            <span class="fail-info" style="    font-size: 18px;color: #fff;"></span>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="ordersuccess ng-hide" style="">
+                    <div class="row remaining finish_remaining">
+                        <div class="col">
+                            <div class="result_profit ng-binding "  style="">￥190</div>
+                            <div class="expired_statements">到期结算完成</div>
+                        </div>
+                    </div>
+                    <div class="row info_list">
+                        <div class="col col-15 first_info">
+                            <p>方向</p>
+                            <p  class="ng-binding pay_order_type"></p>
+                        </div>
+                        <div class="col col-30">
+                            <p>金额</p>
+                            <p class="ng-binding">￥<span class="pay_order_price"></span></p>
+                        </div>
+                        <div class="col col-30">
+                            <p>执行价</p>
+                            <p class="ng-binding pay_order_buypricee"></p>
+                        </div>
+                        
+                        <div class="col col-25 last_info">
+                            <p>成交价</p>
+                            <p class="ng-binding rise endprice" style=""></p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row button_row">
+                    <div class="col">
+                        <button class="button" onclick="continue_order()">继续下单</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+    <!-- ngInclude: 'templates/history-order-panel.html' --><div  class=""><div class="history-panel" ng-include="1">
+    <div class="panel-header chicangmingxi" >
+        
+        <div class="close" onclick="toggle_history_order_panel()">
+            <i class="icon ion-ios-close-empty"></i>
+        </div>
+    </div>
+    <div class="trade_history_list">
+    	<ion-scroll style="height: 100%" class="scroll-view ionic-scroll scroll-y"><div class="scroll" style="transform: translate3d(0px, 0px, 0px) scale(1);">
+    		
+        	<ul>
+               
+
+            </ul>
+    		 <!--ngIf: has_more_order -->
+        </div><div class="scroll-bar scroll-bar-v"><div class="scroll-bar-indicator scroll-bar-fade-out" style="transform: translate3d(0px, 0px, 0px) scaleY(1); height: 0px;"></div></div></ion-scroll>
+    </div>
+</div>
+</div>
+</ion-view></ion-nav-view>
+
+
+<div class="backdrop"></div><div class="ionic_toast"><div class="toast_section" ng-class="ionicToast.toastClass" ng-style="ionicToast.toastStyle" ng-click="hideToast()" style="display: none; opacity: 0;"><span class="ionic_toast_close"><i class="ion-android-close toast_close_icon"></i></span><span ng-bind-html="ionicToast.toastMessage" class="ng-binding"></span></div></div><div class="click-block click-block-hide"></div><div class="modal-backdrop hide"><div class="modal-backdrop-bg"></div><div class="modal-wrapper" ng-transclude=""><ion-modal-view class="order-modal modal slide-in-up ng-leave ng-leave-active">
+    <ion-header-bar class="order-modal-header bar bar-header">
+        <h1 class="title" style="left: 54px; right: 54px;">资金流水</h1>
+        <div class="close" ng-click="capital_history_modal_hide()">
+            <i class="icon ion-ios-arrow-left"></i>
+        </div>
+    </ion-header-bar>
+    <ion-content class="person_money_list scroll-content ionic-scroll  has-header"><div class="scroll" style="transform: translate3d(0px, 0px, 0px) scale(1);">
+		<ion-scroll style="height:100%" class="scroll-view ionic-scroll scroll-y"><div class="scroll" style="transform: translate3d(0px, 0px, 0px) scale(1);">
+			
+			<ul>
+                <!-- ngRepeat: c in moneyList -->
+                
+			</ul>
+			<!-- ngIf: has_more_money_order.if_has_more_money_order -->
+		</div><div class="scroll-bar scroll-bar-v"><div class="scroll-bar-indicator scroll-bar-fade-out" style="height: 0px; transform: translate3d(0px, 0px, 0px) scaleY(1); transform-origin: center bottom 0px;"></div></div></ion-scroll>
+    </div><div class="scroll-bar scroll-bar-v"><div class="scroll-bar-indicator scroll-bar-fade-out" style="transform: translate3d(0px, 0px, 0px) scaleY(1); height: 0px;"></div></div></ion-content>
+    <div class="button-bar">
+        <a class="button button-dark" ng-click="capital_history_modal_hide()">关闭</a>
+    </div>
+    <script src="__HOME__/js/lk/chardata.js?2017"></script>
+    <script src="__HOME__/js/echarts.js"></script>
+    <script src="__HOME__/js/lk/c.js"></script>
+    <script src="__HOME__/js/m.js"></script>
+    <script>
+
+
+    
+    //setInterval('getdata({$pro.pid})', 1000);
+    //window.setInterval('getMaindata()',5000);
+    //setInterval("window.location.reload();",1000*60*5);
+    
+    var titurl = '{:url("goodsinfo")}'
+    $.post(titurl, 'pid={$pro.pid}', function(_res){
+          
+        var res = jQuery.parseJSON(Base64.decode(_res)); 
+
+        if(res.ptitle){
+            $('.goodstitle').html(res.ptitle);
+        }else{
+           // history.go(-1);
+        }
+    })
+
+    var charturl = '{:url("getchart")}';
+    $.get(charturl,function(_res){
+        var res = jQuery.parseJSON(Base64.decode(_res));
+        $.each(res,function(k,v){
+            console.log(k)
+            $('.'+k).html(v);
+        })
+    })
+    
+    </script>
+
+    <script>
+    var flag = false;
+    var cur = {
+        x:0,
+        y:0
+    }
+    var nx,ny,dx,dy,x,y ;
+    function down(){
+        flag = true;
+        var touch ;
+        if(event.touches){
+            touch = event.touches[0];
+        }else {
+            touch = event;
+        }
+        cur.x = touch.clientX;
+        cur.y = touch.clientY;
+        dx = div2.offsetLeft;
+        dy = div2.offsetTop;
+    }
+    function move(){
+
+        if(flag){
+            var touch ;
+            if(event.touches){
+                touch = event.touches[0];
+            }else {
+                touch = event;
+            }
+            nx = touch.clientX - cur.x;
+            ny = touch.clientY - cur.y;
+            x = dx+nx;
+            y = dy+ny;
+            div2.style.left = x+"px";
+            div2.style.top = y +"px";
+            //阻止页面的滑动默认事件
+            document.addEventListener("touchmove",function(){
+                event.preventDefault();
+            },false);
+        }
+    }
+    //鼠标释放时候的函数
+    function end(){
+        flag = false;
+    }
+    var div2 = document.getElementById("div2");
+    div2.addEventListener("mousedown",function(){
+        down();
+    },false);
+    div2.addEventListener("touchstart",function(){
+        down();
+    },false)
+    div2.addEventListener("mousemove",function(){
+        move();
+    },false);
+    div2.addEventListener("touchmove",function(){
+        move();
+    },false)
+    document.body.addEventListener("mouseup",function(){
+        end();
+    },false);
+    div2.addEventListener("touchend",function(){
+        end();
+    },false);
+</script>
+</ion-modal-view></div></div></body></html>

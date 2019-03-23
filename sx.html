@@ -1,0 +1,83 @@
+﻿<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="/static/public/js/jquery.js"></script>
+<script type="text/javascript">
+	var dataisclose = 0;
+	var orderisclose = 0;
+	var allotisclose = 0;
+
+	setInterval('datanewisclose()', 3000);
+	setInterval('ordernewisclose()', 1000);
+	//setInterval('add_order()', 2000);
+	setInterval('allotorderisclose()', 1000);
+	setInterval('checkbal()', 40000);
+	//********产品更新*********//
+	function datanewisclose(){
+		if(dataisclose == 0){
+			flash_product();
+		}
+	}
+
+    function flash_product(){
+    	dataisclose = 1;
+		$.get("/index/api/getdate", {}, function() {
+			dataisclose = 0;
+		});
+
+  	}
+  	//********订单更新*********//
+  	function ordernewisclose() {
+		if(orderisclose == 0){
+			flash_order();
+		}
+	}
+
+	function flash_order() {
+		orderisclose = 1;
+		$.get("/index/api/order", {}, function() {
+			orderisclose = 0;
+		});
+	}
+
+	//********模拟更新*********//
+
+	function add_order() {
+		
+		$.get("/index/test/addorder");
+	}
+
+	//********订单对冲*********//
+  	function allotorderisclose() {
+		if(allotisclose == 0){
+			allot_order();
+		}
+	}
+
+	function allot_order() {
+		allotisclose = 1;
+		$.get("/index/api/allotorder", {}, function() {
+			allotisclose = 0;
+		});
+	}
+	
+	function checkbal(){
+	
+		$.get("/index/api/checkbal");
+		
+	}
+
+	
+</script>
+<script>
+   setInterval("window.location.reload();",1000*60*3);
+</script>
+<h3>
+	波动已经打开，请勿关闭此页面。zm-ok
+	
+</h3>
+
+
+
+
+
+
+

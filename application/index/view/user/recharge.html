@@ -1,0 +1,132 @@
+﻿{include file="head" /}
+<link href="/static/index/css/cz.css" rel="stylesheet">
+<script src="__HOME__/js/lk/c.js"></script>
+<body style="background-color: #0b0b0b">
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-icon mui-icon-back mui-pull-left font-white mui-action-back"></a>
+        <h1 id="title" class="mui-title font-white">账户充值</h1>
+    </header>
+    <div class="mui-content mui-content-cz">
+		<div class="main">
+			<div class="linerow moneylist">
+									<div class="li" onclick="selectmoney(this,10)" money="10" rmb="66">
+						<div class="money huangcolor">10</div>
+						<div class="moneytype">USD</div>
+						<div class="dagou"><i></i></div>
+					</div>
+									<div class="li" onclick="selectmoney(this,20)" money="20" rmb="132">
+						<div class="money huangcolor">20</div>
+						<div class="moneytype">USD</div>
+						<div class="dagou"><i></i></div>
+					</div>
+									<div class="li" onclick="selectmoney(this,50)" money="50" rmb="330">
+						<div class="money huangcolor">50</div>
+						<div class="moneytype">USD</div>
+						<div class="dagou"><i></i></div>
+					</div>
+									<div class="li" onclick="selectmoney(this,100)" money="100" rmb="660">
+						<div class="money huangcolor">100</div>
+						<div class="moneytype">USD</div>
+						<div class="dagou"><i></i></div>
+					</div>
+									<div class="li" onclick="selectmoney(this,200)" money="200" rmb="1320">
+						<div class="money huangcolor">200</div>
+						<div class="moneytype">USD</div>
+						<div class="dagou"><i></i></div>
+					</div>
+									<div class="li" onclick="selectmoney(this,300)" money="300" rmb="1980">
+						<div class="money huangcolor">300</div>
+						<div class="moneytype">USD</div>
+						<div class="dagou"><i></i></div>
+					</div>
+									<div class="li" onclick="selectmoney(this,500)" money="500" rmb="3300">
+						<div class="money huangcolor">500</div>
+						<div class="moneytype">USD</div>
+						<div class="dagou"><i></i></div>
+					</div>
+									<div class="li" onclick="selectmoney(this,800)" money="800" rmb="5280">
+						<div class="money huangcolor">800</div>
+						<div class="moneytype">USD</div>
+						<div class="dagou"><i></i></div>
+					</div>
+									<div class="li" onclick="selectmoney(this,1000)" money="1000" rmb="6600">
+						<div class="money huangcolor">1000</div>
+						<div class="moneytype">USD</div>
+						<div class="dagou"><i></i></div>
+					</div>
+						        	<div class="li" onclick="selectmoney(this,2000)" money="2000" rmb="13200">
+						<div class="money huangcolor">2000</div>
+						<div class="moneytype">USD</div>
+						<div class="dagou"><i></i></div>
+					</div>
+							<!--	<div class="li" onclick="selectmoney(this,5000)" money="5000" rmb="33201">
+						<div class="money huangcolor">5000</div>
+						<div class="moneytype">USD</div>
+						<div class="dagou"><i></i></div>
+					</div>-->
+								<div class="clear"></div>
+			</div>
+			<div class="linerow paymoneydiv">
+				<div class="left huangcolor">￥</div>
+				<div class="center"><input type="text" class="inputmoney" onkeyup="moneychange(this)" onkeyup2="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" value="" placeholder="请输入充值金额"></div>
+				<div class="right">CNY</div>
+			</div>
+			<div class="linerow">
+				<ul class="tipul">
+					<li>尊敬的客户，任意金额请填写CNY数额</li>
+					<li>汇率系统自动转换USD，实时到你的账号</li>
+					<li>汇率系统实时：<span id="huilv">6.6</span></li>
+				</ul>
+			</div>
+			<div class="linerow">
+				<button class="newbutton2"  onclick="pay_sumbit('mcb_wxpay')">微信支付</button>
+				<button class="newbutton2"  onclick="pay_sumbit('mcb_alipay')">支付宝支付</button>
+			</div>
+			<div class="linerow">
+				<ul>
+					<li><a href="javascript:history.go(-1);" class="btn blue_btn">返回上一页</a></li>
+					<li><a href="/index/user/rechargelist.html" class="btn green_btn">充值列表</a></li>
+				</ul>
+			</div>
+			<div class="clear"></div>
+		</div>
+    </div>
+	<script>
+	var is_auto_pay='1';
+	var rmb_to_dollar='0.151516';
+	var min_paymoney=20;
+	</script>
+	<script src="/static/index/js/lk/user.js"></script>
+	<script>
+		function isInteger(obj) {
+			return obj%1 === 0
+		}
+		function selectmoney(obj,money){
+			$(obj).addClass("active");
+			$(obj).siblings().removeClass("active");
+			var huilv=1*rmb_to_dollar;
+			var newmoney=Math.ceil(money/huilv);
+			$(".inputmoney").val(newmoney);
+		}
+		function moneychange(obj){
+			obj.value=obj.value.replace(/\D/g,'');
+			$(".moneylist .li").removeClass("active");
+			$(".moneylist .li[rmb='"+obj.value+"']").addClass("active");
+		}
+		function pay_sumbit(paytype){
+			var money=1*$(".paymoneydiv .inputmoney").val();
+			if(money<=0||!isInteger(money)){
+				$(".paymoneydiv .inputmoney").val(Math.ceil(money));
+				layer.msg('金额必须为正整数', {icon: 2});
+				return false;
+			}
+			if(min_paymoney>money){
+				layer.msg('最低充值金额为'+min_paymoney+'人民币', {icon: 2});
+				return false;
+			}
+			location.href="/index/user/recharge/paytype/"+paytype+"/bpprice/"+money+".html";
+		}
+	</script>
+    {include file="foot" /}
+</body>
+</html> 

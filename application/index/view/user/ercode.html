@@ -1,0 +1,72 @@
+﻿ <title>二维码推广 {$userinfo.nickname?$userinfo.nickname:$userinfo.username}  {$userinfo.utel} 余额：{$userinfo.usermoney} 元</title> {include file="head" /}
+
+<script>
+var pay_type = '';
+var wxpay_info = '';
+var returnrul = "{:url('user/index')}";
+</script>
+
+<style>
+.scroll-content{
+    overflow: scroll
+}
+</style>
+
+    <link href="/static/index/css/mui.min.css" rel="stylesheet" />
+<div class="tab-nav tabs">
+{include file="foot" /}
+</div>
+
+    <ion-nav-bar class="bar-stable headerbar nav-bar-container" nav-bar-transition="ios" nav-bar-direction="swap" nav-swipe="">
+
+    	<div class="nav-bar-block" nav-bar="active">
+    		<ion-header-bar class="bar-stable headerbar bar bar-header" align-title="center">
+    			<div class="title title-center header-item" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">扫码注册</div>
+    		</ion-header-bar>
+    	</div>
+    </ion-nav-bar>
+
+    <ion-content class="personalbg scroll-content ionic-scroll scroll-content-false  has-header has-tabs" scroll="false">
+        <div class="ercodes">
+        <img src="https://www.cw.pub/source/pack/weixin/qrcode.php?link={$SITE_URL}/index/login/register.html" alt="" >
+         <!--<img src="/static/index/img/anzhuo.png"> --!> 
+<br><br>
+<button class="newbutton sign_button" ><center> {if $userinfo.otype == 0}&nbsp;推荐码: 62 &nbsp;{/if}{if $userinfo.otype == 101}&nbsp;推荐码: {$userinfo.uid}&nbsp;{/if}</center></button></a><p><br>
+
+<!--<button class="newbutton sign_button" ><center> App下载 
+<input value="http://fuhui.guojifuhui.com/index/login/register.html" id="url1" />
+<input type="button" onClick="copyUrl()" value="复制地址" />
+
+<script type="text/javascript">
+    function copyUrl() {
+        var Url = document.getElementById("url1");
+        Url.select(); // 选择对象
+        try{
+            if(document.execCommand('Copy', false, null)){
+                //success info
+　　　　　　　　　　alert('复制成功！');
+            } else{
+                //fail info
+            } 
+        } catch(err){
+            //fail info
+        }
+    }
+</script>  --!>  
+
+</center></button></a>
+        </div><!--<span style="color:#FFFFFF"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. 推广之前，先联系客服开通推荐码,</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. 开通推荐码后，截图保存二维码到本机,</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. 提成按照注册用户下单总金额的5%计算,</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4. 第二天0点计算,上一天注册用户下单总金额！ </p>--!>
+    </ion-content>
+
+    </ion-tabs>
+</ion-nav-view>
+
+</body>
+</html>
+<div id="zypay_post"></div>
+<script src="__HOME__/js/lk/c.js"></script>
+<script src="__HOME__/js/lk/user.js"></script>
+<script src="__HOME__/js/lk/jquery.qrcode.js"></script>
+<script src="__HOME__/js/lk/utf.js"></script>
+<!doctype html>
+<html>

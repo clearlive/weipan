@@ -1,0 +1,73 @@
+﻿{include file="head" /}
+
+{include file="menu" /}
+
+<script type="text/javascript" src="__STATIC__/uploadify/jquery.uploadify.min.js"></script>
+
+<section id="main-content">
+      <section class="wrapper">
+			<div class="col-sm-8">
+		      <aside class="profile-info col-lg-12">
+		      <section class="panel">
+		          <hr>
+		          <div class="panel-body bio-graph-info">
+		              <form class="form-horizontal" role="form" action="{:Url('editconf')}" enctype="multipart/form-data" method="post" id="formid">
+						
+		                {volist name="data" id="vo"}
+		                  <div class="form-group">
+		                      <label class="col-lg-3 control-label">{$vo.title}：</label>
+		                      <div class="col-lg-6">
+		                      	{if $vo.type == 1}
+		                          <input type="text" class="form-control" name="value_{$vo.id}_{$vo.type}" value="{$vo['value']}">
+		                        {elseif $vo.type == 2 /}
+		                        <textarea name="value_{$vo.id}_{$vo.type}"  class="form-control" cols="30" rows="10">{$vo['value']}</textarea>
+		                        {elseif $vo.type == 3 /}
+		                        
+								{if $vo['value']}
+		                        <div class="upload-pre-item"><a href="{$vo['value']}" target="_block" title="点击查看大图"><img height="100" src="{$vo['value']}" alt=""></a></div><br>
+								{/if}
+								<input type="hidden"  name="value_{$vo.id}_{$vo.type}">
+								<input type="file" id="pic_{$vo.id}" name="pic_{$vo.id}">
+
+
+
+
+		                        {/if}
+		                      </div>
+		                      <label class="col-lg-3 control-label">{$vo.extra}</label>
+		                  </div>
+						{/volist}
+		                  
+		                  <div class="form-group">
+		                      <div class="col-lg-offset-2 col-lg-10">
+		                          <input type="submit" class="btn btn-success"    value="提交">
+		                      </div>
+		                  </div>
+		              </form>
+		          </div>
+		      </section>
+		      
+		  </aside>
+		  </div>
+
+      </section>
+  </section>
+<script src="__ADMIN__/js/lk/c.js"></script>
+{include file="foot" /}
+<script>
+
+function formeidt() {
+	var formurl = "{:Url('editconf')}";
+    var data = $('#formid').serialize();
+    
+
+    WPpost(formurl,data);
+    
+    return false;
+}
+
+
+
+</script>
+
+

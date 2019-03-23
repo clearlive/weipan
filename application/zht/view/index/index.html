@@ -1,0 +1,238 @@
+﻿<title>后台首页 {$_SESSION['username']?$_SESSION['username']:''} 新增:{$data.tody_user} 总数:{$data.all_user}</title>
+<script type="text/javascript" src="https://c.ibangkf.com/i/c-kefuq59.js"></script>
+{include file="head" /}
+
+{include file="menu" /}
+<!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">
+              <!--state overview start-->
+			  		<marquee><font  size=+3 color=red>{$xtgg}</font></marquee>
+              <div class="row index_top_user">
+                <h2>今日新增用户：{$data.tody_user} &nbsp;&nbsp;&nbsp;&nbsp;总用户：{$data.all_user}&nbsp;&nbsp;&nbsp;&nbsp;
+                  用户总余额：{$data.all_usermoney}</h2>
+              </div>
+              <div class="row state-overview">
+                  <div class="col-lg-2 col-sm-2">
+                      <section class="panel">
+                          <div class="symbol red color_white">
+                              <h4>今日<br>订单</h4>
+                          </div>
+                          <div class="value">
+                              <h1>{$data.tody_order}</h1>
+                          </div>
+                      </section>
+                  </div>
+                  <div class="col-lg-2 col-sm-2">
+                      <section class="panel">
+                          <div class="symbol gray color_white">
+                              <h4>客户<br>盈亏</h4>
+                          </div>
+                          <div class="value">
+                              <h1>{$data.tody_profit}</h1>
+                          </div>
+                      </section>
+                  </div>
+                  <div class="col-lg-2 col-sm-2">
+                      <section class="panel">
+                          <div class="symbol blue color_white">
+                              <h4>今日<br>流水</h4>
+                          </div>
+                          <div class="value">
+                              <h1>{$data.tody_fee}</h1>
+                          </div>
+                      </section>
+                  </div>
+
+                  <div class="col-lg-2 col-sm-2">
+                      <section class="panel">
+                          <div class="symbol terques color_white">
+                              <h4>今日<br>充值</h4>
+                          </div>
+                          <div class="value">
+                              <h1>{$data.tody_recharge}</h1>
+                              
+                          </div>
+                      </section>
+                  </div>
+
+                  <div class="col-lg-2 col-sm-2">
+                      <section class="panel">
+                          <div class="symbol red color_white">
+                              <h4>今日<br>提现</h4>
+                          </div>
+                          <div class="value">
+                              <h1>{$data.tody_get}</h1>
+                          </div>
+                      </section>
+                  </div>
+
+                  <div class="col-lg-2 col-sm-2">
+                      <section class="panel">
+                          <div class="symbol gray color_white">
+                              <h4>当天<br>手续费</h4>
+                          </div>
+                          <div class="value">
+                              <h1>{$data.tody_shouxu}</h1>
+                          </div>
+                      </section>
+                  </div>
+
+              </div>
+              <!--state overview end-->
+            <br><br>
+             <div class="row">
+                  <div class="col-lg-12">
+                      <section class="panel">
+                          <header class="panel-heading">
+                              最新交易记录
+                              <a href="{:url('order/orderlist')}"><span class="right">更多>></span></a>
+                          </header>
+
+                          <table class="table table-striped table-advance table-hover">
+                            <thead class="ordertable">
+                              <tr>
+                                <th>
+                                    订单编号
+                                </th>
+                                <th>
+                                    交易账号
+                                </th>
+                                <th>
+                                    用户姓名
+                                </th>
+                                <th>
+                                    订单时间
+                                </th>
+                                <th>
+                                    产品信息
+                                </th>
+                                <th>
+                                    订单状态
+                                </th>
+                                <th>
+                                    方向
+                                </th>
+                                <th>
+                                    时间/点数
+                                </th>
+                                <th>
+                                    建仓点位
+                                </th>
+                                <th>
+                                    平仓点位
+                                </th>
+                                <th>
+                                    委托金额
+                                </th>
+                                <th>
+                                    无效委托
+                                </th>
+                                <th>
+                                    有效委托
+                                </th>             
+                                <th>
+                                    实际盈亏
+                                </th>
+                                <th>
+                                    买后余额
+                                </th>
+                                
+                                <th>
+                                    所属代理
+                                </th>
+                                <th>
+                                    操作
+                                </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          <!-- {volist name="order" id="vo"} -->
+                              <tr>
+                                  <td>{$vo.oid}</td>
+                                  <td>{$vo.username}</td>
+                                  <td>{$vo.nickname}</td>
+                                  <td>{$vo.buytime|date="Y-m-d H:i:s",###}</td>
+                                  <td>{$vo.ptitle}</td>
+                                  <td>{if $vo.ostaus==1}结算完成{else/}<img width="60" height="24" src="/static/index/img/loading-0.gif">{/if}</td>
+                                  {if $vo.ostyle == 0}
+                                  <td class="color_red">买涨</td>
+                                  {elseif $vo.ostyle == 1/}
+                                  <td class="color_green">买跌</td>
+                                  {/if}
+                                  <td>{$vo.endprofit}{if $vo.eid==1}点{else/}秒{/if}</td>
+                                  <td>{$vo.buyprice}</td>
+                                  <td>
+                                    {if $vo.ostaus == 1}
+                                      {if $vo["buyprice"] > $vo["sellprice"]}
+                                        <font color="#2fb44e" size="3">{$vo.sellprice}</font>
+                                      {else/}
+                                        <font color="#ed0000" size="3">{$vo.sellprice}</font>
+                                      {/if}
+                                    {else/}
+                                        <span {if $vo.pid == 1} class="jks drop" {elseif $vo.pid == 2} class="yks drop" {elseif $vo.pid == 3} class="tks drop" {elseif $vo.pid == 4} class="zsy drop" {/if}></span>
+                   <img width="60" height="20" src="/static/index/img/loading-0.gif">
+                                    {/if}
+                                  </td>
+
+                                  <td class="color_red">¥{$vo.fee}</td>
+                                  
+                                  {if $vo.ploss == 0}
+                                  <td class="color_red">¥{$vo.fee}</td>
+                                  {else /}
+                                  <td class="color_red">¥0</td>
+                                  {/if}
+
+                                  {if $vo.ploss != 0}
+                                  <td class="color_red">¥{$vo.fee}</td>
+                                  {else /}
+                                  <td class="color_red">¥0</td>
+                                  {/if}
+                                  
+                                  
+
+                                  <td {if $vo.ploss > 0} class="color_red" {else /} class="color_green" {/if}>¥{$vo.ploss}</td>
+                                  <td class="color_red">¥{$vo.commission}</td>
+                                  <td>{$vo.managername}</td>
+                                  <td>
+                                      <button class="btn btn-primary btn-xs" title="点击查看"><i class="icon-list-alt"></i></button>
+                                      
+                                  </td>
+                              </tr>
+                              <!-- {/volist} -->
+                              </tbody>
+                          </table>
+                      </section>
+                  </div>
+              </div>
+              
+             
+
+          </section>
+      </section>
+      <!--main content end-->
+  </section>
+<script src="__ADMIN__/js/lk/c.js"></script>
+{include file="foot" /}
+<script>
+ //owl carousel
+
+      $(document).ready(function() {
+          $("#owl-demo").owlCarousel({
+              navigation : true,
+              slideSpeed : 300,
+              paginationSpeed : 400,
+              singleItem : true
+
+          });
+      });
+
+      //custom select box
+
+      $(function(){
+          $('select.styled').customSelect();
+      });
+
+      
+
+</script>

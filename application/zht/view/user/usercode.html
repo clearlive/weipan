@@ -1,0 +1,99 @@
+{include file="head" /}
+
+{include file="menu" /}
+
+<!-- 邀请码 -->
+<!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">
+              
+            
+          <div class="row">
+         		<div class="col-lg-8">
+                      <section class="panel">
+                          <header class="panel-heading">
+                              添加邀请码：
+                          </header>
+
+                          <div class="panel-body">
+                              <form class="form-horizontal" action="" method="post" id="formid">
+	                            <div class="form-group">
+	                                  <label class="col-lg-2 control-label">请选择对应渠道</label>
+	                                  <div class="col-lg-6">
+	                                      <select name="mannerid" id="" class="selectpicker show-tick form-control selectotype">
+	                                          <option value="">请选择</option>
+	                                          <!-- {volist name="manner" id="vo"} -->
+	                                          <option value="{$vo.uid}">{$vo.username}</option>
+	                                          <!-- {/volist} -->
+	                                      </select>
+	                                  </div>
+	                              </div>
+
+	                              <div class="form-group">
+	                                  <label class="col-lg-2 control-label">邀请码</label>
+	                                  <div class="col-lg-6">
+	                                      <input type="text" class="form-control"  value="" name="usercode">
+	                                  </div>
+	                              </div>
+									<input type="hidden" name="uid" value="{$uid}">
+	                              <div class="form-group">
+                                      <div class="col-lg-offset-2 col-lg-10">
+                                          <button type="submit" class="btn btn-success" onclick="return addcode(this.form)" >提交</button>
+                                          
+                                      </div>
+                                  </div>
+
+                              </form>
+                              
+                          </div>
+                      </section>
+                  </div>
+                  <div class="col-sm-8">
+                      <section class="panel">
+                          <header class="panel-heading">
+                              所有邀请码：
+                          </header>
+                          <div class="panel-body">
+                              <!-- {volist name="usercode" id="vo"} -->
+                              <button type="button" class="btn btn-primary">{$vo.usercode}&nbsp;&nbsp;<span class="label label-default pull-right mail-info">{$vo.username}</span></button>
+                              <!-- {/volist} -->
+                          </div>
+                      </section>
+                  </div>
+
+          </div>       
+          
+          
+             
+
+          </section>
+      </section>
+      <!--main content end-->
+  </section>
+
+{include file="foot" /}
+<script>
+
+function addcode(form) {
+	var mannerid = form.mannerid.value;
+	var usercode = form.usercode.value;
+
+	if (!mannerid) {
+		layer.msg('请选择渠道'); return false;
+	}
+
+	if(!usercode){
+		layer.msg('请输入邀请码'); return false;
+	}
+
+	var formurl = "{:Url('user/usercode')}";
+	var data = $('#formid').serialize();
+    var locurl = "{:Url('user/usercode',array('uid'=>$uid))}";
+    WPpost(formurl,data,locurl);
+
+	return false;
+}
+
+
+
+</script>

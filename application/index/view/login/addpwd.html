@@ -1,0 +1,113 @@
+﻿{include file="head" /}
+<script src="__HOME__/js/lk/c.js"></script>
+<script src="__HOME__/js/lk/user.js"></script>
+
+<body ng-app="starter" ng-controller="AppCtrl" class="grade-a platform-browser platform-win32 platform-ready">
+<ion-nav-bar class="bar-stable headerbar nav-bar-container hide" nav-bar-transition="ios" nav-bar-direction="none" nav-swipe="">
+<div class="nav-bar-block" nav-bar="cached"><ion-header-bar class="bar-stable headerbar bar bar-header" align-title="center"><div class="title title-center header-item"></div></ion-header-bar></div><div class="nav-bar-block" nav-bar="active"><ion-header-bar class="bar-stable headerbar bar bar-header" align-title="center"><div class="title title-center header-item"></div></ion-header-bar></div></ion-nav-bar>
+<ion-nav-view class="view-container" nav-view-transition="ios" nav-view-direction="none" nav-swipe=""><ion-view hide-nav-bar="true" class="signin-view pane" state="signin" nav-view="active" style="opacity: 1; transform: translate3d(0%, 0px, 0px);">
+
+<form method="post" id="formid">
+  <div class="sign_up">
+      <div class="sign_up_content">
+      	
+          <ul class="sign_up_list">
+          {if !isset($utel) || !$utel}
+              <li class="newinput" ng-show="show_signup_code">
+                  <span class="input-text">
+                      手机号码:
+                  </span>
+                  <input type="text" placeholder="手机号码" name="username" class="username ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" style="">
+              </li>
+              <li class="newinput input_iphone_code">
+                  <span class="input-text">
+                      验证码:
+                  </span>
+                  <input type="text" placeholder="短信验证码" name="phonecode" class="phonecode ng-pristine ng-valid ng-empty ng-touched" style="">
+                  <span class="code_btn ng-binding"  onclick ="return get_svg();">
+                      获取验证码
+                  </span>
+              </li>
+              {/if}
+              <li class="newinput">
+                  <span class="input-text">
+                      密码:
+                  </span>
+                  <input type="password" placeholder="密码" name="upwd" required="" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" style="">
+              </li>
+              <li class="newinput">
+                  <span class="input-text">
+                      确认密码:
+                  </span>
+                  <input type="password" placeholder="确认密码" name="upwd2" required="" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" style="">
+              </li>
+              <li class="newinput">
+                  <span class="input-text">
+                      推荐码:
+                  </span>
+                  <input class="sign_code ng-pristine ng-untouched ng-valid ng-empty" {if isset($oid) && $oid} value="{$oid}" readonly="readonly" {/if}  placeholder="推荐码" name="oid" style="">
+              </li>
+          </ul>
+          <button class="newbutton sign_up_btn" onclick="return checkform(this.form);" >
+              立即绑定
+          </button>
+      </div>
+       </form>
+     
+  </div>
+<div class="spinner-view hide">
+    <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+    </div>
+    <div class="message ng-binding" ng-class="{ 'fadein' : message }"></div>
+</div>
+</ion-view></ion-nav-view>
+
+
+<div class="backdrop"></div><div class="ionic_toast"><div class="toast_section" ng-class="ionicToast.toastClass" ng-style="ionicToast.toastStyle" ng-click="hideToast()" style="display: none; opacity: 0;"><span class="ionic_toast_close"><i class="ion-android-close toast_close_icon"></i></span><span ng-bind-html="ionicToast.toastMessage" class="ng-binding"></span></div></div></body></html>
+<script>
+function checkform(form){
+  {if $oid}
+  	var username = form.username.value;
+    if(!username){
+      layer.msg('请输入手机号');
+      return false; 
+    }
+  {/if}
+	var upwd = form.upwd.value;
+	var upwd2 = form.upwd2.value;
+	var oid = form.oid.value;
+
+
+
+
+	if (!upwd2) {
+		layer.msg('请再次输入登录密码'); 
+		return false;
+	}
+
+	if(upwd.length < 6 || upwd2.length < 6){
+		layer.msg('密码长度大于6位'); 
+		return false;
+	}
+
+	if(upwd != upwd2){
+		layer.msg('两次输入密码不同'); 
+		return false;
+	}
+
+	if(!oid){
+		layer.msg('请输入邀请码');
+		return false; 
+	}
+
+
+	var data = $('#formid').serialize();
+    var formurl = "{:Url('login/addpwd')}";
+    var locurl = "{:Url('index/index')}";
+
+    WPpost(formurl,data,locurl);
+    return false;
+}
+</script>

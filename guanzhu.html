@@ -1,0 +1,168 @@
+
+ <title>΢�Ź�ע</title>
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+<!-- �Ƿ�����ȫ��ģʽ -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<!-- ȫ��ʱ״̬��ɫ���� -->
+<meta name="apple-mobile-web-status-bar-style" content="white">
+<!-- ���õ绰�����Զ�ʶ�� -->
+<meta name="format-detection" content="telephone=no">
+<!--��ֹ��ȡ���ػ���ģ��-->
+<meta http-equiv="Pragma" contect="no-cache">
+<!-- iPhone ����ͼ�� -->
+<link rel="apple-touch-icon" href="img/12.jpg">
+<!-- Android ����ͼ�� -->
+<link rel="shortcut icon" href="img/12.jpg">
+<!-- ��� favicon icon -->
+<link rel="shortcut icon" type="image/ico" href="img/12.jpg">
+ <title>���ʸ���FXCM</title> 
+<script type="text/javascript">
+window.onload=function(){
+//��������rem
+var change_rem = ((window.screen.width > 450) ? 450 : window.screen.width)/375*100;
+document.getElementsByTagName("html")[0].style.fontSize=change_rem+"px";
+window.onresize = function(){
+change_rem = ((window.screen.width > 450) ? 450 : window.screen.width)/375*100;
+document.getElementsByTagName("html")[0].style.fontSize=change_rem+"px";
+}
+}
+</script>
+
+<link href="/static/index/css/ionic.css" rel="stylesheet">
+<link href="/static/index/css/style.css" rel="stylesheet">
+<!-- <script src="/static/index/js/jquery-3.2.1.min.js"></script> -->
+<script src="/static/index/js/jquery-1.9.1.min.js"></script>
+<style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+<style>
+.ionic_toast {
+  z-index: 9999;
+}
+
+.toast_section {
+  color: #FFF;
+  cursor: default;
+  font-size: 1em;
+  display: none;
+  border-radius: 5px;
+  opacity: 1;
+  padding: 10px 30px 10px 10px;
+  margin: 10px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.ionic_toast_top {
+  top: 10px;
+}
+
+.ionic_toast_middle {
+  top: 40%;
+}
+
+.ionic_toast_bottom {
+  bottom: 10px;
+}
+
+.ionic_toast_close {
+  border-radius: 2px;
+  color: #CCCCCC;
+  cursor: pointer;
+  display: none;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  width: 20px;
+  height: 20px;
+}
+
+.toast_close_icon {
+  position: relative;
+  top: 1px;
+}
+
+.ionic_toast_sticky .ionic_toast_close {
+  display: block;
+}
+
+.ionic_toast_close:active {
+
+}</style>
+
+
+<script src="/static/index/js/lk/order.js"></script>
+
+<!-- <script type="text/javascript" src="/static/index/js/lk/echarts-all-3.js"></script>
+<script type="text/javascript" src="/static/index/js/lk/ecStat.min.js"></script>
+<script type="text/javascript" src="/static/index/js/lk/dataTool.min.js"></script>
+<script type="text/javascript" src="/static/index/js/lk/china.js"></script>
+<script type="text/javascript" src="/static/index/js/lk/world.js"></script>
+<script type="text/javascript" src="/static/index/js/lk/api"></script>
+<script type="text/javascript" src="/static/index/js/lk/getscript"></script>
+<script type="text/javascript" src="/static/index/js/lk/bmap.min.js"></script> -->
+<!-- ������ -->
+<script src="/static/layer/layer.js"></script>
+<!-- �������� -->
+<script src="/static/public/js/function.js"></script>
+<script src="/static/public/js/base64.js"></script>
+<script type="text/javascript">
+  var Base64 = new Base64();
+
+  
+</script>
+</head>
+
+<script>
+var pay_type = '';
+var wxpay_info = '';
+var returnrul = "/index/user/index.html";
+</script>
+
+<style>
+.scroll-content{
+    overflow: scroll
+}
+</style>
+
+<body ng-app="starter" ng-controller="AppCtrl" class="navbar grade-a platform-browser platform-ios platform-ios9 platform-ios9_1 platform-ready">
+
+<ion-nav-view class="view-container" nav-view-transition="ios" nav-view-direction="none" nav-swipe=""><ion-tabs class="tabs-icon-top navbar pane tabs-bottom tabs-standard" abstract="true" nav-view="active" style="opacity: 1; transform: translate3d(0%, 0px, 0px);"><div class="tab-nav tabs">
+
+
+<a href="/"  class="iconfont icon--6 tabnone tab-item " style=""><span class="tab-title ng-binding" >��Ʒ����</span></a>
+<a href="/index/order/hold.html" class="iconfont icon--7 tabnone tab-item" style=""><span class="tab-title ng-binding" >���׼�¼</span></a>
+<a href="/index/user/index.html"  class="iconfont icon--8 tabnone tab-item tab-item-active" style=""><span class="tab-title ng-binding" >��������</span></a>
+
+</div>
+
+    <ion-nav-bar class="bar-stable headerbar nav-bar-container" nav-bar-transition="ios" nav-bar-direction="swap" nav-swipe="">
+
+    	<div class="nav-bar-block" nav-bar="active">
+    		<ion-header-bar class="bar-stable headerbar bar bar-header" align-title="center">
+    			<div class="title title-center header-item" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">΢�Ź�ע</div>
+    		</ion-header-bar>
+    	</div>
+    </ion-nav-bar>
+
+    <ion-content class="personalbg scroll-content ionic-scroll scroll-content-false  has-header has-tabs" scroll="false">
+        <div class="ercodes">
+        <img src="/static/index/img/gongzh.png" alt="" >
+         <!--<img src="/static/index/img/anzhuo.png"> --!> 
+<br><br><br>
+<button class="newbutton sign_button" ><center> &nbsp;&nbsp;ɨ���ע���ں�&nbsp;&nbsp;   </center></button></a><p><br><br>
+
+<span style="color:#FFFFFF"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ��΢��ɨһɨ �� ��ͼ���棬ʹ��΢�����ɨ��</p></span>
+
+<div id="zypay_post"></div>
+<script src="/static/index/js/lk/user.js"></script>
+<script src="/static/index/js/lk/jquery.qrcode.js"></script>
+<script src="/static/index/js/lk/utf.js"></script>
+<script>
+
+</script>
+<script type="text/javascript" src="http://c.ibangkf.com/i/c-kefuq59.js"></script>
+<!doctype html>
+<html>

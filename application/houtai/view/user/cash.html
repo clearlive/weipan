@@ -1,0 +1,41 @@
+﻿    <title>提现列表     代理编号:{$_SESSION['username']?$_SESSION['username']:''}</title>
+<script src="__ADMIN__/js/lk/c.js"></script>
+    <link href="/static/admin/css/bootstrap.min.css" rel="stylesheet">
+
+                          <table class="table table-striped table-advance table-hover">
+                            <thead class="ordertable">
+                              <tr>
+                                <th>编号</th>
+                                <th>名称</th>
+                                <th>提现</th>
+                                <th>代理</td>
+                                <th>状态</td>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          <!-- {volist name="balance" id="vo"} -->
+                              <tr>
+                                  <td>{$vo.uid}</a></td>
+                                  <td>{$vo.nickname} </td>
+                                  <td class="color_red">¥{$vo.bpprice}</td>
+                                  <td>{:getuser($vo['oid'],"nickname")}</a></td>
+                                  <td>{if $vo.bptype == 1}
+                                      {$vo.remarks}
+                                      {elseif $vo.bptype == 0 && $vo.isverified == 0 && $otype == 3/}
+                                      <span class="color_red"><img width="31" height="17" src="/static/index/img/loading-0.gif"></span>
+                                      {elseif $vo.bptype == 0 && $vo.isverified == 0 /}
+                                          <span class="color_red"><img width="31" height="17" src="/static/index/img/loading-0.gif"></span>
+                                      {elseif $vo.bptype == 0 && $vo.isverified == 2 /}
+                                      	<span class="color_red">已退回</span>
+                                      {else/}
+					<span class="color_green">已通过 </span>
+                                      
+                                      {/if}
+                                  </td>
+                                </tr>
+							<!-- {/volist} -->
+
+                              </tbody>
+                          </table>
+                      </section>
+
