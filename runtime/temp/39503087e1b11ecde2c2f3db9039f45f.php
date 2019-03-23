@@ -1,11 +1,129 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:78:"C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\view\user\index.html";i:1553342928;s:72:"C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\view\head.html";i:1552904453;s:72:"C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\view\foot.html";i:1552983549;}*/ ?>
 ﻿
-<title>个人中心 {$userinfo.nickname?$userinfo.nickname:$userinfo.username}  {$userinfo.utel} 余额：{$userinfo.usermoney} 元</title>{include file="head" /}
+<title>个人中心 <?php echo !empty($userinfo['nickname'])?$userinfo['nickname']:$userinfo['username']; ?>  <?php echo $userinfo['utel']; ?> 余额：<?php echo $userinfo['usermoney']; ?> 元</title>﻿<html style="font-size: 120px;">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+<!-- 是否启用全屏模式 -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<!-- 全屏时状态颜色设置 -->
+<meta name="apple-mobile-web-status-bar-style" content="white">
+<!-- 禁用电话号码自动识别 -->
+<meta name="format-detection" content="telephone=no">
+<!--禁止读取本地缓存模板-->
+<meta http-equiv="Pragma" contect="no-cache">
+<!-- iPhone 启动图标 -->
+<link rel="apple-touch-icon" href="img/12.jpg">
+<!-- Android 启动图标 -->
+<link rel="shortcut icon" href="img/12.jpg">
+<!-- 添加 favicon icon -->
+<link rel="shortcut icon" type="image/ico" href="img/12.jpg">
+ <title><?php echo !empty($conf['web_name'])?$conf['web_name']:'微交易'; ?></title> 
+<script type="text/javascript">
+window.onload=function(){
+//设置适配rem
+var change_rem = ((window.screen.width > 450) ? 450 : window.screen.width)/375*100;
+document.getElementsByTagName("html")[0].style.fontSize=change_rem+"px";
+window.onresize = function(){
+change_rem = ((window.screen.width > 450) ? 450 : window.screen.width)/375*100;
+document.getElementsByTagName("html")[0].style.fontSize=change_rem+"px";
+}
+}
+</script>
+
+<link href="__HOME__/css/ionic.css" rel="stylesheet">
+<link href="__HOME__/css/style.css" rel="stylesheet">
+<!-- <script src="__HOME__/js/jquery-3.2.1.min.js"></script> -->
+<script src="__HOME__/js/jquery-1.9.1.min.js"></script>
+<script src="__HOME__/js/lk/c.js"></script>
+<style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+<style>
+.ionic_toast {
+  z-index: 9999;
+}
+
+.toast_section {
+  color: #FFF;
+  cursor: default;
+  font-size: 1em;
+  display: none;
+  border-radius: 5px;
+  opacity: 1;
+  padding: 10px 30px 10px 10px;
+  margin: 10px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.ionic_toast_top {
+  top: 10px;
+}
+
+.ionic_toast_middle {
+  top: 40%;
+}
+
+.ionic_toast_bottom {
+  bottom: 10px;
+}
+
+.ionic_toast_close {
+  border-radius: 2px;
+  color: #CCCCCC;
+  cursor: pointer;
+  display: none;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  width: 20px;
+  height: 20px;
+}
+
+.toast_close_icon {
+  position: relative;
+  top: 1px;
+}
+
+.ionic_toast_sticky .ionic_toast_close {
+  display: block;
+}
+
+.ionic_toast_close:active {
+
+}</style>
+
+
+<script src="__HOME__/js/lk/order.js"></script>
+
+<!-- <script type="text/javascript" src="__HOME__/js/lk/echarts-all-3.js"></script>
+<script type="text/javascript" src="__HOME__/js/lk/ecStat.min.js"></script>
+<script type="text/javascript" src="__HOME__/js/lk/dataTool.min.js"></script>
+<script type="text/javascript" src="__HOME__/js/lk/china.js"></script>
+<script type="text/javascript" src="__HOME__/js/lk/world.js"></script>
+<script type="text/javascript" src="__HOME__/js/lk/api"></script>
+<script type="text/javascript" src="__HOME__/js/lk/getscript"></script>
+<script type="text/javascript" src="__HOME__/js/lk/bmap.min.js"></script> -->
+<!-- 弹框插件 -->
+<script src="/static/layer/layer.js"></script>
+<!-- 公共函数 -->
+<script src="/static/public/js/function.js"></script>
+<script src="/static/public/js/base64.js"></script>
+<script type="text/javascript">
+  var Base64 = new Base64();
+
+  
+</script>
+</head>
 
 
 <link rel="stylesheet" href="/static/index/css/style.css"><script>
 var pay_type = '';
 var wxpay_info = '';
-var returnrul = "{:url('user/index')}";
+var returnrul = "<?php echo url('user/index'); ?>";
 </script>
 
 <style>
@@ -73,12 +191,12 @@ var returnrul = "{:url('user/index')}";
 			</div>
 			<div class="middlediv">
 				<div class="middlediv_line">
-					姓名：{$userinfo.nickname?$userinfo.nickname:$userinfo.username} {if $userinfo.otype == 101}{/if}</div>
+					姓名：<?php echo !empty($userinfo['nickname'])?$userinfo['nickname']:$userinfo['username']; if($userinfo['otype'] == 101): endif; ?></div>
 				<div class="middlediv_line">
-					余额：<font color="#FF0000">{$userinfo.usermoney}</font> 元</div>
+					余额：<font color="#FF0000"><?php echo $userinfo['usermoney']; ?></font> 元</div>
 			</div>
 			<div class="rightdiv">
-				<div class="webtitle huang">{$conf.web_name?$conf.web_name:'微交易'}</div>
+				<div class="webtitle huang"><?php echo !empty($conf['web_name'])?$conf['web_name']:'微交易'; ?></div>
 			</div>
 			<div class="usercenter_nav_tab">
 
@@ -90,7 +208,7 @@ var returnrul = "{:url('user/index')}";
 					<span class="iconfont icon--4 zijin" style="color:rgb(92,194,18);"></span>
 					<span class="txt-cl">账户提现</span>
 				</a>
-				<a href="{:url('ercode')}" class="lianxikefu" style="">
+				<a href="<?php echo url('ercode'); ?>" class="lianxikefu" style="">
 					<span class="iconfont icon--11 zijin" style="color:#FFC125"></span>
 					<span class="txt-cl"><span style="color:#FF3039">我要推广</span>
 				</a>
@@ -136,7 +254,7 @@ code {
 </style>
 
         <div class="mui-row style-back mui-row-height" align="center">
-            <a href="{:url('cashlist')}">
+            <a href="<?php echo url('cashlist'); ?>">
 
                 <div class="mui-div">
                     <span class="iconfont icon--- zijin"></span> <span class="text-cl">提现记录</span> <span class="inc-float">》</span>
@@ -186,7 +304,7 @@ code {
         </div>
 
        <!-- <div class="mui-row style-back mui-row-height" align="center">
-            <a href="#" onclick="alert('您的代理是{:getuser($userinfo['oid'],"nickname")}');"> 
+            <a href="#" onclick="alert('您的代理是<?php echo getuser($userinfo['oid'],"nickname"); ?>');"> 
                 <div class="mui-div">
                     <span class="iconfont icon--1 zijin"></span> <span class="text-cl">我的代理</span>  <span class="inc-float">》</span>
                 </div>
@@ -223,7 +341,7 @@ code {
             <a onclick="show_user_modal('modal-olist')">
  
                 <div class="mui-div">
-                    <span class="iconfont icon--- zijin"></span><span class="text-cl">下单{:ordernum($userinfo['uid'])}次
+                    <span class="iconfont icon--- zijin"></span><span class="text-cl">下单<?php echo ordernum($userinfo['uid']); ?>次
 </span> <span class="inc-float">》</span> 
                 </div>
             </a>
@@ -256,7 +374,88 @@ code {
 
 
 	<div class="mui-bar mui-bar-tab" id="nav">
-{include file="foot" /}
+﻿<div style="margin-top:2%;">
+	<nav class="mui-bar mui-bar-tab" id="nav">
+		<a id="defaultTab" class="mui-tab-item " data-title="商品首页" href="/index/">
+			<span class="iconfont icon--6"></span>
+			<br>
+			<span class="mui-tab-label">商品首页</span>
+		</a>
+
+
+		<a class="mui-tab-item"  data-title="我的战队" href="/index/user/rechargelist.html">
+			<span class="iconfont icon--11"></span>
+			<br>
+			<span class="mui-tab-label">我的战队</span>
+		</a>
+
+
+		<a class="mui-tab-item" data-title="交易中心" href="/index/order/hold.html">
+			<span class="iconfont icon--7"></span>
+			<br>
+			<span class="mui-tab-label">交易中心</span>
+		</a>
+
+		<a id="MemberInfo" class="mui-tab-item " data-title="个人中心" href="/index/user/index.html">
+			<span class="iconfont icon--8"></span>
+			<br>
+			<span class="mui-tab-label">个人中心</span>
+		</a>
+	</nav>
+	<script type="text/javascript">
+		$(function () {
+			mui('#nav').on('tap', 'a', function (e) {
+				var url = $(this).attr("data-href");
+				goView(url);
+			});
+		});
+	</script>
+</div>
+<script type="text/javascript">
+	var activeTab = "";
+	$(function () {
+		if (isWeiXin()) {
+			$(".mui-bar.mui-bar-nav").remove();
+			$(".mui-content").addClass("mui-content2");
+			$("#Refreshtaps").show();
+		}
+		activeTab = $(".mui-myactive").val();
+		$(".mui-tab-item").each(function(){
+			if($(this).attr("href")!=activeTab){
+				$(this).removeClass("tab-item-active");
+			}else{
+				$(this).addClass("tab-item-active");
+			}
+		});
+	})
+	function isWeiXin() {
+		var ua = window.navigator.userAgent.toLowerCase();
+		if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	mui('.mui-bar-tab').on('tap', 'a', function (e) {
+		var href = this.getAttribute('href');
+		if (href != activeTab) {
+			mui.openWindow({
+				url: href,
+				id: href,
+				createNew: false,
+				show: {
+					aniShow: 'slide-in-right'
+					// aniShow: 'none'
+				},
+				waiting: {
+					autoShow: true, //自动显示等待框，默认为true
+					title: '正在加载'//等待对话框上显示的提示内容} );
+				}
+			});
+		}
+	});
+</script>
+<script src="__HOME__/js/lk/c.js"></script>
 	</div>
 
 
@@ -396,11 +595,11 @@ code {
 
 
 <select name="bankno" class=" bankno">
-{volist name="banks" id="vo"}
+<?php if(is_array($banks) || $banks instanceof \think\Collection || $banks instanceof \think\Paginator): $i = 0; $__LIST__ = $banks;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
 
-<option label="{$vo.bank_nm}" value="{$vo.id}" {if isset($mybank) && $mybank['bankno'] == $vo['id']}selected="selected" {/if} >{$vo.bank_nm}</option>
+<option label="<?php echo $vo['bank_nm']; ?>" value="<?php echo $vo['id']; ?>" <?php if(isset($mybank) && $mybank['bankno'] == $vo['id']): ?>selected="selected" <?php endif; ?> ><?php echo $vo['bank_nm']; ?></option>
 
-{/volist}
+<?php endforeach; endif; else: echo "" ;endif; ?>
 
 </select>
   
@@ -415,49 +614,49 @@ code {
 
 				<option value="">请选择</option>
 
-            	{volist name="province" id="vo"}
+            	<?php if(is_array($province) || $province instanceof \think\Collection || $province instanceof \think\Paginator): $i = 0; $__LIST__ = $province;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
 
 	    		
-<option  value="{$vo.id}" {if isset($mybank) && $mybank['provinceid'] == $vo['id']} selected="selected" {/if} >{$vo.name}</option>
+<option  value="<?php echo $vo['id']; ?>" <?php if(isset($mybank) && $mybank['provinceid'] == $vo['id']): ?> selected="selected" <?php endif; ?> ><?php echo $vo['name']; ?></option>
 
-	    		{/volist}
+	    		<?php endforeach; endif; else: echo "" ;endif; ?>
 
             </select>
         </li>
         <li>
             <span>市名</span>
             <select id="city" name="cityno" class="city">
-            	{if isset($mybank)}
-            	<option value="{$mybank.cityno}">{:getarea($mybank['cityno'])}</option>
-            	{else/}
+            	<?php if(isset($mybank)): ?>
+            	<option value="<?php echo $mybank['cityno']; ?>"><?php echo getarea($mybank['cityno']); ?></option>
+            	<?php else: ?>
 				<option value="">请选择</option>
-				{/if}
+				<?php endif; ?>
             </select>
         </li>
         <li>
             <span>开户支行</span>
-            <input type="text" placeholder="支行地址" name="address" class="address" value="{:isset($mybank)?$mybank.address:''}">
+            <input type="text" placeholder="支行地址" name="address" class="address" value="<?php echo isset($mybank)?$mybank['address']:''; ?>">
         </li>
         <li>
             <span>开户名</span>
-            <input type="text" placeholder="持卡人姓名" name="accntnm"  class="accntnm" value="{:isset($mybank)?$mybank.accntnm:''}">
+            <input type="text" placeholder="持卡人姓名" name="accntnm"  class="accntnm" value="<?php echo isset($mybank)?$mybank['accntnm']:''; ?>">
         </li>
         <li>
             <span>卡号</span>
-            <input type="text" placeholder="银行卡号" name="accntno" class="accntno" value="{:isset($mybank)?$mybank.accntno:''}">
+            <input type="text" placeholder="银行卡号" name="accntno" class="accntno" value="<?php echo isset($mybank)?$mybank['accntno']:''; ?>">
         </li>
         <li>
             <span>身份证号</span>
-            <input type="text" placeholder="身份证号" name="scard" class=" scard" value="{:isset($mybank)?$mybank.scard:''}">
+            <input type="text" placeholder="身份证号" name="scard" class=" scard" value="<?php echo isset($mybank)?$mybank['scard']:''; ?>">
         </li>
         <li>
             <span>微信帐号</span>
-            <input type="text" placeholder="微信联系方式" name="phone"  class="phone" value="{:isset($mybank)?$mybank.phone:''}">
+            <input type="text" placeholder="微信联系方式" name="phone"  class="phone" value="<?php echo isset($mybank)?$mybank['phone']:''; ?>">
         </li>
 
-        {if isset($mybank)}
-        	<input type="hidden" class="id" name="id" value="{$mybank['id']}">
-        {/if}
+        <?php if(isset($mybank)): ?>
+        	<input type="hidden" class="id" name="id" value="<?php echo $mybank['id']; ?>">
+        <?php endif; ?>
     </ul>
     <div class="button-bar">
         <a class="button button-balanced" onclick="update_user()">确定</a>
@@ -504,9 +703,9 @@ code {
         <div class="g-Recharge">
             <ul id="ulOption">
                 <!--注意修改金额 需要同时修改前面的值 money="10" -->
-              {volist name="reg_push" id="vo"}
-               <li money="{$vo}"><a href="javascript:;">{$vo}元<s></s></a></li>
-                    {/volist}
+              <?php if(is_array($reg_push) || $reg_push instanceof \think\Collection || $reg_push instanceof \think\Paginator): $i = 0; $__LIST__ = $reg_push;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+               <li money="<?php echo $vo; ?>"><a href="javascript:;"><?php echo $vo; ?>元<s></s></a></li>
+                    <?php endforeach; endif; else: echo "" ;endif; ?>
               
             </ul>
         </div>
@@ -523,17 +722,17 @@ code {
                         style="width: 100%;padding: 5px 0px 0px 10px;>
                         充值用户名：<label
                             class="input" style="border: 1px solid #EAEAEA;height: 30px;font-size: 30px;">
-                            <input type="text" name="user" id="user" placeholder="用户名" value="{$userinfo.username}"
+                            <input type="text" name="user" id="user" placeholder="用户名" value="<?php echo $userinfo['username']; ?>"
                                    style="width: 180px;font-size: 16px;">
                         </label></li>
 
                     <li class="gray6" style="width: 100%;padding: 0px 0px 0px 10px">充值帐号：<label>
-                    <input value="{$userinfo.utel}"> 
+                    <input value="<?php echo $userinfo['utel']; ?>"> 
                     </label></li>
  
   
                     <li class="gray6" style="width: 100%;padding: 0px 0px 0px 10px">当前余额：<label>
-                    <input value="{$userinfo.usermoney}"style="width:72px;color: red;font-size:14px;">
+                    <input value="<?php echo $userinfo['usermoney']; ?>"style="width:72px;color: red;font-size:14px;">
                     </label>元</li>
 
                       <li payType="1" class="gray9" type="codePay" style="width: 33%">
@@ -649,48 +848,48 @@ code {
     </ion-header-bar>
 <ion-content class="out_money_content scroll-content ionic-scroll  has-header"><div class="scroll" style="transform: translate3d(0px, 0px, 0px) scale(1);">
     	
-		{if !isset($mybank)}
+		<?php if(!isset($mybank)): ?>
     	<header class="ifnone_add_bank"  onclick="go_add_bank()">
         	<p>+</p>
         	<p>添加银行卡</p>
         </header>
         <div class="scroll" style="transform: translate3d(0px, 0px, 0px) scale(1);">
-		{else}
+		<?php else: ?>
         <div  class="cash">
 	        <header class="coldbg hotbg"  style="">
-	        	<p class="ng-binding">{$mybank.bank_nm} </p><span class="editc">可提现：{$userinfo.usermoney} 元</span>	        	<p class="ng-binding">帐号：{:isset($mybank)?$mybank.accntno:''}</p>
-	        	<i class="iconfont red">{:substr($mybank.bank_nm,0,3)}</i>
+	        	<p class="ng-binding"><?php echo $mybank['bank_nm']; ?> </p><span class="editc">可提现：<?php echo $userinfo['usermoney']; ?> 元</span>	        	<p class="ng-binding">帐号：<?php echo isset($mybank)?$mybank['accntno']:''; ?></p>
+	        	<i class="iconfont red"><?php echo substr($mybank['bank_nm'],0,3); ?></i>
 	        </header>
 	
 	        
 
 
 <article>
-<span><i class="iconfont icon--8"></i> 真实姓名：</span><input type="text"name="address" class="address" value="{:isset($mybank)?$mybank.accntnm:''}"></article>
+<span><i class="iconfont icon--8"></i> 真实姓名：</span><input type="text"name="address" class="address" value="<?php echo isset($mybank)?$mybank['accntnm']:''; ?>"></article>
 
 <article>
-<span><i class="iconfont icon--19"></i> 开户地址：</span><input type="text"name="address" class="address" value="{:isset($mybank)?$mybank.address:''}"></article>
+<span><i class="iconfont icon--19"></i> 开户地址：</span><input type="text"name="address" class="address" value="<?php echo isset($mybank)?$mybank['address']:''; ?>"></article>
 
 <article>
-<span><i class="iconfont icon--11"></i> 联系方式：</span><input type="text"name="address" class="address" value="{:isset($mybank)?$mybank.phone:''}"></article>
+<span><i class="iconfont icon--11"></i> 联系方式：</span><input type="text"name="address" class="address" value="<?php echo isset($mybank)?$mybank['phone']:''; ?>"></article>
 
 
 <article>
 <span><i class="iconfont icon--14"></i> 提现金额：</span>
-<input style="padding-left: 0rem;" type="number" placeholder="最少提现￥{$conf.cash_min}" ng-model="outAmount.outamount"  class="cash-price ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-required"></article>
+<input style="padding-left: 0rem;" type="number" placeholder="最少提现￥<?php echo $conf['cash_min']; ?>" ng-model="outAmount.outamount"  class="cash-price ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-required"></article>
 
 
 
 
 	       <footer>
-	        	余额：<span class="ng-binding">{$userinfo.usermoney}</span>
-	        	手续费：<span  class="ng-binding reg_par" attrdata="{$conf.reg_par}">{$conf.reg_par}%</span>
+	        	余额：<span class="ng-binding"><?php echo $userinfo['usermoney']; ?></span>
+	        	手续费：<span  class="ng-binding reg_par" attrdata="<?php echo $conf['reg_par']; ?>"><?php echo $conf['reg_par']; ?>%</span>
 	        	实际到账：<span  class="ng-binding true_price" style="display:none"></span>
 	     </footer>
 	      <button class="newbutton outmoneybtn"  onclick="out_withdraw()">确认出金</button>
        </div>
 		   
-			<a onclick="go_add_bank()"style="border:1px solid #00A422; color:#00a422; border-radius:5px; width:70%; height:40px; line-height:40px; text-align:center; display:block; text-decoration: none; margin:0 auto;">修改银行卡</a>{/if}
+			<a onclick="go_add_bank()"style="border:1px solid #00A422; color:#00a422; border-radius:5px; width:70%; height:40px; line-height:40px; text-align:center; display:block; text-decoration: none; margin:0 auto;">修改银行卡</a><?php endif; ?>
 
 
 
@@ -709,32 +908,32 @@ code {
 		<ion-scroll style="height:100%" class="scroll-view ionic-scroll scroll-y"><div class="scroll" style="transform: translate3d(0px, -10px, 0px) scale(1);">
 			
       <ul class="price_list">
-                {volist name="order_list" id="vo"}
+                <?php if(is_array($order_list) || $order_list instanceof \think\Collection || $order_list instanceof \think\Paginator): $i = 0; $__LIST__ = $order_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
                 <li ng-repeat="c in moneyList" class="" isshow="0">
                 	<div class="money_list_header" >
                 		<section class="other_money_bg">
 
                 		</section><section>
-                			<p  class="ng-binding other_money">{$vo.title}</p>
+                			<p  class="ng-binding other_money"><?php echo $vo['title']; ?></p>
                 			<p>
                 				<i class="iconfont icon--1 " ></i>
                 				<i class="iconfont icon-30 ng-hide" ></i>
-                				<span class="ng-binding">{$vo.nowmoney}</span></p>
+                				<span class="ng-binding"><?php echo $vo['nowmoney']; ?></span></p>
                 			<p>
                 				<i class="iconfont icon--2 pay_blue"></i>
-                				<span class="ng-binding">{:date('Y-m-d H:i:s',$vo['time'])}</span>
+                				<span class="ng-binding"><?php echo date('Y-m-d H:i:s',$vo['time']); ?></span>
                 				<!-- <span class="ng-binding">14:13:04</span> -->
                 			</p>
                 		</section><section  class="ng-binding other_money">
-                			{$vo.account}
+                			<?php echo $vo['account']; ?>
                 		</section><section class="icon clickshow ion-ios-arrow-up">
                 		</section>
                 	</div>
                 	<article class="today_list_footer" style="display: none;">
-                		<p class="ng-binding">详情：{$vo.content}</p>
+                		<p class="ng-binding">详情：<?php echo $vo['content']; ?></p>
                 	</article>
                 </li>
-				{/volist}
+				<?php endforeach; endif; else: echo "" ;endif; ?>
 			</ul>
 			<!-- ngIf: has_more_money_order.if_has_more_money_order -->
 		</div><div class="scroll-bar scroll-bar-v"><div class="scroll-bar-indicator scroll-bar-fade-out" style="height: 631px; transform: translate3d(0px, 10px, 0px) scaleY(1);"></div></div></ion-scroll>
@@ -824,14 +1023,14 @@ code {
 
 </body></html>
 <div id="zypay_post"></div>
-<script src="__HOME__/js/lk/user.js?s={:time()}"></script>
+<script src="__HOME__/js/lk/user.js?s=<?php echo time(); ?>"></script>
 <script src="__HOME__/js/lk/jquery.qrcode.js"></script>
 <script src="__HOME__/js/lk/utf.js"></script>
 <script>
 $('#province').change(function(){
     var pid = $(this).val();
     if(pid != ''){
-        var url = "{:url('getarea')}"+"?id="+pid;
+        var url = "<?php echo url('getarea'); ?>"+"?id="+pid;
         $.get(url,function(data){
           $("#city").html(data);
         });
@@ -842,7 +1041,7 @@ $('#province').change(function(){
     
   });
 function respass(){
-    location.href="{:url('login/respass')}"
+    location.href="<?php echo url('login/respass'); ?>"
 }
 
 </script>
