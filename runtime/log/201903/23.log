@@ -29253,3 +29253,2239 @@
 [ sql ] [ SQL ] SELECT * FROM `wp_price_log` WHERE  `uid` = 91 ORDER BY id desc LIMIT 60,20 [ RunTime:0.054299s ]
 
 ---------------------------------------------------------------
+[ 2019-03-23T20:10:25+08:00 ] 192.168.1.100 192.168.1.100 GET /index/user/index.html
+[ log ] 192.168.1.100/index/user/index.html [运行时间：0.138821s][吞吐率：7.20req/s] [内存消耗：3,859.76kb] [文件加载：60]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\User->index[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\User.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\view\user\index.html [ array (
+  0 => 'token',
+  1 => 'userinfo',
+  2 => 'conf',
+  3 => 'webgg',
+  4 => 'province',
+  5 => 'banks',
+  6 => 'mybank',
+  7 => 'order_list',
+  8 => 'oid_url',
+  9 => 'sub_bankno',
+  10 => 'payment',
+  11 => 'reg_push',
+) ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001772s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.001198s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.001167s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001396s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_config` [ RunTime:0.001290s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_config` [ RunTime:0.000663s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000726s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001516s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_banks` [ RunTime:0.001099s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_banks` [ RunTime:0.000729s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002263s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_area` [ RunTime:0.001306s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_area` WHERE  `pid` = 0 [ RunTime:0.000702s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001147s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_bankcard` [ RunTime:0.000828s ]
+[ sql ] [ SQL ] SELECT `b`.*,`ba`.`bank_nm` FROM `wp_bankcard` `b` INNER JOIN `wp_banks` `ba` ON `ba`.`id`=`b`.`bankno` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000540s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010133s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_price_log` [ RunTime:0.001187s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_price_log` WHERE  `uid` = 91 ORDER BY id desc LIMIT 0,20 [ RunTime:0.007781s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001293s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_payment` [ RunTime:0.001286s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_payment` WHERE  `isdelete` = 0  AND `is_use` = 1 ORDER BY pay_order desc [ RunTime:0.000419s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_config` WHERE  (  name='web_qiantai' ) [ RunTime:0.000376s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001305s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SELECT `nickname` FROM `wp_userinfo` WHERE  `uid` = 62 LIMIT 1 [ RunTime:0.000426s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001075s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_order` [ RunTime:0.000940s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `wp_order` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000364s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001345s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SELECT `name` FROM `wp_area` WHERE  `id` = 745 LIMIT 1 [ RunTime:0.000468s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:26+08:00 ] 192.168.1.100 192.168.1.100 GET /
+[ log ] 192.168.1.100/ [运行时间：0.093961s][吞吐率：10.64req/s] [内存消耗：3,445.66kb] [文件加载：60]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\view\index\index.html [ array (
+  0 => 'token',
+  1 => 'userinfo',
+  2 => 'conf',
+  3 => 'pro',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001428s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.001003s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000596s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010637s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.000938s ]
+[ sql ] [ SQL ] SELECT `pi`.`pid`,`pi`.`ptitle`,`pd`.`Price`,`pd`.`UpdateTime`,`pd`.`Low`,`pd`.`High`,`pi`.`procode` FROM `wp_productinfo` `pi` INNER JOIN `wp_productdata` `pd` ON `pd`.`pid`=`pi`.`pid` WHERE  `pi`.`isdelete` = 0 ORDER BY pi.pid desc [ RunTime:0.000698s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010599s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_banks` [ RunTime:0.000907s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_banks` [ RunTime:0.000448s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010175s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_area` [ RunTime:0.000880s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_area` WHERE  `pid` = 0 [ RunTime:0.000615s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010859s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_bankcard` [ RunTime:0.001041s ]
+[ sql ] [ SQL ] SELECT `b`.*,`ba`.`bank_nm` FROM `wp_bankcard` `b` INNER JOIN `wp_banks` `ba` ON `ba`.`id`=`b`.`bankno` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000528s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:28+08:00 ] 192.168.1.100 192.168.1.100 GET /
+[ log ] 192.168.1.100/ [运行时间：0.088625s][吞吐率：11.28req/s] [内存消耗：3,454.23kb] [文件加载：60]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->index[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\view\index\index.html [ array (
+  0 => 'token',
+  1 => 'userinfo',
+  2 => 'conf',
+  3 => 'pro',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001693s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.001359s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000755s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001293s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_config` [ RunTime:0.000843s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_config` [ RunTime:0.000526s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.001018s ]
+[ sql ] [ SQL ] SELECT `pi`.`pid`,`pi`.`ptitle`,`pd`.`Price`,`pd`.`UpdateTime`,`pd`.`Low`,`pd`.`High`,`pi`.`procode` FROM `wp_productinfo` `pi` INNER JOIN `wp_productdata` `pd` ON `pd`.`pid`=`pi`.`pid` WHERE  `pi`.`isdelete` = 0 ORDER BY pi.pid desc [ RunTime:0.000634s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001576s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_banks` [ RunTime:0.011895s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_banks` [ RunTime:0.000433s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.009951s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_area` [ RunTime:0.000786s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_area` WHERE  `pid` = 0 [ RunTime:0.000629s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.009834s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_bankcard` [ RunTime:0.001209s ]
+[ sql ] [ SQL ] SELECT `b`.*,`ba`.`bank_nm` FROM `wp_bankcard` `b` INNER JOIN `wp_banks` `ba` ON `ba`.`id`=`b`.`bankno` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000545s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:28+08:00 ] 192.168.1.100 192.168.1.100 GET /index/index/ajaxindexpro
+[ log ] 192.168.1.100/index/index/ajaxindexpro [运行时间：0.042016s][吞吐率：23.80req/s] [内存消耗：3,253.20kb] [文件加载：59]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'ajaxindexpro',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->ajaxindexpro[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001271s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.000970s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000598s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001317s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.000877s ]
+[ sql ] [ SQL ] SELECT `pi`.`pid`,`pi`.`ptitle`,`pd`.`Price`,`pd`.`UpdateTime`,`pd`.`Low`,`pd`.`High` FROM `wp_productinfo` `pi` INNER JOIN `wp_productdata` `pd` ON `pd`.`pid`=`pi`.`pid` WHERE  `pi`.`isdelete` = 0 ORDER BY pi.pid desc [ RunTime:0.000660s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:29+08:00 ] 192.168.1.100 192.168.1.100 GET /index/index/ajaxindexpro
+[ log ] 192.168.1.100/index/index/ajaxindexpro [运行时间：0.047522s][吞吐率：21.04req/s] [内存消耗：3,261.21kb] [文件加载：59]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'ajaxindexpro',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->ajaxindexpro[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001416s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.001025s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000617s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001289s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_config` [ RunTime:0.001034s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_config` [ RunTime:0.000529s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.000974s ]
+[ sql ] [ SQL ] SELECT `pi`.`pid`,`pi`.`ptitle`,`pd`.`Price`,`pd`.`UpdateTime`,`pd`.`Low`,`pd`.`High` FROM `wp_productinfo` `pi` INNER JOIN `wp_productdata` `pd` ON `pd`.`pid`=`pi`.`pid` WHERE  `pi`.`isdelete` = 0 ORDER BY pi.pid desc [ RunTime:0.001143s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:29+08:00 ] 192.168.1.100 192.168.1.100 GET /
+[ log ] 192.168.1.100/ [运行时间：0.079972s][吞吐率：12.50req/s] [内存消耗：3,445.89kb] [文件加载：60]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\view\index\index.html [ array (
+  0 => 'token',
+  1 => 'userinfo',
+  2 => 'conf',
+  3 => 'pro',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001365s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.000947s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000594s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001351s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.000998s ]
+[ sql ] [ SQL ] SELECT `pi`.`pid`,`pi`.`ptitle`,`pd`.`Price`,`pd`.`UpdateTime`,`pd`.`Low`,`pd`.`High`,`pi`.`procode` FROM `wp_productinfo` `pi` INNER JOIN `wp_productdata` `pd` ON `pd`.`pid`=`pi`.`pid` WHERE  `pi`.`isdelete` = 0 ORDER BY pi.pid desc [ RunTime:0.000707s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001055s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_banks` [ RunTime:0.000849s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_banks` [ RunTime:0.000603s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010541s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_area` [ RunTime:0.007103s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_area` WHERE  `pid` = 0 [ RunTime:0.000622s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010545s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_bankcard` [ RunTime:0.000924s ]
+[ sql ] [ SQL ] SELECT `b`.*,`ba`.`bank_nm` FROM `wp_bankcard` `b` INNER JOIN `wp_banks` `ba` ON `ba`.`id`=`b`.`bankno` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000591s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:29+08:00 ] 192.168.1.100 192.168.1.100 GET /
+[ log ] 192.168.1.100/ [运行时间：0.073212s][吞吐率：13.66req/s] [内存消耗：3,445.89kb] [文件加载：60]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\view\index\index.html [ array (
+  0 => 'token',
+  1 => 'userinfo',
+  2 => 'conf',
+  3 => 'pro',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001389s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.001037s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000814s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010870s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.000969s ]
+[ sql ] [ SQL ] SELECT `pi`.`pid`,`pi`.`ptitle`,`pd`.`Price`,`pd`.`UpdateTime`,`pd`.`Low`,`pd`.`High`,`pi`.`procode` FROM `wp_productinfo` `pi` INNER JOIN `wp_productdata` `pd` ON `pd`.`pid`=`pi`.`pid` WHERE  `pi`.`isdelete` = 0 ORDER BY pi.pid desc [ RunTime:0.000690s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001155s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_banks` [ RunTime:0.000864s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_banks` [ RunTime:0.000596s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001389s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_area` [ RunTime:0.001041s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_area` WHERE  `pid` = 0 [ RunTime:0.000727s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010444s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_bankcard` [ RunTime:0.000904s ]
+[ sql ] [ SQL ] SELECT `b`.*,`ba`.`bank_nm` FROM `wp_bankcard` `b` INNER JOIN `wp_banks` `ba` ON `ba`.`id`=`b`.`bankno` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000653s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:30+08:00 ] 192.168.1.100 192.168.1.100 GET /index/index/ajaxindexpro
+[ log ] 192.168.1.100/index/index/ajaxindexpro [运行时间：0.039174s][吞吐率：25.53req/s] [内存消耗：3,253.26kb] [文件加载：59]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'ajaxindexpro',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->ajaxindexpro[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001604s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.001051s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000590s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001306s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.001082s ]
+[ sql ] [ SQL ] SELECT `pi`.`pid`,`pi`.`ptitle`,`pd`.`Price`,`pd`.`UpdateTime`,`pd`.`Low`,`pd`.`High` FROM `wp_productinfo` `pi` INNER JOIN `wp_productdata` `pd` ON `pd`.`pid`=`pi`.`pid` WHERE  `pi`.`isdelete` = 0 ORDER BY pi.pid desc [ RunTime:0.000683s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:30+08:00 ] 192.168.1.100 192.168.1.100 GET /index/index/ajaxindexpro
+[ log ] 192.168.1.100/index/index/ajaxindexpro [运行时间：0.038840s][吞吐率：25.75req/s] [内存消耗：3,253.26kb] [文件加载：59]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'ajaxindexpro',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->ajaxindexpro[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001484s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.001008s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000609s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001269s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.001002s ]
+[ sql ] [ SQL ] SELECT `pi`.`pid`,`pi`.`ptitle`,`pd`.`Price`,`pd`.`UpdateTime`,`pd`.`Low`,`pd`.`High` FROM `wp_productinfo` `pi` INNER JOIN `wp_productdata` `pd` ON `pd`.`pid`=`pi`.`pid` WHERE  `pi`.`isdelete` = 0 ORDER BY pi.pid desc [ RunTime:0.000659s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:31+08:00 ] 192.168.1.100 192.168.1.100 GET /index/index/ajaxindexpro
+[ log ] 192.168.1.100/index/index/ajaxindexpro [运行时间：0.060540s][吞吐率：16.52req/s] [内存消耗：3,261.21kb] [文件加载：59]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'ajaxindexpro',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->ajaxindexpro[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001773s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.001201s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000894s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001206s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_config` [ RunTime:0.003080s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_config` [ RunTime:0.000547s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.010813s ]
+[ sql ] [ SQL ] SELECT `pi`.`pid`,`pi`.`ptitle`,`pd`.`Price`,`pd`.`UpdateTime`,`pd`.`Low`,`pd`.`High` FROM `wp_productinfo` `pi` INNER JOIN `wp_productdata` `pd` ON `pd`.`pid`=`pi`.`pid` WHERE  `pi`.`isdelete` = 0 ORDER BY pi.pid desc [ RunTime:0.000890s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:31+08:00 ] 192.168.1.100 192.168.1.100 GET /index/index/ajaxindexpro
+[ log ] 192.168.1.100/index/index/ajaxindexpro [运行时间：0.055067s][吞吐率：18.16req/s] [内存消耗：3,253.26kb] [文件加载：59]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'ajaxindexpro',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->ajaxindexpro[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001595s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.001242s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000633s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010069s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.007123s ]
+[ sql ] [ SQL ] SELECT `pi`.`pid`,`pi`.`ptitle`,`pd`.`Price`,`pd`.`UpdateTime`,`pd`.`Low`,`pd`.`High` FROM `wp_productinfo` `pi` INNER JOIN `wp_productdata` `pd` ON `pd`.`pid`=`pi`.`pid` WHERE  `pi`.`isdelete` = 0 ORDER BY pi.pid desc [ RunTime:0.000661s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:32+08:00 ] 192.168.1.100 192.168.1.100 GET /index/index/ajaxindexpro
+[ log ] 192.168.1.100/index/index/ajaxindexpro [运行时间：0.047883s][吞吐率：20.88req/s] [内存消耗：3,253.26kb] [文件加载：59]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'ajaxindexpro',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->ajaxindexpro[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001633s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.002034s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000694s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001374s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.000910s ]
+[ sql ] [ SQL ] SELECT `pi`.`pid`,`pi`.`ptitle`,`pd`.`Price`,`pd`.`UpdateTime`,`pd`.`Low`,`pd`.`High` FROM `wp_productinfo` `pi` INNER JOIN `wp_productdata` `pd` ON `pd`.`pid`=`pi`.`pid` WHERE  `pi`.`isdelete` = 0 ORDER BY pi.pid desc [ RunTime:0.000709s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:32+08:00 ] 192.168.1.100 192.168.1.100 GET /index/index/ajaxindexpro
+[ log ] 192.168.1.100/index/index/ajaxindexpro [运行时间：0.040966s][吞吐率：24.41req/s] [内存消耗：3,253.26kb] [文件加载：59]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'ajaxindexpro',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->ajaxindexpro[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001284s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.001042s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000694s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001263s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.000853s ]
+[ sql ] [ SQL ] SELECT `pi`.`pid`,`pi`.`ptitle`,`pd`.`Price`,`pd`.`UpdateTime`,`pd`.`Low`,`pd`.`High` FROM `wp_productinfo` `pi` INNER JOIN `wp_productdata` `pd` ON `pd`.`pid`=`pi`.`pid` WHERE  `pi`.`isdelete` = 0 ORDER BY pi.pid desc [ RunTime:0.000649s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:33+08:00 ] 192.168.1.100 192.168.1.100 GET /index/index/ajaxindexpro
+[ log ] 192.168.1.100/index/index/ajaxindexpro [运行时间：0.045069s][吞吐率：22.19req/s] [内存消耗：3,261.21kb] [文件加载：59]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'ajaxindexpro',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->ajaxindexpro[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001394s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.000960s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000602s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001370s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_config` [ RunTime:0.000854s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_config` [ RunTime:0.000511s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.001034s ]
+[ sql ] [ SQL ] SELECT `pi`.`pid`,`pi`.`ptitle`,`pd`.`Price`,`pd`.`UpdateTime`,`pd`.`Low`,`pd`.`High` FROM `wp_productinfo` `pi` INNER JOIN `wp_productdata` `pd` ON `pd`.`pid`=`pi`.`pid` WHERE  `pi`.`isdelete` = 0 ORDER BY pi.pid desc [ RunTime:0.000718s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:33+08:00 ] 192.168.1.100 192.168.1.100 GET /index/index/ajaxindexpro
+[ log ] 192.168.1.100/index/index/ajaxindexpro [运行时间：0.051699s][吞吐率：19.34req/s] [内存消耗：3,253.26kb] [文件加载：59]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'ajaxindexpro',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->ajaxindexpro[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001473s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.000924s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000619s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010170s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.001099s ]
+[ sql ] [ SQL ] SELECT `pi`.`pid`,`pi`.`ptitle`,`pd`.`Price`,`pd`.`UpdateTime`,`pd`.`Low`,`pd`.`High` FROM `wp_productinfo` `pi` INNER JOIN `wp_productdata` `pd` ON `pd`.`pid`=`pi`.`pid` WHERE  `pi`.`isdelete` = 0 ORDER BY pi.pid desc [ RunTime:0.000654s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:34+08:00 ] 192.168.1.100 192.168.1.100 GET /index/index/ajaxindexpro
+[ log ] 192.168.1.100/index/index/ajaxindexpro [运行时间：0.042158s][吞吐率：23.72req/s] [内存消耗：3,253.26kb] [文件加载：59]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'ajaxindexpro',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->ajaxindexpro[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001445s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.001080s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000772s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001428s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.000923s ]
+[ sql ] [ SQL ] SELECT `pi`.`pid`,`pi`.`ptitle`,`pd`.`Price`,`pd`.`UpdateTime`,`pd`.`Low`,`pd`.`High` FROM `wp_productinfo` `pi` INNER JOIN `wp_productdata` `pd` ON `pd`.`pid`=`pi`.`pid` WHERE  `pi`.`isdelete` = 0 ORDER BY pi.pid desc [ RunTime:0.000745s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:34+08:00 ] 192.168.1.100 192.168.1.100 GET /index/index/ajaxindexpro
+[ log ] 192.168.1.100/index/index/ajaxindexpro [运行时间：0.052788s][吞吐率：18.94req/s] [内存消耗：3,253.26kb] [文件加载：59]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'ajaxindexpro',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->ajaxindexpro[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001403s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.001002s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000591s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010878s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.001144s ]
+[ sql ] [ SQL ] SELECT `pi`.`pid`,`pi`.`ptitle`,`pd`.`Price`,`pd`.`UpdateTime`,`pd`.`Low`,`pd`.`High` FROM `wp_productinfo` `pi` INNER JOIN `wp_productdata` `pd` ON `pd`.`pid`=`pi`.`pid` WHERE  `pi`.`isdelete` = 0 ORDER BY pi.pid desc [ RunTime:0.002894s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:35+08:00 ] 192.168.1.100 192.168.1.100 GET /index/index/ajaxindexpro
+[ log ] 192.168.1.100/index/index/ajaxindexpro [运行时间：0.047173s][吞吐率：21.20req/s] [内存消耗：3,261.21kb] [文件加载：59]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'ajaxindexpro',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->ajaxindexpro[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001545s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.000943s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000708s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001440s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_config` [ RunTime:0.000831s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_config` [ RunTime:0.000596s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.001067s ]
+[ sql ] [ SQL ] SELECT `pi`.`pid`,`pi`.`ptitle`,`pd`.`Price`,`pd`.`UpdateTime`,`pd`.`Low`,`pd`.`High` FROM `wp_productinfo` `pi` INNER JOIN `wp_productdata` `pd` ON `pd`.`pid`=`pi`.`pid` WHERE  `pi`.`isdelete` = 0 ORDER BY pi.pid desc [ RunTime:0.000692s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:35+08:00 ] 192.168.1.100 192.168.1.100 GET /index/index/ajaxindexpro
+[ log ] 192.168.1.100/index/index/ajaxindexpro [运行时间：0.051226s][吞吐率：19.52req/s] [内存消耗：3,253.26kb] [文件加载：59]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'ajaxindexpro',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->ajaxindexpro[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001402s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.001591s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000747s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001451s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.001041s ]
+[ sql ] [ SQL ] SELECT `pi`.`pid`,`pi`.`ptitle`,`pd`.`Price`,`pd`.`UpdateTime`,`pd`.`Low`,`pd`.`High` FROM `wp_productinfo` `pi` INNER JOIN `wp_productdata` `pd` ON `pd`.`pid`=`pi`.`pid` WHERE  `pi`.`isdelete` = 0 ORDER BY pi.pid desc [ RunTime:0.000678s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:36+08:00 ] 192.168.1.100 192.168.1.100 GET /index/index/ajaxindexpro
+[ log ] 192.168.1.100/index/index/ajaxindexpro [运行时间：0.041185s][吞吐率：24.28req/s] [内存消耗：3,253.26kb] [文件加载：59]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'ajaxindexpro',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->ajaxindexpro[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001622s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.000949s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000661s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001401s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.000870s ]
+[ sql ] [ SQL ] SELECT `pi`.`pid`,`pi`.`ptitle`,`pd`.`Price`,`pd`.`UpdateTime`,`pd`.`Low`,`pd`.`High` FROM `wp_productinfo` `pi` INNER JOIN `wp_productdata` `pd` ON `pd`.`pid`=`pi`.`pid` WHERE  `pi`.`isdelete` = 0 ORDER BY pi.pid desc [ RunTime:0.000644s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:36+08:00 ] 192.168.1.100 192.168.1.100 GET /index/index/ajaxindexpro
+[ log ] 192.168.1.100/index/index/ajaxindexpro [运行时间：0.039588s][吞吐率：25.26req/s] [内存消耗：3,253.26kb] [文件加载：59]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'ajaxindexpro',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->ajaxindexpro[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001532s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.001164s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000659s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001329s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.000885s ]
+[ sql ] [ SQL ] SELECT `pi`.`pid`,`pi`.`ptitle`,`pd`.`Price`,`pd`.`UpdateTime`,`pd`.`Low`,`pd`.`High` FROM `wp_productinfo` `pi` INNER JOIN `wp_productdata` `pd` ON `pd`.`pid`=`pi`.`pid` WHERE  `pi`.`isdelete` = 0 ORDER BY pi.pid desc [ RunTime:0.000691s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:37+08:00 ] 192.168.1.100 192.168.1.100 GET /index/index/ajaxindexpro
+[ log ] 192.168.1.100/index/index/ajaxindexpro [运行时间：0.047366s][吞吐率：21.11req/s] [内存消耗：3,261.21kb] [文件加载：59]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'ajaxindexpro',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->ajaxindexpro[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001596s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.000923s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000592s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001476s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_config` [ RunTime:0.000882s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_config` [ RunTime:0.000519s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.002493s ]
+[ sql ] [ SQL ] SELECT `pi`.`pid`,`pi`.`ptitle`,`pd`.`Price`,`pd`.`UpdateTime`,`pd`.`Low`,`pd`.`High` FROM `wp_productinfo` `pi` INNER JOIN `wp_productdata` `pd` ON `pd`.`pid`=`pi`.`pid` WHERE  `pi`.`isdelete` = 0 ORDER BY pi.pid desc [ RunTime:0.000864s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:37+08:00 ] 192.168.1.100 192.168.1.100 GET /index/index/ajaxindexpro
+[ log ] 192.168.1.100/index/index/ajaxindexpro [运行时间：0.051938s][吞吐率：19.25req/s] [内存消耗：3,253.26kb] [文件加载：59]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'ajaxindexpro',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->ajaxindexpro[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001399s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.001023s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000725s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010812s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.000895s ]
+[ sql ] [ SQL ] SELECT `pi`.`pid`,`pi`.`ptitle`,`pd`.`Price`,`pd`.`UpdateTime`,`pd`.`Low`,`pd`.`High` FROM `wp_productinfo` `pi` INNER JOIN `wp_productdata` `pd` ON `pd`.`pid`=`pi`.`pid` WHERE  `pi`.`isdelete` = 0 ORDER BY pi.pid desc [ RunTime:0.000656s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:38+08:00 ] 192.168.1.100 192.168.1.100 GET /index/index/ajaxindexpro
+[ log ] 192.168.1.100/index/index/ajaxindexpro [运行时间：0.045559s][吞吐率：21.95req/s] [内存消耗：3,253.26kb] [文件加载：59]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'ajaxindexpro',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->ajaxindexpro[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001361s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.000962s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000592s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001719s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.001261s ]
+[ sql ] [ SQL ] SELECT `pi`.`pid`,`pi`.`ptitle`,`pd`.`Price`,`pd`.`UpdateTime`,`pd`.`Low`,`pd`.`High` FROM `wp_productinfo` `pi` INNER JOIN `wp_productdata` `pd` ON `pd`.`pid`=`pi`.`pid` WHERE  `pi`.`isdelete` = 0 ORDER BY pi.pid desc [ RunTime:0.001514s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:38+08:00 ] 192.168.1.100 192.168.1.100 GET /index/index/ajaxindexpro
+[ log ] 192.168.1.100/index/index/ajaxindexpro [运行时间：0.059377s][吞吐率：16.84req/s] [内存消耗：3,253.26kb] [文件加载：59]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'ajaxindexpro',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->ajaxindexpro[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001386s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.001030s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000632s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010464s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.010366s ]
+[ sql ] [ SQL ] SELECT `pi`.`pid`,`pi`.`ptitle`,`pd`.`Price`,`pd`.`UpdateTime`,`pd`.`Low`,`pd`.`High` FROM `wp_productinfo` `pi` INNER JOIN `wp_productdata` `pd` ON `pd`.`pid`=`pi`.`pid` WHERE  `pi`.`isdelete` = 0 ORDER BY pi.pid desc [ RunTime:0.000896s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:39+08:00 ] 192.168.1.100 192.168.1.100 GET /index/index/ajaxindexpro
+[ log ] 192.168.1.100/index/index/ajaxindexpro [运行时间：0.057916s][吞吐率：17.27req/s] [内存消耗：3,261.21kb] [文件加载：59]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'ajaxindexpro',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->ajaxindexpro[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010111s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.005962s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000719s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001284s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_config` [ RunTime:0.000845s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_config` [ RunTime:0.000504s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.000985s ]
+[ sql ] [ SQL ] SELECT `pi`.`pid`,`pi`.`ptitle`,`pd`.`Price`,`pd`.`UpdateTime`,`pd`.`Low`,`pd`.`High` FROM `wp_productinfo` `pi` INNER JOIN `wp_productdata` `pd` ON `pd`.`pid`=`pi`.`pid` WHERE  `pi`.`isdelete` = 0 ORDER BY pi.pid desc [ RunTime:0.000615s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:39+08:00 ] 192.168.1.100 192.168.1.100 GET /index/index/ajaxindexpro
+[ log ] 192.168.1.100/index/index/ajaxindexpro [运行时间：0.040641s][吞吐率：24.61req/s] [内存消耗：3,253.26kb] [文件加载：59]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'ajaxindexpro',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->ajaxindexpro[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001300s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.000958s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000594s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001254s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.000879s ]
+[ sql ] [ SQL ] SELECT `pi`.`pid`,`pi`.`ptitle`,`pd`.`Price`,`pd`.`UpdateTime`,`pd`.`Low`,`pd`.`High` FROM `wp_productinfo` `pi` INNER JOIN `wp_productdata` `pd` ON `pd`.`pid`=`pi`.`pid` WHERE  `pi`.`isdelete` = 0 ORDER BY pi.pid desc [ RunTime:0.000649s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:40+08:00 ] 192.168.1.100 192.168.1.100 GET /index/index/ajaxindexpro
+[ log ] 192.168.1.100/index/index/ajaxindexpro [运行时间：0.039310s][吞吐率：25.44req/s] [内存消耗：3,253.26kb] [文件加载：59]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'ajaxindexpro',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->ajaxindexpro[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001554s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.001093s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000593s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001332s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.000966s ]
+[ sql ] [ SQL ] SELECT `pi`.`pid`,`pi`.`ptitle`,`pd`.`Price`,`pd`.`UpdateTime`,`pd`.`Low`,`pd`.`High` FROM `wp_productinfo` `pi` INNER JOIN `wp_productdata` `pd` ON `pd`.`pid`=`pi`.`pid` WHERE  `pi`.`isdelete` = 0 ORDER BY pi.pid desc [ RunTime:0.000874s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:40+08:00 ] 192.168.1.100 192.168.1.100 GET /
+[ log ] 192.168.1.100/ [运行时间：0.073447s][吞吐率：13.62req/s] [内存消耗：3,445.89kb] [文件加载：60]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->index[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\view\index\index.html [ array (
+  0 => 'token',
+  1 => 'userinfo',
+  2 => 'conf',
+  3 => 'pro',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001538s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.001063s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000653s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010218s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.002217s ]
+[ sql ] [ SQL ] SELECT `pi`.`pid`,`pi`.`ptitle`,`pd`.`Price`,`pd`.`UpdateTime`,`pd`.`Low`,`pd`.`High`,`pi`.`procode` FROM `wp_productinfo` `pi` INNER JOIN `wp_productdata` `pd` ON `pd`.`pid`=`pi`.`pid` WHERE  `pi`.`isdelete` = 0 ORDER BY pi.pid desc [ RunTime:0.000712s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001376s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_banks` [ RunTime:0.001115s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_banks` [ RunTime:0.000461s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010781s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_area` [ RunTime:0.000861s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_area` WHERE  `pid` = 0 [ RunTime:0.000655s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001200s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_bankcard` [ RunTime:0.001210s ]
+[ sql ] [ SQL ] SELECT `b`.*,`ba`.`bank_nm` FROM `wp_bankcard` `b` INNER JOIN `wp_banks` `ba` ON `ba`.`id`=`b`.`bankno` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000744s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:41+08:00 ] 192.168.1.100 192.168.1.100 GET /index/index/ajaxindexpro
+[ log ] 192.168.1.100/index/index/ajaxindexpro [运行时间：0.057681s][吞吐率：17.34req/s] [内存消耗：3,261.21kb] [文件加载：59]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'ajaxindexpro',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->ajaxindexpro[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001421s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.000998s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000586s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001327s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_config` [ RunTime:0.000852s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_config` [ RunTime:0.000759s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.004113s ]
+[ sql ] [ SQL ] SELECT `pi`.`pid`,`pi`.`ptitle`,`pd`.`Price`,`pd`.`UpdateTime`,`pd`.`Low`,`pd`.`High` FROM `wp_productinfo` `pi` INNER JOIN `wp_productdata` `pd` ON `pd`.`pid`=`pi`.`pid` WHERE  `pi`.`isdelete` = 0 ORDER BY pi.pid desc [ RunTime:0.008996s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:41+08:00 ] 192.168.1.100 192.168.1.100 GET /index/index/ajaxindexpro
+[ log ] 192.168.1.100/index/index/ajaxindexpro [运行时间：0.041009s][吞吐率：24.38req/s] [内存消耗：3,253.26kb] [文件加载：59]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'ajaxindexpro',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Index->ajaxindexpro[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001509s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.001009s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000591s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001192s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.000851s ]
+[ sql ] [ SQL ] SELECT `pi`.`pid`,`pi`.`ptitle`,`pd`.`Price`,`pd`.`UpdateTime`,`pd`.`Low`,`pd`.`High` FROM `wp_productinfo` `pi` INNER JOIN `wp_productdata` `pd` ON `pd`.`pid`=`pi`.`pid` WHERE  `pi`.`isdelete` = 0 ORDER BY pi.pid desc [ RunTime:0.000651s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:42+08:00 ] 192.168.1.100 192.168.1.100 GET /index/user/index.html
+[ log ] 192.168.1.100/index/user/index.html [运行时间：0.143528s][吞吐率：6.97req/s] [内存消耗：3,859.36kb] [文件加载：60]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\User->index[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\User.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\view\user\index.html [ array (
+  0 => 'token',
+  1 => 'userinfo',
+  2 => 'conf',
+  3 => 'webgg',
+  4 => 'province',
+  5 => 'banks',
+  6 => 'mybank',
+  7 => 'order_list',
+  8 => 'oid_url',
+  9 => 'sub_bankno',
+  10 => 'payment',
+  11 => 'reg_push',
+) ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001537s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.001306s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000624s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010012s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000691s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010004s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_banks` [ RunTime:0.001087s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_banks` [ RunTime:0.000584s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001414s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_area` [ RunTime:0.000848s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_area` WHERE  `pid` = 0 [ RunTime:0.000642s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010060s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_bankcard` [ RunTime:0.002326s ]
+[ sql ] [ SQL ] SELECT `b`.*,`ba`.`bank_nm` FROM `wp_bankcard` `b` INNER JOIN `wp_banks` `ba` ON `ba`.`id`=`b`.`bankno` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.009900s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010840s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_price_log` [ RunTime:0.004188s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_price_log` WHERE  `uid` = 91 ORDER BY id desc LIMIT 0,20 [ RunTime:0.007646s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010366s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_payment` [ RunTime:0.000859s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_payment` WHERE  `isdelete` = 0  AND `is_use` = 1 ORDER BY pay_order desc [ RunTime:0.000448s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_config` [ RunTime:0.008719s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_config` WHERE  (  name='web_qiantai' ) [ RunTime:0.000521s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001406s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SELECT `nickname` FROM `wp_userinfo` WHERE  `uid` = 62 LIMIT 1 [ RunTime:0.000628s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001346s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_order` [ RunTime:0.000929s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `wp_order` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000425s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001413s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SELECT `name` FROM `wp_area` WHERE  `id` = 745 LIMIT 1 [ RunTime:0.000502s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:42+08:00 ] 192.168.1.100 192.168.1.100 GET /index/user/js/jquery-1.10.2.min.js
+[ log ] 192.168.1.100/index/user/js/jquery-1.10.2.min.js [运行时间：0.048185s][吞吐率：20.75req/s] [内存消耗：3,379.31kb] [文件加载：61]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'user',
+    2 => 'js',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/index/user/index.html',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001482s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.001231s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000759s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:42+08:00 ] 192.168.1.100 192.168.1.100 GET /index/order/get_price
+[ log ] 192.168.1.100/index/order/get_price [运行时间：0.043884s][吞吐率：22.79req/s] [内存消耗：3,320.92kb] [文件加载：59]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'order',
+    2 => 'get_price',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/index/user/index.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Order->get_price[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\Order.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001578s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.001061s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000679s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001377s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_productdata` [ RunTime:0.000864s ]
+[ sql ] [ SQL ] SELECT `pid`,`Price` FROM `wp_productdata` WHERE  `isdelete` = 0 [ RunTime:0.000415s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:43+08:00 ] 192.168.1.100 192.168.1.100 GET /index/order/ajaxorder_list
+[ log ] 192.168.1.100/index/order/ajaxorder_list [运行时间：0.049673s][吞吐率：20.13req/s] [内存消耗：3,344.90kb] [文件加载：59]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'order',
+    2 => 'ajaxorder_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/index/user/index.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Order->ajaxorder_list[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\Order.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001595s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.001206s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000623s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001382s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_config` [ RunTime:0.001032s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_config` [ RunTime:0.000648s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_order` [ RunTime:0.001229s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_order` WHERE  `uid` = 91  AND `ostaus` = 0  AND `selltime` > 1553343043 ORDER BY oid desc [ RunTime:0.001016s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:43+08:00 ] 192.168.1.100 192.168.1.100 GET /index/user/js/jquery-1.10.2.min.js
+[ log ] 192.168.1.100/index/user/js/jquery-1.10.2.min.js [运行时间：0.049604s][吞吐率：20.16req/s] [内存消耗：3,379.67kb] [文件加载：61]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'user',
+    2 => 'js',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/index/user/index.html',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002150s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.001066s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000698s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:44+08:00 ] 192.168.1.100 192.168.1.100 GET /index/user/ajax_price_list?page=2
+[ log ] 192.168.1.100/index/user/ajax_price_list?page=2 [运行时间：0.058827s][吞吐率：17.00req/s] [内存消耗：3,529.97kb] [文件加载：62]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'user',
+    2 => 'ajax_price_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/index/user/index.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+  'page' => '2',
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\User->ajax_price_list[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\User.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001985s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.001670s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000723s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001345s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_price_log` [ RunTime:0.001023s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `wp_price_log` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.003505s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_price_log` WHERE  `uid` = 91 ORDER BY id desc LIMIT 20,20 [ RunTime:0.009548s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:44+08:00 ] 192.168.1.100 192.168.1.100 GET /index/user/ajax_price_list?page=3
+[ log ] 192.168.1.100/index/user/ajax_price_list?page=3 [运行时间：0.100833s][吞吐率：9.92req/s] [内存消耗：3,523.92kb] [文件加载：62]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'user',
+    2 => 'ajax_price_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/index/user/index.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+  'page' => '3',
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\User->ajax_price_list[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\User.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001322s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.000953s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000728s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001675s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_price_log` [ RunTime:0.001065s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `wp_price_log` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.003426s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_price_log` WHERE  `uid` = 91 ORDER BY id desc LIMIT 40,20 [ RunTime:0.055349s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:45+08:00 ] 192.168.1.100 192.168.1.100 GET /index/user/ajax_price_list?page=4
+[ log ] 192.168.1.100/index/user/ajax_price_list?page=4 [运行时间：0.129453s][吞吐率：7.72req/s] [内存消耗：3,579.61kb] [文件加载：62]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'user',
+    2 => 'ajax_price_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/index/user/index.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+  'page' => '4',
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\User->ajax_price_list[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\User.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001998s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.002360s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.001204s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001614s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_config` [ RunTime:0.001041s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_config` [ RunTime:0.001025s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.013626s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_price_log` [ RunTime:0.001165s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `wp_price_log` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.003638s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_price_log` WHERE  `uid` = 91 ORDER BY id desc LIMIT 60,20 [ RunTime:0.059229s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:46+08:00 ] 192.168.1.100 192.168.1.100 POST /index/pay/alipays
+[ log ] 192.168.1.100/index/pay/alipays [运行时间：0.039005s][吞吐率：25.64req/s] [内存消耗：3,317.42kb] [文件加载：55]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'pay',
+    2 => 'alipays',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/index/user/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'origin' => 'http://192.168.1.100',
+  'cache-control' => 'max-age=0',
+  'content-length' => '40',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+  'price' => '1000.00',
+  'user' => '10000091',
+  'type' => '5',
+  'salt' => '',
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ RUN ] app\index\controller\Pay->alipays[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\Pay.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001416s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_balance` [ RunTime:0.001041s ]
+[ sql ] [ SQL ] INSERT INTO `wp_balance` (`bptype` , `remarks` , `isverified` , `bptime` , `uid` , `bpprice` , `btime` , `balance_sn` , `pay_type`) VALUES ('3' , '会员充值' , 0 , 1553343046 , 91 , 1000 , '1553343046' , '20190323201045' , 'qianxing') [ RunTime:0.000471s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:55+08:00 ] 192.168.1.100 192.168.1.100 GET /index/user/index.html
+[ log ] 192.168.1.100/index/user/index.html [运行时间：0.113031s][吞吐率：8.85req/s] [内存消耗：3,859.90kb] [文件加载：60]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\User->index[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\User.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\view\user\index.html [ array (
+  0 => 'token',
+  1 => 'userinfo',
+  2 => 'conf',
+  3 => 'webgg',
+  4 => 'province',
+  5 => 'banks',
+  6 => 'mybank',
+  7 => 'order_list',
+  8 => 'oid_url',
+  9 => 'sub_bankno',
+  10 => 'payment',
+  11 => 'reg_push',
+) ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001757s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.001113s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000718s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001253s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_config` [ RunTime:0.000832s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_config` [ RunTime:0.000518s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000896s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001361s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_banks` [ RunTime:0.000875s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_banks` [ RunTime:0.000763s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001332s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_area` [ RunTime:0.000833s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_area` WHERE  `pid` = 0 [ RunTime:0.000609s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001147s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_bankcard` [ RunTime:0.000833s ]
+[ sql ] [ SQL ] SELECT `b`.*,`ba`.`bank_nm` FROM `wp_bankcard` `b` INNER JOIN `wp_banks` `ba` ON `ba`.`id`=`b`.`bankno` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000544s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010140s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_price_log` [ RunTime:0.000870s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_price_log` WHERE  `uid` = 91 ORDER BY id desc LIMIT 0,20 [ RunTime:0.007574s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.005331s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_payment` [ RunTime:0.001064s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_payment` WHERE  `isdelete` = 0  AND `is_use` = 1 ORDER BY pay_order desc [ RunTime:0.000596s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_config` WHERE  (  name='web_qiantai' ) [ RunTime:0.000406s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001249s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SELECT `nickname` FROM `wp_userinfo` WHERE  `uid` = 62 LIMIT 1 [ RunTime:0.000421s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.009954s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_order` [ RunTime:0.001007s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `wp_order` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000379s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.005195s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SELECT `name` FROM `wp_area` WHERE  `id` = 745 LIMIT 1 [ RunTime:0.000395s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:55+08:00 ] 192.168.1.100 192.168.1.100 GET /index/user/js/jquery-1.10.2.min.js
+[ log ] 192.168.1.100/index/user/js/jquery-1.10.2.min.js [运行时间：0.048672s][吞吐率：20.55req/s] [内存消耗：3,379.29kb] [文件加载：61]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'user',
+    2 => 'js',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/index/user/index.html',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001399s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.001009s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000606s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:55+08:00 ] 192.168.1.100 192.168.1.100 GET /index/order/get_price
+[ log ] 192.168.1.100/index/order/get_price [运行时间：0.057524s][吞吐率：17.38req/s] [内存消耗：3,320.92kb] [文件加载：59]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'order',
+    2 => 'get_price',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/index/user/index.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Order->get_price[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\Order.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002406s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.001611s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000921s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010133s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_productdata` [ RunTime:0.000932s ]
+[ sql ] [ SQL ] SELECT `pid`,`Price` FROM `wp_productdata` WHERE  `isdelete` = 0 [ RunTime:0.000574s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:55+08:00 ] 192.168.1.100 192.168.1.100 GET /index/order/ajaxorder_list
+[ log ] 192.168.1.100/index/order/ajaxorder_list [运行时间：0.045086s][吞吐率：22.18req/s] [内存消耗：3,336.96kb] [文件加载：59]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'order',
+    2 => 'ajaxorder_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/index/user/index.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Order->ajaxorder_list[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\Order.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001478s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.000992s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000940s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001384s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_order` [ RunTime:0.001344s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_order` WHERE  `uid` = 91  AND `ostaus` = 0  AND `selltime` > 1553343055 ORDER BY oid desc [ RunTime:0.000784s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:56+08:00 ] 192.168.1.100 192.168.1.100 GET /index/user/js/jquery-1.10.2.min.js
+[ log ] 192.168.1.100/index/user/js/jquery-1.10.2.min.js [运行时间：0.047179s][吞吐率：21.20req/s] [内存消耗：3,379.29kb] [文件加载：61]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'user',
+    2 => 'js',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/index/user/index.html',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010047s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.000999s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000618s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:57+08:00 ] 192.168.1.100 192.168.1.100 GET /index/user/ajax_price_list?page=2
+[ log ] 192.168.1.100/index/user/ajax_price_list?page=2 [运行时间：0.062833s][吞吐率：15.92req/s] [内存消耗：3,592.99kb] [文件加载：62]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'user',
+    2 => 'ajax_price_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/index/user/index.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+  'page' => '2',
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\User->ajax_price_list[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\User.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001380s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.000939s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000594s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001331s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_config` [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_config` [ RunTime:0.000823s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001507s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_price_log` [ RunTime:0.000869s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `wp_price_log` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.007409s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_price_log` WHERE  `uid` = 91 ORDER BY id desc LIMIT 20,20 [ RunTime:0.007906s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:57+08:00 ] 192.168.1.100 192.168.1.100 GET /index/user/ajax_price_list?page=3
+[ log ] 192.168.1.100/index/user/ajax_price_list?page=3 [运行时间：0.110387s][吞吐率：9.06req/s] [内存消耗：3,523.92kb] [文件加载：62]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'user',
+    2 => 'ajax_price_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/index/user/index.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+  'page' => '3',
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\User->ajax_price_list[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\User.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001564s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.001007s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000588s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001469s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_price_log` [ RunTime:0.010984s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `wp_price_log` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.003436s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_price_log` WHERE  `uid` = 91 ORDER BY id desc LIMIT 40,20 [ RunTime:0.054454s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:10:58+08:00 ] 192.168.1.100 192.168.1.100 GET /index/user/ajax_price_list?page=4
+[ log ] 192.168.1.100/index/user/ajax_price_list?page=4 [运行时间：0.111064s][吞吐率：9.00req/s] [内存消耗：3,516.49kb] [文件加载：62]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'user',
+    2 => 'ajax_price_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/index/user/index.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+  'page' => '4',
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\User->ajax_price_list[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\User.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001457s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.000951s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_userinfo` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.000588s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011033s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_price_log` [ RunTime:0.005947s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `wp_price_log` WHERE  `uid` = 91 LIMIT 1 [ RunTime:0.003202s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_price_log` WHERE  `uid` = 91 ORDER BY id desc LIMIT 60,20 [ RunTime:0.054028s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:47:05+08:00 ] 192.168.1.100 192.168.1.100 GET /index/login/logout
+[ log ] 192.168.1.100/index/login/logout [运行时间：0.086255s][吞吐率：11.59req/s] [内存消耗：3,273.14kb] [文件加载：59]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'logout',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/index/user/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Login->logout[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\Login.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002130s ] mysql:dbname=weipan;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `wp_config` [ RunTime:0.001551s ]
+[ sql ] [ SQL ] SELECT * FROM `wp_config` [ RunTime:0.000732s ]
+
+---------------------------------------------------------------
+[ 2019-03-23T20:47:05+08:00 ] 192.168.1.100 192.168.1.100 GET /index/login/login/token/7b33f3e4a0e637c4b1c12913b6a93b92.html
+[ log ] 192.168.1.100/index/login/login/token/7b33f3e4a0e637c4b1c12913b6a93b92.html [运行时间：0.037667s][吞吐率：26.55req/s] [内存消耗：3,207.63kb] [文件加载：58]
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=euff98pbtkac8ltsb93dh7fe40; think_var=zh-cn; pid22=3833.792; pid16=61.173; pid13=109.905; pid12=4012.366; pid11=1.77216; pid10=61.16298; pid9=61.164; pid8=61.163; pid7=61.063; pid6=61.16305',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.100/index/user/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '192.168.1.100',
+)
+[ info ] [ PARAM ] array (
+  'token' => '7b33f3e4a0e637c4b1c12913b6a93b92',
+)
+[ info ] [ LANG ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\lang\zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\index\controller\Login->login[ C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai\application\index\controller\Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\view\login\login.html [ array (
+  0 => 'conf',
+  1 => 'token',
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
