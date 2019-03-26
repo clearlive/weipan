@@ -24,7 +24,7 @@ use pufapay\ConfigUtil;
 use pufapay\HttpUtils;
 use pufapay\SignUtil;
 use pufapay\TDESUtil;
-use common;
+
 
 
 class Pay extends Controller
@@ -387,86 +387,8 @@ public function randoms($length = 6, $numeric = 0) { PHP_VERSION < '4.2.0' && mt
             return redirect('kjpage',$data);
 
         }
-        // 钱行天下
-        // 2019年3月23日18:06:29  tian
-        if ($_REQUEST['type'] == 5){    //支付宝1
-            // $data0 = input('post.');
-            include "common.php";
-            $price = sprintf("%.2f",$_POST['price']);
-            // 请求数据赋值
-            $data = array();
-            $data['version']='1.8';
-            $data['merchantId']='9999689333';#商户号
-            $data['orderId']=date( 'YmdHis' );#商户订单号
-            $data['amount']= $price;#金额，单位:元
-            $data['goodsName']='qianxing';
-            $data['returnUrl']="http://".$_SERVER['SERVER_NAME']; #前端页面跳转通知地址
-            $data['notifyUrl']="http://".$_SERVER['SERVER_NAME']."/index/pay/qianxing_notify"; #支付成功后端回调地址
-            $data['signType']='MD5';
-            $mer_key = 'ba405a443a9941aebbcb0f3f1a7ea825';
-            // 初始化
-            $common = new Common($mer_key);
-            // 准备待签名数据
-            $str_to_sign = $common->prepareSign($data);
-            // 数据签名
-            $sign = $common->sign($str_to_sign);
-            $data['sign'] = $sign;
-            // 生成表单数据，并提交支付网关
-            db('balance')->insert(['bptype'=>3,'remarks'=>'会员充值','isverified'=>0,'bptime'=>time(),'uid'=>$_SESSION['uid'],'bpprice'=>$price,'btime'=>time(),'balance_sn'=>$data['orderId'],'pay_type'=>'qianxing']);
-
-            $pay_url = 'http://pay.fa282.cn/pay';
-            echo $common->buildForm($data, $pay_url);
 
 
-            // return redirect('kjpage',$data);
-
-        }
-
-
-    }
-    // 钱行天下
-    // 2019年3月23日19:52:46  tian
-    public function qianxing_notify(){
-        include "common.php";
-        $data = array();
-        $data['version']=$_REQUEST['version'];
-        $data['merchantId']=$_REQUEST['merchantId'];
-        $data['orderId']=$_REQUEST['orderId'];
-        $data['orderTime']=$_REQUEST['orderTime'];
-        $data['amount']=$_REQUEST['amount'];
-        $data['platformId']=$_REQUEST['platformId'];
-        $data['status']=$_REQUEST['status'];
-        $data['signType']=$_REQUEST['signType'];
-        $mer_key = 'ba405a443a9941aebbcb0f3f1a7ea825';
-
-        // 初始化
-        $common = new Common($mer_key);
-        // 准备待签名数据
-        $str_to_sign = $common->prepareSign($data);
-        // 验证签名
-        $resultVerify = $common->verify($str_to_sign, $_REQUEST['sign']);
-    
-        if ($resultVerify) 
-        {
-            $this->notify_ok_dopay($data['orderId'],$data['amount']);
-            echo "SUCCESS";
-            // 签名验证通过
-    
-            /*商户需要在此处判定通知中的订单状态做后续处理*/
-            /*由于页面跳转同步通知和异步通知均发到当前页面，所以此处还需要判定商户自己系统中的订单状态，避免重复处理。*/
-    
-            // 根据$data['orderId']商户订单号，判定商户自己系统中的订单是否存在且未支付
-            /*
-            if(订单存在且未支付)
-            {
-                更新商户自己系统中的订单为支付成功，并完成其它业务处理
-                //回写SUCCESS，确认回调成功
-                echo "SUCCESS";
-            }
-            */
-        }else{
-            echo "验证签名失败";
-        }
     }
 
     public function kjpay_notify(){

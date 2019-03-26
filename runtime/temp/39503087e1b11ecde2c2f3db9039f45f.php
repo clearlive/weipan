@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:78:"C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\view\user\index.html";i:1553342928;s:72:"C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\view\head.html";i:1552904453;s:72:"C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\view\foot.html";i:1552983549;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:78:"C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\view\user\index.html";i:1553351313;s:72:"C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\view\head.html";i:1552904453;s:72:"C:\UPUPW_ANK_W64\WebRoot\Vhosts\qiantai/application/index\view\foot.html";i:1552983549;}*/ ?>
 ﻿
 <title>个人中心 <?php echo !empty($userinfo['nickname'])?$userinfo['nickname']:$userinfo['username']; ?>  <?php echo $userinfo['utel']; ?> 余额：<?php echo $userinfo['usermoney']; ?> 元</title>﻿<html style="font-size: 120px;">
 <head>
@@ -735,11 +735,11 @@ code {
                     <input value="<?php echo $userinfo['usermoney']; ?>"style="width:72px;color: red;font-size:14px;">
                     </label>元</li>
 
-                      <li payType="1" class="gray9" type="codePay" style="width: 33%">
+                    <!-- <li payType="1" class="gray9" type="codePay" style="width: 33%">
 
                         <a href="javascript:;" class="z-initsel"><img style="height:45px;" src="/codepay/img/alipay.jpg"><s></s></a>
                         <div class="tongd">(通道一)</div>
-                    </li>
+                    </li> -->
 
                     <!--<li payType="3" class="gray9" type="codePay" style="width: 33%">-->
 
@@ -747,11 +747,11 @@ code {
                          <!--<span>(通道二)</span>-->
                     <!--</li>-->
 
-                    <li payType="2" class="gray9" type="codePay" style="width: 33%">
+                    <!-- <li payType="2" class="gray9" type="codePay" style="width: 33%">
 
                         <a href="javascript:;" ><img style="height: 45px" src="/codepay/img/yl.jpg"><s></s></a>
 
-                    </li>
+                    </li> -->
 
                     <li payType="4" class="gray9" type="codePay" style="width: 33%">
 
